@@ -366,3 +366,7 @@ Do you really want to remove active logical volume vg_test/lv_test? [y/n]: y
   Labels on physical volume "/dev/sdb" successfully wiped.
   Labels on physical volume "/dev/sdc" successfully wiped.
 ```
+
+# 八、快照卷
+
+TODO...
