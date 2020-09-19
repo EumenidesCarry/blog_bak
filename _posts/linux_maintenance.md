@@ -8,16 +8,16 @@ categories: [Linux]
 date: 2020-08-18 17:03:07
 ---
 
-# 了解 Linux
+# 一、 了解 Linux
 
-## Linux 的基本原则
+## 1.1 Linux 的基本原则
 
 1. 由目的单一的小程序组成；组合小程序完成复杂任务
 2. 一切皆文件
 3. 尽量避免捕获用户接口
 4. 配置文件保存为纯文本格式
 
-## GUI
+## 1.2 GUI
 
 ```bash
 Graphic User Interface
@@ -28,7 +28,7 @@ X-Window
     XFace
 ```
 
-## CLI
+## 1.3 CLI
 
 ```bash
 Command-line Interface
@@ -50,25 +50,23 @@ tcsh
                 长选项：--
 
             参数：命令作用的对象
-
 ```  
 
-## su(SwitchUser，切换用户)
+## 1.4 su(SwitchUser，切换用户)
 
-```NAME
-       su - run a command with substitute user and group ID
+```bash
+    su - run a command with substitute user and group ID
 
 [root@localhost ~]# su [-l] 用户名
-
 ```
 
-## API(Application program Interface)
+## 1.5 API(Application program Interface)
 
  .so 文件：Shared Object 动态链接库，库文件，应用程序所需要的
 
-# 基础命令
+# 二、 常用命令
 
-## ls
+## 2.1 ls
 
 ```bash
 ls
@@ -96,7 +94,7 @@ srw-rw-rw-. 1 root root           0 7月  20 18:39 log
 
 ```
 
-## cd
+## 2.2 cd
 
 ```bash
 cd：change directory
@@ -104,7 +102,7 @@ cd：change directory
     cd -：在当前目录和前一次所在目录之间来回切换
 ```
 
-## type
+## 2.3 type
 
 显示指定命令属于哪种类型
 内置命令（shell 内置）：内部的，内建
@@ -118,7 +116,7 @@ alias ls='ls --color=auto'  #外部命令
         /usr/bin/ls
 ```
 
-## 环境变量
+## 2.4 打印环境变量
 
 ```bash
 显示环境变量
@@ -126,7 +124,7 @@ alias ls='ls --color=auto'  #外部命令
 PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/bin
 ```
 
-## 命令选项
+## 2.5 命令选项
 
 * <>：必选项
 * []：可选项
@@ -134,9 +132,9 @@ PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/bin
 * |：多选一
 * {}：分组
 
-# 文件系统操作
+# 三、 文件系统操作
 
-## 目录详解
+## 3.1 目录详解
 
 rootfs：根文件系统
 
@@ -161,14 +159,19 @@ rootfs：根文件系统
 /usr：Unix Software Resource(shared,read-only),操作系统软件资源所放置的目录,所有系统默认的软件都会放置到/usr
 ```
 
-## 管理
+## 3.2 管理
 
-### 文件管理
+### 3.2.1 文件管理
+
+#### touch
 
 * touch：change file timestamps
     -a：修改访问时间
     -m：修改更改时间
     -t：修改到指定时间
+
+#### stat
+
 * stat：显示文件或文件系统状态
 
 ```bash
@@ -184,9 +187,9 @@ Change: 2020-08-18 23:29:02.280000000 +0800
  Birth: -
 ```
 
-* cp
+#### cp
 
-### 目录管理
+### 3.2.2 目录管理
 
 * ls
 * cd
@@ -213,7 +216,7 @@ mkdir: 已创建目录 "/mnt/test2/d_c"
 
 * rmdir：删除空目录
 
-### 文本处理
+### 3.2.3 文本处理
 
 ```bash
 cut：
@@ -221,10 +224,9 @@ cut：
     -f：指定要显示的字段
         -f 1，3 显示字段1和3的字符
         -f 1-3 显示字段1到3的字符
-
 ```
 
-### 命令历史
+### 3.2.4 命令历史
 
 ```bash
 history：查看历史命令
@@ -234,7 +236,7 @@ history：查看历史命令
 !n：执行命令历史的第N条命令
 ```
 
-### grep
+### 3.2.5 grep
 
 根据模式，搜索文本，并将符合模式的文本行显示出来
 Pattern：文本字符和正则表达式的元字符组合而成的匹配条件
@@ -250,13 +252,13 @@ grep [OPTIONS] PATTERN [FILE...]
         -C #：显示匹配到的上下#行
 ```
 
-### 正则表达式（REGular EXPression, REGEXP）
+### 3.2.6 正则表达式（REGular EXPression, REGEXP）
 
 **元字符：**
 
 .：匹配其前面的字符任意次
 
-[]：匹配指定范围内的任意单字符
+[ ]：匹配指定范围内的任意单字符
 
 [^]：匹配指定范围外的任意单个字符
 
@@ -349,15 +351,16 @@ Cat
 ```
 
 
-# bash 
+# 四、 bash 
 
-## 变量类型
+## 4.1 变量类型
 
 **变量算法：**
 
 $[$A-$B]：变量 A 减去 变量 B
 
-## 引用变量
+## 4.2 引用变量
+
 ${VAR_NAME}，一般花括号可省略，某些情况无法省略
 ```bash
 #无法省略
@@ -368,32 +371,33 @@ there are some .
 there are some pigs.
 ```
 
-## 程序执行返回
+## 4.3 程序执行返回
 
 程序执行返回状态码（0-255）：
 
 - 0：正确执行
 - 1-255：错误执行，1、2、127 为系统预留
 
-## 条件判断
+## 4.4 条件判断
 
-### 条件测试类型
+### 4.4.1 条件测试类型
 - 整数测试
 - 字符测试
 - 文件测试
 
-### 条件测试表达式
+### 4.4.2 条件测试表达式
 - [ expression ]
 - [[ expression]]
 
-### 命令逻辑关系
+### 4.4.3 命令逻辑关系
 
 **逻辑与：&&**
 - 第一个条件为假时，第二个条件就不用再判断，最总结果为假
 - 第一个条件为真是，还需要判断第二个条件
   
 例子：
-```bahs
+
+```bash
 #判断用户 user1 是否存在，不存在就增加 user1 用户
 ! id user1 && useradd user1
 ```
@@ -408,7 +412,7 @@ id user1 && echo 'user1 exists.' || useradd user1
 ! id user1 && useradd user1 || echo 'user1 exists.'
 ```
 
-### shell 算术运算
+### 4.4.4 shell 算术运算
 
 1. let 算数表达式
    - let C=\$A+\$B
@@ -417,11 +421,11 @@ id user1 && echo 'user1 exists.' || useradd user1
 3. $((算术表达式))
    - \$((算术表达式))
 
-### exit
+### 4.4.5 exit
 
 退出脚本
 
-### 文件测试
+### 4.4.6 文件测试
 - -e File：测试文件是否存在
 - -f File：测试文件是否为普通文件
 - -d File：测试指定目录是否为目录
@@ -430,7 +434,7 @@ id user1 && echo 'user1 exists.' || useradd user1
 - -x
 
 
-## sed (Stream EDitor)
+## 4.5 sed (Stream EDitor)
 
 <font color=red>默认不编辑原文件，仅对模式空间的数据做处理</font>
 
@@ -455,11 +459,13 @@ sed [options] 'AddressCommand' file1 [file2 ...]
 
 **Command**
 
-1. d：删除符合条件的行
+### 4.5.1 d：删除符合条件的行
+
     - sed '1,3d' /etc/fstab ：删除 fstab 的第 1 到 第 3 行
     - sed '/oot/d' /etc/fstab ：删除包含 oot 的行
 
-2. p：显示符合条件的行
+### 4.5.2 p：显示符合条件的行
+
     - sed -n '/^\//a\#sed test' /etc/fstab 
 ```bash
 [root@localhost ~]# sed -n '/^\//p' /etc/fstab 
@@ -467,9 +473,11 @@ sed [options] 'AddressCommand' file1 [file2 ...]
 /dev/mapper/centos-swap swap                    swap    defaults        0 0
 ```
 
-3. a \string：在指定的行后面追加新行，内容为 string
+### 4.5.3 a \string：在指定的行后面追加新行，内容为 string
+
     - sed '/^\//a\#sed test' /etc/fstab ：在 / 开头的行下行添加一行内容为 #sed test 的行
     - \n 可以换行
+
 ```bash
 [root@localhost ~]# sed '/^\//a\#sed test' /etc/fstab 
 
@@ -487,9 +495,10 @@ UUID=39b6f37f-531f-41c2-a498-dbe216fcfc4b /boot                   xfs     defaul
 #sed test
 ```
 
-4. i \string：在指定的行前面添加新行，内容为 string
+### 4.5.4 i \string：在指定的行前面添加新行，内容为 string
 
-5. r filename：将指定文件的内容添加至符合条件的行处
+### 4.5.5 r filename：将指定文件的内容添加至符合条件的行处
+
 ```bash
 [root@localhost ~]# cat /etc/issue
 \S
@@ -512,7 +521,8 @@ UUID=39b6f37f-531f-41c2-a498-dbe216fcfc4b /boot                   xfs     defaul
 /dev/mapper/centos-swap swap                    swap    defaults        0 0
 ```
 
-6. w filename：将指定范围内的内容另存至指定的文件中
+### 4.5.6 w filename：将指定范围内的内容另存至指定的文件中
+
 ```bash
 [root@localhost ~]# sed -n '/^\//w /root/mount.txt' /etc/fstab 
 [root@localhost ~]# cat /root/mount.txt 
@@ -520,7 +530,8 @@ UUID=39b6f37f-531f-41c2-a498-dbe216fcfc4b /boot                   xfs     defaul
 /dev/mapper/centos-swap swap                    swap    defaults        0 0
 ```
 
-7. s/pattern/string/[修饰符]：查找并替换，替换每行中第一次被匹配到的字符串
+### 4.5.7 s/pattern/string/[修饰符]：查找并替换，替换每行中第一次被匹配到的字符串
+
 - 修饰符
     - g ：全局替换
     - i：忽略大小写
@@ -534,7 +545,7 @@ UUID=39b6f37f-531f-41c2-a498-dbe216fcfc4b /boot                   xfs     defaul
 /dev/mapper/centos-swap swap                    swap    defaults        0 0
 ```
 
-8. 更改字符串
+### 4.5.8 更改字符串
 
 ```bash
 #将字符带有 l..k 后面添加 r
@@ -551,7 +562,7 @@ liker
 lover
 ```
 
-9. 删除每行开头的空格
+### 4.5.9 删除每行开头的空格
 
 ```bash
 #可删除多个空格
@@ -565,4 +576,30 @@ lover
 1028  history | sed 's/^[[:space:]]+1//'
 1029  history | sed 's/^[[:space:]]*//'
 ```
+
+## 4.6 字符串测试
+
+### 4.6.1 == 判断相等
+
+```bash
+[root@localhost ~]# A=HELLO
+[root@localhost ~]# B=HI
+[root@localhost ~]# [ $A == $B ]
+[root@localhost ~]# echo $?
+1
+```
+
+## 4.6.2 ！= 判断不等
+
+```bash
+[root@localhost ~]# A=HELLO
+[root@localhost ~]# B=HI
+[root@localhost ~]# [ $A != $B ]
+[root@localhost ~]# echo $?
+0
+```
+
+## 4.6.3 -n string 字符串为空
+
+## 4.6.4 -s string 字符串不为空
 

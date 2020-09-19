@@ -18,6 +18,14 @@ date: 2020-06-09 15:32:54
 
 ### 1.1.1 MBR
 
+**Master/Main Boot Record**
+
+- 446 bytes: BootLoader
+- 64 bytes: 
+  - 16 bytes: 标识一个分区
+- 2 bytes：[Magic Number](https://ecarry.cc/2020/09/02/linux_super_inode_block/#%E4%B8%80%E3%80%81%E4%BB%8E%E7%89%A9%E7%90%86%E7%A3%81%E7%9B%98%E5%88%B0%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F)
+  - 标记 MBR 是否有效
+
 MBR格式的磁盘中，会维护磁盘第一个扇区——MBR扇区，在该扇区中第446字节之后的64字节是分区表，每个分区占用16字节，所以限制了一块磁盘最多只能有4个主分区(Primary,P)，如果多于4个区，只能将主分区少于4个，通过建立扩展分区(Extend,E)，然后在扩展分区建立逻辑分区(Logical,L)的方式来突破4个分区的限制，逻辑分区的数量不限制。
 
 在Linux中，MBR格式的磁盘主分区号从1-4，扩展分区号从2-4，逻辑分区号从5开始。
