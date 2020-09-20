@@ -605,4 +605,39 @@ lover
 
 ## 4.6.4 -s string 字符串不为空
 
+# 五、 存储
+
+## 5.1 接口
+
+- IDE
+
+理论速度：133Mbps，并行
+
+- SATA
+
+理论速度：300Mbps，串行
+
+- SATA2
+
+理论速度：600Mbps，串行
+
+- SATA3
+
+理论速度：6Gbps，串行
+
+- USB3.0
+
+理论速度：480Mbps，串行
+
+- SCSI
+
+SCSI：Small Computer System Interface，并行
+
+## 5.2 RAID
+
+TODO...
+
+## 5.3 mdadm 实现软 RAID
+
+# 六、 网络
 
