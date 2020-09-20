@@ -371,7 +371,7 @@ there are some .
 there are some pigs.
 ```
 
-## 4.3 程序执行返回
+## 4.3 程序执行返回代码
 
 程序执行返回状态码（0-255）：
 
@@ -381,11 +381,13 @@ there are some pigs.
 ## 4.4 条件判断
 
 ### 4.4.1 条件测试类型
+
 - 整数测试
 - 字符测试
 - 文件测试
 
 ### 4.4.2 条件测试表达式
+
 - [ expression ]
 - [[ expression]]
 
