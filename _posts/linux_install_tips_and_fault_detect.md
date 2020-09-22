@@ -29,8 +29,39 @@ date: 2019-10-24 17:47:09
 - 命令无法运行
 - 编译过程无法继续（开发环境缺少基本组件）
 
-### MBR 损坏
+### 1.2.1 MBR/grub 损坏
 
+#### 实验
+
+将 mbr 分区手动损坏
+
+```bahs
+#先备份 mbr 分区
+[root@test ~]# dd if=/dev/sda of=/root/mbr.backup count=1 bs=512
+1+0 records in
+1+0 records out
+512 bytes (512 B) copied, 0.000588373 s, 870 kB/s
+#往 mbr 写入200 bytes 空数据
+1+0 records in
+1+0 records out
+200 bytes (200 B) copied, 0.000351164 s, 570 kB/s
+#同步到磁盘
+[root@test ~]# sync
+#重新启动，系统无法进入
+```
+
+**解决办法：**
+
+使用紧急救援模式：使用完整的系统安装光盘
+
+- boot:linux rescue
+  - /mnt/sysimage
+- chroot /mnt/sysroot
+
+
+TODO....
+
+### 1.2.2 
 
 
 

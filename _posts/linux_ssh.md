@@ -52,9 +52,9 @@ ssh：Secure Shell，应用层协议，默认端口 22/tcp
 
 - ssh-keygen -t rsa
   - ~/.ssh/id_rsa：密钥
-  - ~/.ssh/id_rsa.pub：公钥，可复制到远程主机 `~/.ssh/authorized_keys` 下
+  - \~/.ssh/id_rsa.pub：公钥，可复制到远程主机 `~/.ssh/authorized_keys` 下
   - -f /path/to/KEY_FILE：保存密钥到指定目录
-  - -p ''：指定加密密钥的密码，或为空
+  - -p ' '：指定加密密钥的密码，或为空
 
 #### ssh-copy-id
 
