@@ -58,6 +58,14 @@ date: 2019-10-24 17:47:09
   - /mnt/sysimage
 - chroot /mnt/sysroot
 
+```bash
+sh-4.2# chroot /mnt/sysimage
+sh-4.2# grub2-install /dev/vda
+Installing for i386-pc platform.
+Installation finished. No error reported.
+sh-4.2# exit
+sh-4.2# reboot
+```
 
 TODO....
 
