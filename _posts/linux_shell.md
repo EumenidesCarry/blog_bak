@@ -2,8 +2,8 @@
 layout: post
 title: Shell 从入门到精通
 tags: [Linux]
-index_img: 
-banner_img: 
+index_img: https://th.wallhaven.cc/small/od/odq7dl.jpg
+banner_img: https://w.wallhaven.cc/full/od/wallhaven-odq7dl.jpg
 categories: [Linux]
 date: 2020-09-28 17:13:53
 ---
@@ -5084,75 +5084,72 @@ sun,mon,tue,wed,thu,fri,sat
 
 |文件|说明|
 |---|---|
-|/proc/sys/fs/file-max 内核分配所有进程最大打开文件句柄数量，可<br>适当增加此值
-/proc/sys/fs/file-nr 只读，第一个值已分配的文件句柄数量，第二<br>个值分配没有使用文件句柄数量，第三个值文<br>件句柄最大数量。lsof
-/proc/sys/kernel/ctrl-alt-del 组合键重启计算机，只为 0 同步缓冲区到磁盘，<br>1 为不同步
-/proc/sys/kernel/domainname 配置系统域名
-/proc/sys/kernel/exec-shield 配置内核执行保护功能，防止某类型缓冲区溢<br>出攻击。 0 为禁用， 1 开启
-/proc/sys/kernel/hostname 配置系统主机名
-/proc/sys/kernel/osrelease 内核版本号
-/proc/sys/kernel/ostype 操作系统类型
-/proc/sys/kernel/shmall 设置共享内存的总量，以字节为单位
-/proc/sys/kernel/shmmax 设置最大共享内存段
-/proc/sys/kernel/shmmni 设置共享内存段最大数量
-/proc/sys/kernel/threads-max 设置最大允许线程数量
-/proc/sys/kernel/pid_max 设置最大允许创建的pid数量
-/proc/sys/kernel/version 显示最后一次编译内核时间
-/proc/sys/kernel/random/uuid 生成uuid
-/proc/sys/kernel/core_pattern 控制生成core dump文件位置和保存格式
-/proc/sys/net/core/netdev_max_backlog 设置数据包队列允许最大数量
-/proc/sys/net/core/optmem_max 设置socket允许最大缓冲区大小
-/proc/sys/net/core/somaxconn 每个端口最大监听队列长度
-/proc/sys/net/core/rmem_default 设置socket接收默认缓冲区大小，单位字节
-/proc/sys/net/core/rmem_max 设置socket接收最大缓冲区大小
-/proc/sys/net/core/wmem_default 设置socket发送默认缓冲区大小
-/proc/sys/net/core/wmem_max 设置socket发送最大缓冲区大小
-/proc/sys/net/ipv4/icmp_echo_ignore_all<br>和icmp_echo_ignore_broadcasts 设置是否忽略icmp响应包和广播包， 0 为不忽<br>略， 1 为忽略
-/proc/sys/net/ipv4/ip_default_ttl 设置默认生存时间
-/proc/sys/net/ipv4/ip_forward 允许系统接口转发数据包，默认0 为关闭，1 为<br>开启
-/proc/sys/net/ipv4/ip_local_port_range 指定使用本地TCP或UDP端口范围，第一个值<br>最低，第二个值最高
-/proc/sys/net/ipv4/tcp_syn_retries 限制重新发送syn尝试建立连接次数
-/proc/sys/net/ipv4/tcp_synack_retries syn ack确认包尝试次数
-/proc/sys/net/ipv4/tcp_syncookies 是否启用syn cookie， 0 为关闭，默认 1 为开<br>启
-/proc/sys/net/ipv4/tcp_max_tw_buckets 系统保持TIME_WAIT最大数量
-/proc/sys/net/ipv4/tcp_tw_recycle 是否启用TIME_WAIT快速收回，默认 0 为关闭，<br>1 为开启
-/proc/sys/net/ipv4/tcp_tw_reuse 是否启用TIME_WAIT复用，默认 0 为关闭， 1<br>为开启
-/proc/sys/net/ipv4/tcp_keepalive_time TCP连接保持时间（默认^2 小时），当连接活动，<br>定时器会重新复位。
-/proc/sys/vm/swappiness 内核按此值百分比来使用swap，值越小越不考<br>虑使用物理内存， 0 为尽可能不使用swap
-/proc/sys/vm/overcommit_memory 控制内存分配，默认 0 为内核先评估可用内存，<br>如果足够允许申请，否则拒绝， 1 为允许分配<br>所有物理内存， 2 为允许分配超过物理内存和<br>交换空间总和的内存
-/proc/sys/vm/overcommit_ratio 指定物理内存比率，当 overcommit_memory=2<br>时，用户空间进程可使用的内存不超过物理内<br>存*overcommit_ratio+swap
+|/proc/sys/fs/file-max |内核分配所有进程最大打开文件句柄数量，可<br>适当增加此值|
+|/proc/sys/fs/file-nr |只读，第一个值已分配的文件句柄数量，第二<br>个值分配没有使用文件句柄数量，第三个值文<br>件句柄最大数量。lsof|
+|/proc/sys/kernel/ctrl-alt-del |组合键重启计算机，只为 0 同步缓冲区到磁盘，<br>1 为不同步|
+|/proc/sys/kernel/domainname |配置系统域名|
+|/proc/sys/kernel/exec-shield |配置内核执行保护功能，防止某类型缓冲区溢<br>出攻击。 0 为禁用， 1 开启|
+|/proc/sys/kernel/hostname |配置系统主机名|
+|/proc/sys/kernel/osrelease |内核版本号|
+|/proc/sys/kernel/ostype |操作系统类型|
+|/proc/sys/kernel/shmall |设置共享内存的总量，以字节为单位|
+|/proc/sys/kernel/shmmax |设置最大共享内存段|
+|/proc/sys/kernel/shmmni |设置共享内存段最大数量|
+|/proc/sys/kernel/threads-max |设置最大允许线程数量|
+|/proc/sys/kernel/pid_max |设置最大允许创建的pid数量|
+|/proc/sys/kernel/version |显示最后一次编译内核时间|
+|/proc/sys/kernel/random/uuid |生成uuid|
+|/proc/sys/kernel/core_pattern |控制生成core dump文件位置和保存格式|
+|/proc/sys/net/core/netdev_max_backlog |设置数据包队列允许最大数量|
+|/proc/sys/net/core/optmem_max |设置socket允许最大缓冲区大小|
+|/proc/sys/net/core/somaxconn |每个端口最大监听队列长度|
+|/proc/sys/net/core/rmem_default |设置socket接收默认缓冲区大小，单位字节|
+|/proc/sys/net/core/rmem_max |设置socket接收最大缓冲区大小|
+|/proc/sys/net/core/wmem_default |设置socket发送默认缓冲区大小|
+|/proc/sys/net/core/wmem_max |设置socket发送最大缓冲区大小|
+|/proc/sys/net/ipv4/icmp_echo_ignore_all<br>和icmp_echo_ignore_broadcasts |设置是否忽略icmp响应包和广播包， 0 为不忽<br>略， 1 为忽略|
+|/proc/sys/net/ipv4/ip_default_ttl |设置默认生存时间|
+|/proc/sys/net/ipv4/ip_forward |允许系统接口转发数据包，默认0 为关闭，1 为<br>开启|
+|/proc/sys/net/ipv4/ip_local_port_range |指定使用本地TCP或UDP端口范围，第一个值<br>最低，第二个值最高|
+|/proc/sys/net/ipv4/tcp_syn_retries |限制重新发送syn尝试建立连接次数|
+|/proc/sys/net/ipv4/tcp_synack_retries |syn ack确认包尝试次数|
+|/proc/sys/net/ipv4/tcp_syncookies |是否启用syn cookie， 0 为关闭，默认 1 为开<br>启|
+|/proc/sys/net/ipv4/tcp_max_tw_buckets |系统保持TIME_WAIT最大数量|
+|/proc/sys/net/ipv4/tcp_tw_recycle |是否启用TIME_WAIT快速收回，默认 0 为关闭，<br>1 为开启|
+|/proc/sys/net/ipv4/tcp_tw_reuse |是否启用TIME_WAIT复用，默认 0 为关闭， 1<br>为开启|
+|/proc/sys/net/ipv4/tcp_keepalive_time |TCP连接保持时间（默认^2 小时），当连接活动，<br>定时器会重新复位。|
+|/proc/sys/vm/swappiness |内核按此值百分比来使用swap，值越小越不考<br>虑使用物理内存， 0 为尽可能不使用swap|
+|/proc/sys/vm/overcommit_memory |控制内存分配，默认 0 为内核先评估可用内存，<br>如果足够允许申请，否则拒绝， 1 为允许分配<br>所有物理内存， 2 为允许分配超过物理内存和<br>交换空间总和的内存|
+|/proc/sys/vm/overcommit_ratio |指定物理内存比率，当 overcommit_memory=2<br>时，用户空间进程可使用的内存不超过物理内<br>存*overcommit_ratio+swap|
 
 **参考资料：**
 https://access.redhat.com/documentation/en-
 US/Red_Hat_Enterprise_Linux/6/html/Deployment_Guide/s2-proc-dir-sys.html
 
-# 第十一章 Shell常用命令与工具
+# 第十一章 Shell 常用命令与工具
 
-本章节学习一些在编写Shell时的常用命令或工具及使用技巧。有人说Shell脚本是命令堆积的一
-个文件，按顺序去执行。还有人说想学好Shell脚本，要把Linux上各种常见的命令或工具掌握
-了，这些说法都没错。由于Shell语言本身在语法结构上比较简单，是面向过程编程，想实现复杂
-的功能有点强人所难！而且Shell本身又工作在Linux内核之上，在用户态调用Linux命令会很方
-面，所以大多数情况下我们都是依靠这些命令来完成脚本中的某些功能，比如文本处理、获取系统
-状态等等，然后通过Shell语法结构组织代码逻辑。不管是学Linux系统好还是写Shell脚本也
-好，有些命令都是必须要会的，以下是根据个人经验总结的一些常用的命令。
+本章节学习一些在编写 Shell 时的常用命令或工具及使用技巧。有人说Shell脚本是命令堆积的一个文件，按顺序去执行。还有人说想学好Shell脚本，要把Linux上各种常见的命令或工具掌握了，这些说法都没错。由于Shell语言本身在语法结构上比较简单，是面向过程编程，想实现复杂的功能有点强人所难！而且Shell本身又工作在Linux内核之上，在用户态调用Linux命令会很方面，所以大多数情况下我们都是依靠这些命令来完成脚本中的某些功能，比如文本处理、获取系统状态等等，然后通过Shell语法结构组织代码逻辑。不管是学Linux系统好还是写Shell脚本也好，有些命令都是必须要会的，以下是根据个人经验总结的一些常用的命令。
+
 怎么更好的学习命令呢？
-当然查看官方帮助文档了，可以通过man cmd、cmd --help、help cmd、info cmd等方式查看命令的
-使用。
 
-### 11.1 ls
+当然查看官方帮助文档了，可以通过man cmd、cmd --help、help cmd、info cmd等方式查看命令的使用。
 
-##### 功能：列出目录内容
+## 11.1 ls
 
-##### 常用选项：
+功能：列出目录内容
 
-- a 显示所有文件，包括隐藏的
-- l 长格式列出信息
-- i 显示文件inode号
-- t 按修改时间排序
-- r 按修改时间倒序排序
-- h 打印易读大小单位
-示例：
+**常用选项：**
 
+- -a 显示所有文件，包括隐藏的
+- -l 长格式列出信息
+- -i 显示文件inode号
+- -t 按修改时间排序
+- -r 按修改时间倒序排序
+- -h 打印易读大小单位
+  
+**示例：**
+
+```bash
 按修改时间排序：
 # ls - t
 按修改时间倒序排序：
@@ -5161,76 +5158,58 @@ US/Red_Hat_Enterprise_Linux/6/html/Deployment_Guide/s2-proc-dir-sys.html
 # ls - lh
 查看文件inode：
 # ls - i file
+```
 
+## 11.2 echo
 
-### 11.2 echo
+功能：打印一行
 
-##### 功能：打印一行
+**常用选项：**
 
-##### 常用选项：
+- -n 不加换行符
+- -e 解释转义符
+  
+**示例：**
 
-- n 不加换行符
-- e 解释转义符
-示例：
+```bash
 解释换行符：
-
 # echo - e "1\n2\n3"
 1
 2
 3
+```
 
-### 11.3 printf
+## 11.3 printf
 
-##### 功能：格式化打印数据。默认打印字符串不换行。
+功能：格式化打印数据。默认打印字符串不换行。
 
-格式：printf format [arguments]
+**格式**：printf format [arguments]
 
-```
-Format 描述
-```
-```
-%s 一个字符串
-```
-```
-%d，%i 一个小数
-```
-```
-%f 一个浮点数
-```
-```
-%.ns 输出字符串，n是输出几个字符
-```
-```
-%m.nf 输出浮点数，m是输出整数位数，n是输出的小数位数
-```
-```
-%x 不带正负号的十六进制，使用a至f表示 10 到 15
-```
-```
-%X 不带正负号的十六进制，使用A至F表示 10 至 15
-```
-```
-%% 输出单个%
-```
-```
-%-5s 左对齐，对参数每个字段左对齐,宽度为 5
-```
-```
-%-4.2f 左对齐，宽度为 4 ，保留两位小数
-```
-```
-%5s 右对齐，不加横线表示右对齐
-```
-##### 一些常用的空白符：
+|Format |描述|
+|---|---|
+|%s |一个字符串|
+|%d，%i |一个小数|
+|%f |一个浮点数|
+|%.ns |输出字符串，n是输出几个字符|
+|%m.nf |输出浮点数，m是输出整数位数，n是输出的小数位数|
+|%x |不带正负号的十六进制，使用a至f表示 10 到 15|
+|%X |不带正负号的十六进制，使用A至F表示 10 至 15|
+|%% |输出单个%|
+|%-5s |左对齐，对参数每个字段左对齐,宽度为 5|
+|%-4.2f |左对齐，宽度为 4 ，保留两位小数|
+|%5s |右对齐，不加横线表示右对齐|
 
-\n 换行
-\r 回车
-\t 水平制表符
-示例：
+一些常用的空白符：
+
+- \n 换行
+- \r 回车
+- \t 水平制表符
 
 
-##### 输出一个字符：
+**示例：**
 
+```bash
+输出一个字符：
 # printf "%.1s" abc
 a
 保留一个小数点：
@@ -5257,19 +5236,23 @@ Number
 ID
 Name
 Number
+```
 
-### 11.4 cat
+## 11.4 cat
 
-##### 功能：连接文件和标准输出打印
+功能：连接文件和标准输出打印
 
-##### 常用选项：
+**常用选项：**
 
-- b 显示非空行行号
-- n 显示所有行行号
-- T 显示tab，用^I表示
-- E 显示以$结尾
-示例：
+- -b 显示非空行行号
+- -n 显示所有行行号
+- -T 显示tab，用^I表示
+- -E 显示以$结尾
 
+
+**示例：**
+
+```bash
 连接两个文件：
 # cat a b
 # cat << EOF
@@ -5280,148 +5263,156 @@ Number
 abc
 将eof标准输入作为cat标准输出再写到a.txt：
 # cat > a.txt << eof
-
-
-##### > 123
-
+> 123
 > abc
 > eof
+```
 
-### 11.5 tac
+## 11.5 tac
 
-##### 功能：连接文件和倒序打印文件
+功能：连接文件和倒序打印文件
 
-##### 常用选项：
-
-##### 示例：
-
-##### 倒序打印每一行：
-
+**示例：**
+```bash
+倒序打印每一行：
 # tac a.txt
+```
 
-### 11.6 rev
+## 11.6 rev
 
-##### 功能：反向打印每一行
+功能：反向打印每一行
 
-##### 常用选项：
+**示例：**
 
-##### 示例：
-
+```bash
 # echo "123" |rev
 321
+```
 
-### 11.7 wc
+## 11.7 wc
 
-##### 功能：统计文件行数、字节、字符数
+功能：统计文件行数、字节、字符数
 
-##### 常用选项：
+**常用选项：**
 
-- c 打印文件字节数，一个英文字母 1 字节，一个汉字占 2 - 4 字节（根据编码）
-- m 打印文件字符数，一个汉字占 2 个字符
-- l 打印多少行
-- L 打印最长行的长度，也可以统计字符串长度
-示例：
+- -c 打印文件字节数，一个英文字母 1 字节，一个汉字占 2 - 4 字节（根据编码）
+- -m 打印文件字符数，一个汉字占 2 个字符
+- -l 打印多少行
+- -L 打印最长行的长度，也可以统计字符串长度
 
+
+**示例：**
+
+```bash
 统计文件多少行：
 # wc - l file
 统计字符串长度：
 # echo "hello" |wc - L
 5
+```
 
-### 11.8 cp
+## 11.8 cp
 
-##### 功能：复制文件或目录
+功能：复制文件或目录
 
-##### 常用选项：
+**常用选项：**
 
-- a 归档
-- b 目标文件存在创建备份，备份文件是文件名跟~
-- f 强制复制文件或目录
-- r 递归复制目录
+- -a 归档
+- -b 目标文件存在创建备份，备份文件是文件名跟~
+- -f 强制复制文件或目录
+- -r 递归复制目录
+- -p 保留原有文件或目录属性
+- -i 覆盖文件之前先询问用户
+- -u 当源文件比目的文件修改时间新时才复制
+- -v 显示复制信息
 
 
-- p 保留原有文件或目录属性
-- i 覆盖文件之前先询问用户
-- u 当源文件比目的文件修改时间新时才复制
-- v 显示复制信息
-示例：
+**示例：**
 
+```bash
 复制目录：
 # cp - rf test /opt
+```
 
-### 11.9 mkdir
+## 11.9 mkdir
 
-##### 功能：创建目录
+功能：创建目录
 
-##### 常用选项：
+**常用选项：**
+- -p 递归创建目录
+- -v 显示创建过程
 
-- p 递归创建目录
-- v 显示创建过程
-示例：
+**示例：**
 
+```bash
 创建多级目录：
 # mkdir /opt/test/abc
 创建多个目录：
 # mkdir {install,tmp}
 创建连续目录：
 # mkdir {a..c}
+```
 
-### 11.10 mv
+## 11.10 mv
 
-##### 功能：移动文件或重命名
+功能：移动文件或重命名
 
-##### 常用选项：
+**常用选项：**
+- -b 目标文件存在创建备份，备份文件是"文件名后跟~"
+- -u 当源文件比目的文件修改时间新时才移动
+- -v 显示移动信息
 
-- b 目标文件存在创建备份，备份文件是"文件名后跟~"
-- u 当源文件比目的文件修改时间新时才移动
-- v 显示移动信息
+
 示例：
 
+```bash
 移动文件：
 # mv a.txt /opt
 重命名文件：
 # mv a.txt b.txt
+```
 
-### 11.11 rename
+## 11.11 rename
 
-##### 功能：重命名文件，支持通配符
+功能：重命名文件，支持通配符
 
-##### 常用选项：
 
-##### 示例：批量命名文件
-
+**#示例：**
+```bash
+批量命名文件
 将foo1-foo9替换为foo01-foo09：
 # rename foo foo0 foo?
 将以.htm后缀的文件替换为.html：
-
-
 # rename .htm .html *.htm
+```
 
-### 11.12 dirname
+## 11.12 dirname
 
-##### 功能：去除路径的最后一个名字
+功能：去除路径的最后一个名字
 
-##### 常用选项：
+**示例：**
 
-##### 示例：
-
+```bash
 # dirname /usr/bin/
 /usr
 # dirname dir1/str dir2/str
 dir1
 dir2
 # dirname stdio.h
+```
 
-### 11.13 basename
+## 11.13 basename
 
-##### 功能：打印路径的最后一个名字
+功能：打印路径的最后一个名字
 
-##### 常用选项：
+**常用选项：**
+- -a 支持多个参数
+- -s 删除后面的后缀
 
-- a 支持多个参数
-- s 删除后面的后缀
-示例：
 
+**示例：**
+
+```bash
 # basename /usr/bin/sort
 sort
 # basename include/stdio.h .h
@@ -5431,43 +5422,46 @@ stdio
 # basename - a any/str1 any/str2
 str1
 str2
+```
 
-### 11.14 du
+## 11.14 du
 
-##### 功能：估算文件磁盘空间使用
+功能：估算文件磁盘空间使用
 
-##### 常用选项：
+**常用选项：**
 
-- h 易读格式显示（K，M，G）
-- b 单位bytes显示
-- k 单位KB显示
-- m 单位MB显示
-- s 只显示总大小
---max-depth=<目录层数>，超过层数的目录忽略
---exclude=file 排除文件或目录
---time 显示大小和创建时间
+- -h 易读格式显示（K，M，G）
+- -b 单位bytes显示
+- -k 单位KB显示
+- -m 单位MB显示
+- -s 只显示总大小
+- --max-depth=<目录层数>，超过层数的目录忽略
+- --exclude=file 排除文件或目录
+- --time 显示大小和创建时间
 
 
-##### 示例：
+**示例：**
 
-##### 查看目录大小：
-
+```bash
+查看目录大小：
 # du - sh /opt
 排除目录某个文件：
 # du - sh --exclude=test /opt
+```
 
-### 11.15 cut
+## 11.15 cut
 
-##### 功能：选取文件的每一行数据
+功能：选取文件的每一行数据
 
-##### 常用选项：
+**常用选项：**
+- -b 选中第几个字符
+- -c 选中多少个字符
+- -d 指定分隔符分字段，默认是空格
+- -f 显示选中字段
 
-- b 选中第几个字符
-- c 选中多少个字符
-- d 指定分隔符分字段，默认是空格
-- f 显示选中字段
-示例：
 
+**示例：**
+```bash
 打印b字符：
 # echo "abc" |cut - b "2"
 b
@@ -5477,20 +5471,23 @@ abc
 以冒号分隔，显示第二个字段：
 # echo "a:b:c" |cut - d: - f2
 b
+```
 
-### 11.16 tr
+## 11.16 tr
 
-##### 功能：替换或删除字符
+功能：替换或删除字符
 
-格式：Usage: tr [OPTION]... SET1 [SET2]
-常用选项：
+**格式：**Usage: tr [OPTION]... SET1 [SET2]
 
-- c 替换SET1没有SET2的字符
-- d 删除SET1中字符
-- s 压缩SET1中重复的字符
-- t 将SET1用SET2转换，默认
-示例：
+**常用选项：**
+- -c 替换SET1没有SET2的字符
+- -d 删除SET1中字符
+- -s 压缩SET1中重复的字符
+- -t 将SET1用SET2转换，默认
 
+
+**示例：**
+```bash
 替换SET1没有SET2的字符：
 # echo "aaabbbccc" | tr - c c 1
 111111ccc
@@ -5501,42 +5498,44 @@ acd
 # echo "aaabbbccc" | tr - d bbb
 aaaccc
 删除换行符：
-
-
 # echo - e "a\nb\nc" | tr - d '\n'
 abc
 替换字符：
 # echo "aaabbbccc" | tr '[a-z]' '[A-Z]'
 AAABBBCCC
+```
 
-### 11.17 stat
+## 11.17 stat
 
-##### 功能：显示文件或文件的系统状态
+功能：显示文件或文件的系统状态
 
-##### 常用选项：
+**常用选项：**
 
-- Z 显示selinux安全上下文
-- f 显示文件系统状态
-- c 指定格式输出内容
-- t 以简洁的形式打印
-示例：
+- -Z 显示selinux安全上下文
+- -f 显示文件系统状态
+- -c 指定格式输出内容
+- -t 以简洁的形式打印
 
+**示例：**
+```bash
 显示文件信息：
 # stat file
 只显示文件修改时间：
 # stat - c %y file
+```
 
-### 11.18 seq
+## 11.18 seq
 
-##### 功能：打印序列化数字
+功能：打印序列化数字
 
-##### 常用选项：
-
+**常用选项：**
 - f 使用printf样式格式
 - s 指定换行符，默认是\n
 - w 等宽，用 0 填充
-示例：
 
+**示例：**
+
+```bash
 数字序列：
 # seq 3
 1
@@ -5554,8 +5553,6 @@ AAABBBCCC
 4
 5
 步长序列：
-
-
 # seq 1 2 5 # 2 是步长
 1
 3
@@ -5568,18 +5565,19 @@ AAABBBCCC
 str01
 str02
 str03
+```
 
 ## 11.19 shuf
 
-##### 功能：生成随机序列
+功能：生成随机序列
 
-##### 常用选项：
+**常用选项：**
+- -i 输出数字范围
+- -o 结果写入文件
 
-- i 输出数字范围
-- o 结果写入文件
-示例：
+**示例：**
+```bash
 输出范围随机数：
-
 # seq 5 |shuf
 2
 1
@@ -5593,27 +5591,28 @@ str03
 9
 6
 5
+```
 
 ## 11.20 sort
 
-##### 功能：排序文本，默认对整列有效
+功能：排序文本，默认对整列有效
 
-##### 常用选项：
+**常用选项：**
 
-- f 忽略字母大小写
-- M 根据月份比较，比如JAN、DEC
-- h 根据易读的单位大小比较，比如2K、1G
-- g 按照常规数值排序
-- n 根据字符串数值比较
-- r 倒序排序
-- k 位置1,位置 2 根据关键字排序，在从第位置 1 开始，位置 2 结束
-
-
+- -f 忽略字母大小写
+- -M 根据月份比较，比如JAN、DEC
+- -h 根据易读的单位大小比较，比如2K、1G
+- -g 按照常规数值排序
+- -n 根据字符串数值比较
+- -r 倒序排序
+- -k 位置1,位置 2 根据关键字排序，在从第位置 1 开始，位置 2 结束
 - t 指定分隔符
 - u 去重重复行
 - o 将结果写入文件
-示例：
 
+
+**示例：**
+```bash
 随机数字排序：
 # seq 5 |shuf |sort
 随机字母排序：
@@ -5644,27 +5643,27 @@ wangwu 7 90
 zhangsan 6 100
 对两个文件同时排序：
 # sort file1 file2
+```
 
 ## 11.21 uniq
 
-##### 功能：去除重复行,只会统计相邻的
+功能：去除重复行,只会统计相邻的
 
-##### 常用选项：
+**常用选项：**
 
-- c 打印出现的次数
-- d 只打印重复行
-- u 只打印不重复行
-- D 只打印重复行，并且把所有重复行打印出来
-- f N 比较时跳过前N列
-- i 忽略大小写
-- s N 比较时跳过前N个字符
-- w N 对每行第N个字符以后内容不做比较
+- -c 打印出现的次数
+- -d 只打印重复行
+- -u 只打印不重复行
+- -D 只打印重复行，并且把所有重复行打印出来
+- -f N 比较时跳过前N列
+- -i 忽略大小写
+- -s N 比较时跳过前N个字符
+- -w N 对每行第N个字符以后内容不做比较
 
+**示例：**
 
-##### 示例：
-
-##### 测试文本如下：
-
+```bash
+测试文本如下：
 # cat file
 abc
 cde
@@ -5701,32 +5700,36 @@ xyz
 abc
 cde
 xyz
+```
 
 ## 11.22 tee
 
-##### 功能：从标准输入读取写到标准输出和文件
+功能：从标准输入读取写到标准输出和文件
 
-##### 常用选项：
+**常用选项：**
 
-- a 追加到文件
-示例：
+- -a 追加到文件
 
+
+**示例：**
+
+```bash
 打印并追加到文件：
-
-
 # echo 123 |tee - a a.log
+```
 
 ## 11.23 join
 
-##### 功能：连接两个文件
+功能：连接两个文件
 
-##### 常用选项：
+**常用选项：**
 
-- i 忽略大小写
-- o 按照指定文件栏位显示
-- t 使用字符作为输入和输出字段分隔符
-示例：
+- -i 忽略大小写
+- -o 按照指定文件栏位显示
+- -t 使用字符作为输入和输出字段分隔符
 
+```bash
+**示例：**
 # cat file1
 1 a
 2 b
@@ -5747,29 +5750,27 @@ b y
 c z
 # join - t ':' - o 1.1 2.1 /etc/passwd /etc/shadow
 user1:user1
+```
 
 ## 11.24 paste
 
-##### 功能：合并文件
+功能：合并文件
 
-##### 常用选项：
+**常用选项：**
 
-- d 指定分隔符，默认是tab键分隔
-- s 将文件内容平行合并，默认tab键分隔
-示例：
+- -d 指定分隔符，默认是tab键分隔
+- -s 将文件内容平行合并，默认tab键分隔
 
+**示例：**
+```bash
 # seq 1 3 > file1
 # seq 4 6 > file2
 两个文件合并：
 # paste file1 file2
 1 4
 2 5
-
-
-##### 3 6
-
-##### 两个文件合并，+号分隔：
-
+3 6
+两个文件合并，+号分隔：
 # paste - d "+" file1 file2
 1+4
 2+5
@@ -5778,71 +5779,77 @@ user1:user1
 # paste - s file1 file2
 1 2 3
 4 5 6
+```
 
 ## 11.25 head
 
-##### 功能：输出文件的前几行
+功能：输出文件的前几行
 
-##### 常用选项：
+**常用选项：**
 
-- c 打印前多少K，M
-- n 打印前多少行
-示例：
+- -c 打印前多少K，M
+- -n 打印前多少行
 
+
+**示例：**
+```bash
 打印文件前 50 行：
 # head - n 50 file
+```
 
 ## 11.26 tail
 
-##### 功能：输出文件的后几行
+功能：输出文件的后几行
 
-##### 常用选项：
+**常用选项：**
+- -c 打印后多少K，M
+- -f 实时读文件，随着文件输出附加输出
+- -n 输出最后几行
+- --pid 与-f一起使用，表示pid死掉后结束
+- -s 与-f一起使用，表示休眠多少秒输出
 
-- c 打印后多少K，M
-- f 实时读文件，随着文件输出附加输出
-- n 输出最后几行
---pid 与-f一起使用，表示pid死掉后结束
-- s 与-f一起使用，表示休眠多少秒输出
-示例：
 
+**示例：**
+```bash
 打印文件后 50 行：
 # tail - n 50 file
 实时输出新增行：
 # tail - f file
+```
 
 ## 11.27 find
 
-##### 功能：目录层次结构中搜索文件
+功能：目录层次结构中搜索文件
 
 格式：find path -option actions
-常用选项：
 
-- name 文件名，支持(‘*’, ‘?’)
-- type 文件类型，d目录，f常规文件等
-- perm 符合权限的文件，比如 755
+**常用选项：**
 
-
-- atime -/+n 在n天以内/过去n天被访问过
-- ctime -/+n 在n天以内/过去n天被修改过
-- amin -/+n 在n天以内/过去n分钟被访问过
-- cmin -/+n 在n天以内/过去n分钟被修改过
-- size -/+n 文件大小小于/大于，b、k、M、G
-- maxdepth levels 目录层次显示的最大深度
-- regex pattern 文件名匹配正则表达式模式
-- inum 通过inode编号查找文件
-动作：
-- detele 删除文件
-- exec command {} \; 执行命令，花括号代表当前文件
-- ls 列出当前文件，ls -dils格式
-- print 完整的文件名并添加一个回车换行符
-- print0 打印完整的文件名并不添加一个回车换行符
-- printf format 打印格式
-其他字符：
+- -name 文件名，支持(‘*’, ‘?’)
+- -type 文件类型，d目录，f常规文件等
+- -perm 符合权限的文件，比如 755
+- -atime -/+n 在n天以内/过去n天被访问过
+- -ctime -/+n 在n天以内/过去n天被修改过
+- -amin -/+n 在n天以内/过去n分钟被访问过
+- -cmin -/+n 在n天以内/过去n分钟被修改过
+- -size -/+n 文件大小小于/大于，b、k、M、G
+- -maxdepth levels 目录层次显示的最大深度
+- -regex pattern 文件名匹配正则表达式模式
+- -inum 通过inode编号查找文件
+**动作：**
+- -detele 删除文件
+- -exec command {} \; 执行命令，花括号代表当前文件
+- -ls 列出当前文件，ls -dils格式
+- -print 完整的文件名并添加一个回车换行符
+- -print0 打印完整的文件名并不添加一个回车换行符
+- -printf format 打印格式
+**其他字符：**
 ！ 取反
-- or/-o 逻辑或
-- and 逻辑和
-示例：
+- -or/-o 逻辑或
+- -and 逻辑和
 
+**示例：**
+```bash
 查找文件名：
 # find / - name "*http*"
 查找文件名并且文件类型：
@@ -5871,27 +5878,28 @@ user1:user1
 # find /etc - type d - maxdepth 1
 通过inode编号删除文件：
 # rm `find. - inum 671915`
-
-
 # find. - inum 8651577 - exec rm - i {} \;
+```
 
 ## 11.28 xargs
 
-##### 功能：从标准输入执行命令
+功能：从标准输入执行命令
 
-##### 常用选项：
+**常用选项：**
 
-- a file 从指定文件读取数据作为标准输入
-- 0 处理包含空格的文件名,print0
-- d delimiter 分隔符，默认是空格分隔显示
-- i 标准输入的结果以{}代替
-- I 标准输入的结果以指定的名字代替
-- t 显示执行命令
-- p 交互式提示是否执行命令
-- n 最大命令行参数
---show-limits 查看系统命令行长度限制
-示例：
+- -a file 从指定文件读取数据作为标准输入
+- -0 处理包含空格的文件名,print0
+- -d delimiter 分隔符，默认是空格分隔显示
+- -i 标准输入的结果以{}代替
+- -I 标准输入的结果以指定的名字代替
+- -t 显示执行命令
+- -p 交互式提示是否执行命令
+- -n 最大命令行参数
+- --show-limits 查看系统命令行长度限制
 
+
+**示例：**
+```bash
 删除/tmp下名字是core的文件：
 # find /tmp - name core - type f - print | xargs /bin/rm - f
 # find /tmp - name core - type f - print0 | xargs - 0 /bin/rm - f
@@ -5910,86 +5918,84 @@ user1:user1
 rm在删除大量的文件时，会提示参数过长，那么可以使用xargs删除：
 # ls |xargs rm – rf
 或分配删除 rm [a-n]* - rf # getconf ARG_MAX 获取系统最大参数限制
+```
 
 ## 11.29 nl
 
-##### 功能：打印文件行号
+功能：打印文件行号
 
-##### 常用选项：
+**常用选项：**
+- -b <a|t> 指定行号显示方式，a表示所有行都打印行号，b表示空行不显示行号，默认是a
+- -n <ln|rn|rz> 行号显示方法，ln左对齐，rn右对齐，rz右边显示，左边空白用 0 填充。
+- -w 行号栏位在左边占用的宽度
 
-- b <a|t> 指定行号显示方式，a表示所有行都打印行号，b表示空行不显示行号，默认是a
-- n <ln|rn|rz> 行号显示方法，ln左对齐，rn右对齐，rz右边显示，左边空白用 0 填充。
-- w 行号栏位在左边占用的宽度
-示例：
-
+**示例：**
+```bash
 打印行号，空行不显示：
 # nl a.txt
-
-
-##### 左对齐打印行号：
-
+左对齐打印行号：
 # nl - n ln a.txt
 行号右移动五个空格：
 # nl - w 5 a.txt
+```
 
 ## 11.30 date
 
-##### 功能：打印或设置系统日期和时间
+功能：打印或设置系统日期和时间
 
-##### 常用选项：
+**常用选项：**
 
-- d string 显示指定字符串所描述的时间，而非当前时间
-- f datefile 从日期文件中按行读入时间描述
-- I 输出ISO 8601格式的日期和时间
-- r 显示文件的最后修改时间
-- R 输出RFC 2822格式的日期和时间
-- s string 设置时间所描述的字符串
-- u 打印或设置UTC时间
-控制输出格式：
-%% 一个文字的 %
-%a 当前locale 的星期名缩写(例如： 日，代表星期日)
-%A 当前locale 的星期名全称 (如：星期日)
-%b 当前locale 的月名缩写 (如：一，代表一月)
-%B 当前locale 的月名全称 (如：一月)
-%c 当前locale 的日期和时间 (如： 2005 年 3 月 3 日 星期四 23:05:25)
-%C 世纪；比如 %Y，通常为省略当前年份的后两位数字(例如：20)
-%d 按月计的日期(例如：01)
-%D 按月计的日期；等于%m/%d/%y
-%e 按月计的日期，添加空格，等于%_d
-%F 完整日期格式，等价于 %Y-%m-%d
-%g ISO- 8601 格式年份的最后两位 (参见%G)
-%G ISO- 8601 格式年份 (参见%V)，一般只和 %V 结合使用
-%h 等于%b
-%H 小时(00-23)
-%I 小时(00-12)
-%j 按年计的日期(001-366)
-%k 时(0-23)
-%l 时(1-12)
-%m 月份(01-12)
-%M 分(00-59)
-%n 换行
-%N 纳秒(000000000-999999999)
-%p 当前locale 下的"上午"或者"下午"，未知时输出为空
-%P 与%p 类似，但是输出小写字母
-%r 当前locale 下的 12 小时时钟时间 (如：11:11:04 下午)
-%R 24 小时时间的时和分，等价于 %H:%M
-%s 自UTC 时间 1970 - 01 - 01 00:00:00 以来所经过的秒数
-%S 秒(00-60)
-%t 输出制表符 Tab
+- -d string 显示指定字符串所描述的时间，而非当前时间
+- -f datefile 从日期文件中按行读入时间描述
+- -I 输出ISO 8601格式的日期和时间
+- -r 显示文件的最后修改时间
+- -R 输出RFC 2822格式的日期和时间
+- -s string 设置时间所描述的字符串
+- -u 打印或设置UTC时间
+**控制输出格式：**
+- %% 一个文字的 %
+- %a 当前locale 的星期名缩写(例如： 日，代表星期日)
+- %A 当前locale 的星期名全称 (如：星期日)
+- %b 当前locale 的月名缩写 (如：一，代表一月)
+- %B 当前locale 的月名全称 (如：一月)
+- %c 当前locale 的日期和时间 (如： 2005 年 3 月 3 日 星期四 23:05:25)
+- %C 世纪；比如 %Y，通常为省略当前年份的后两位数字(例如：20)
+- %d 按月计的日期(例如：01)
+- %D 按月计的日期；等于%m/%d/%y
+- %e 按月计的日期，添加空格，等于%_d
+- %F 完整日期格式，等价于 %Y-%m-%d
+- %g ISO- 8601 格式年份的最后两位 (参见%G)
+- %G ISO- 8601 格式年份 (参见%V)，一般只和 %V 结合使用
+- %h 等于%b
+- %H 小时(00-23)
+- %I 小时(00-12)
+- %j 按年计的日期(001-366)
+- %k 时(0-23)
+- %l 时(1-12)
+- %m 月份(01-12)
+- %M 分(00-59)
+- %n 换行
+- %N 纳秒(000000000-999999999)
+- %p 当前locale 下的"上午"或者"下午"，未知时输出为空
+- %P 与%p 类似，但是输出小写字母
+- %r 当前locale 下的 12 小时时钟时间 (如：11:11:04 下午)
+- %R 24 小时时间的时和分，等价于 %H:%M
+- %s 自UTC 时间 1970 - 01 - 01 00:00:00 以来所经过的秒数
+- %S 秒(00-60)
+- %t 输出制表符 Tab
+- %T 时间，等于%H:%M:%S
+- %u 星期， 1 代表星期一
+- %U 一年中的第几周，以周日为每星期第一天(00-53)
+- %V ISO- 8601 格式规范下的一年中第几周，以周一为每星期第一天(01-53)
+- %w 一星期中的第几日(0-6)， 0 代表周一
+- %W 一年中的第几周，以周一为每星期第一天(00-53)
+- %x 当前locale 下的日期描述 (如：12/31/99)
+- %X 当前locale 下的时间描述 (如：23:13:48)
+- %y 年份最后两位数位 (00-99)
+- %Y 年份
 
 
-##### %T 时间，等于%H:%M:%S
-
-%u 星期， 1 代表星期一
-%U 一年中的第几周，以周日为每星期第一天(00-53)
-%V ISO- 8601 格式规范下的一年中第几周，以周一为每星期第一天(01-53)
-%w 一星期中的第几日(0-6)， 0 代表周一
-%W 一年中的第几周，以周一为每星期第一天(00-53)
-%x 当前locale 下的日期描述 (如：12/31/99)
-%X 当前locale 下的时间描述 (如：23:13:48)
-%y 年份最后两位数位 (00-99)
-%Y 年份
-示例：
+```bash
 
 设置系统日期和时间：
 # date - s "2016- 12 - 15 00:00:00"
@@ -6016,141 +6022,140 @@ rm在删除大量的文件时，会提示参数过长，那么可以使用xargs�
 NOW_DATE=$(date +%s)
 AGO_DATE=$(date - d "2016- 12 - 15 18:00:00" +%s)
 [ $NOW_DATE - gt $AGO_DATE ] && echo yes || echo no
+```
 
 ## 11.31 wget
 
-##### 功能：非交互式网络下载，类似于HTTP客户端
+功能：非交互式网络下载，类似于HTTP客户端
 
-##### 常用选项：
+**常用选项：**
 
-- b, --background 后台运行
+- -b, --background 后台运行
 日志记录和输入文件：
-- o, --output-file=FILE 日志写到文件
-- a, --append-output=FILE 日志追加到文件
-- d, --debug 打印debug信息，会包含头信息
-- q, --quiet 退出，不输出
-
-
-- i, --input-file=FILE 从文件中读取URL下载
-下载选项：
-- t, --tries=NUMBER 设置链接重试次数
-- O, --output-document=FILE 写入内容到文件
-- nc, --no-clobber 跳过下载现有的文件
-- c, --continue 断点续传
---progress=TYPE 设置进度条（dot和bar）
-- S, --server-response 打印服务器响应头信息
---spider 不下载任何内容
-- T, --timeout=SECONDS 设置相应超时时间（还有--dns-timeout、--connect-timeout和
---read-timeout）
-- w, --wait=SECONDS 两次重试间隔等待时间
---bind-address=ADDRESS 设置绑定地址
---limit-rate=RATE 限制下载速度
---user=USER 设置ftp和http用户名
---password=PASS 设置ftp和http密码
-目录：
-- P, --directory-prefix=PREFIX 保存文件目录
+- -o, --output-file=FILE 日志写到文件
+- -a, --append-output=FILE 日志追加到文件
+- -d, --debug 打印debug信息，会包含头信息
+- -q, --quiet 退出，不输出
+- -i, --input-file=FILE 从文件中读取URL下载
+**下载选项：**
+- -t, --tries=NUMBER 设置链接重试次数
+- -O, --output-document=FILE 写入内容到文件
+- -nc, --no-clobber 跳过下载现有的文件
+- -c, --continue 断点续传
+- --progress=TYPE 设置进度条（dot和bar）
+- -S, --server-response 打印服务器响应头信息
+- --spider 不下载任何内容
+- -T, --timeout=SECONDS 设置相应超时时间（还有--dns-timeout、--connect-timeout和
+- --read-timeout）
+- -w, --wait=SECONDS 两次重试间隔等待时间
+- --bind-address=ADDRESS 设置绑定地址
+- --limit-rate=RATE 限制下载速度
+- --user=USER 设置ftp和http用户名
+- --password=PASS 设置ftp和http密码
+**目录：**
+- -P, --directory-prefix=PREFIX 保存文件目录
 HTTP选项：
---http-user=USER 设置http用户名
---http-password=PASS 设置http密码
---proxy-user=USER 设置代理用户名
---proxy-password=PASS 设置代理密码
---referer=URL 设置Referer
---save-headers 保存头到文件
---default-page=NAME 改变默认页面名字，默认index.html
-- U,--user-agent=AGENT 设置客户端信息
---no-http-keep-alive 禁用HTTP keep-alive（长连接）
---load-cookies=FILE 从文件加载cookies
---save-cookies=FILE 保存cookies到文件
---post-data=STRING 使用POST方法，发送数据
-FTP选项：
---ftp-user=USER 设置ftp用户名
---ftp-password=PASS 设置ftp密码
---no-passive-ftp 禁用被动传输模式
-递归下载：
-- r, --recursive 指定递归下载
-- l, --level=NUMBER 最大递归深度
-- A, --accept=LIST 逗号分隔下载的扩展列表
-- R, --reject=LIST 逗号分隔不被下载的扩展列表
-- D, --domains=LIST 逗号分隔被下载域的列表
---exclude-domains=LIST 排除不被下载域的列表
-示例：
+- --http-user=USER 设置http用户名
+- --http-password=PASS 设置http密码
+- --proxy-user=USER 设置代理用户名
+- --proxy-password=PASS 设置代理密码
+- --referer=URL 设置Referer
+- --save-headers 保存头到文件
+- --default-page=NAME 改变默认页面名字，默认index.html
+- -U,--user-agent=AGENT 设置客户端信息
+- --no-http-keep-alive 禁用HTTP keep-alive（长连接）
+- --load-cookies=FILE 从文件加载cookies
+- --save-cookies=FILE 保存cookies到文件
+- --post-data=STRING 使用POST方法，发送数据
+**FTP选项：**
+- --ftp-user=USER 设置ftp用户名
+- --ftp-password=PASS 设置ftp密码
+- --no-passive-ftp 禁用被动传输模式
+**递归下载：**
+- -r, --recursive 指定递归下载
+- -l, --level=NUMBER 最大递归深度
+- -A, --accept=LIST 逗号分隔下载的扩展列表
+- -R, --reject=LIST 逗号分隔不被下载的扩展列表
+- -D, --domains=LIST 逗号分隔被下载域的列表
+- --exclude-domains=LIST 排除不被下载域的列表
 
+
+**示例：**
+```bash
 下载单个文件到当前目录：
-# wget [http://nginx.org/download/nginx-1.11.7.tar.gz](http://nginx.org/download/nginx-1.11.7.tar.gz)
+# wget http://nginx.org/download/nginx-1.11.7.tar.gz
 放到后台下载：
-# wget - b [http://nginx.org/download/nginx-1.11.7.tar.gz](http://nginx.org/download/nginx-1.11.7.tar.gz)
+# wget - b http://nginx.org/download/nginx-1.11.7.tar.gz
 对于网络不稳定的用户使用-c和--tries参数，保证下载完成，并下载到指定目录：
 
 
-# wget - t 3 - c [http://nginx.org/download/nginx-1.11.7.tar.gz](http://nginx.org/download/nginx-1.11.7.tar.gz) - P down
+# wget - t 3 - c http://nginx.org/download/nginx-1.11.7.tar.gz - P down
 不下载任何内容，判断URL是否可以访问：
-# wget --spider [http://nginx.org/download/nginx-1.11.7.tar.gz](http://nginx.org/download/nginx-1.11.7.tar.gz)
+# wget --spider http://nginx.org/download/nginx-1.11.7.tar.gz
 下载内容写到文件：
-# wget [http://www.baidu.com/index.html](http://www.baidu.com/index.html) - O index.html
+# wget http://www.baidu.com/index.html - O index.html
 从文件中读取URL下载：
 # wget - i url.list
 下载ftp文件：
 # wget --ftp-user=admin --ftp-password=admin ftp://192.168.1.10/ISO/CentOS-6.5-i386-
 minimal.iso
 伪装客户端，指定user-agent和referer下载：
-# wget - U "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko)
-Chrome/44.0.2403.157 Safari/537.36" --referer "http://nginx.org/en/download.html"
-[http://nginx.org/download/nginx-1.11.7.tar.gz](http://nginx.org/download/nginx-1.11.7.tar.gz)
+# wget - U "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko)Chrome/44.0.2403.157 Safari/537.36" --referer "http://nginx.org/en/download.html"http://nginx.org/download/nginx-1.11.7.tar.gz
 查看HTTP头信息：
-# wget - S [http://nginx.org/download/nginx-1.11.7.tar.gz](http://nginx.org/download/nginx-1.11.7.tar.gz)
-# wget --debug [http://nginx.org/download/nginx-1.11.7.tar.gz](http://nginx.org/download/nginx-1.11.7.tar.gz)
+# wget - S http://nginx.org/download/nginx-1.11.7.tar.gz
+# wget --debug http://nginx.org/download/nginx-1.11.7.tar.gz
+```
 
 ## 11.32 curl
 
-##### 功能：发送数据到URL，类似于HTTP客户端
+功能：发送数据到URL，类似于HTTP客户端
 
-##### 常用选项：
+**常用选项：**
 
-- k, --insecure 允许HTTPS连接网站
-- C, --continue-at 断点续传
-- b, --cookie STRING/FILE 从文件中读取cookie
-- c, --cookie-jar 把cookie保存到文件
-- d, --data 使用POST方式发送数据
---data-urlencode POST的数据URL编码
-- F, --form 指定POST数据的表单
-- D, --dump-header 保存头信息到文件
---ftp-pasv 指定FTP连接模式PASV/EPSV
-- P, --ftp-port 指定FTP端口
-- L, --location 遵循URL重定向，默认不处理
-- l, --list-only 指列出FTP目录名
-- H, --header 自定义头信息发送给服务器
-- I, --head 查看HTTP头信息
-- o, --output FILE 输出到文件
-- #, --progress-bar 显示bar进度条
-- x, --proxy [PROTOCOL://]HOST[:PORT] 使用代理
-- U, --proxy-user USER[:PASSWORD] 代理用户名和密码
-- e, --referer 指定引用地址referer
-- O, --remote-name 使用远程服务器上名字写到本地
---connect-timeout 连接超时时间，单位秒
---retry NUM 连接重试次数
---retry-delay 两次重试间隔等待时间
-- s, --silent 静默模式，不输出任何内容
-- Y, --speed-limit 限制下载速率
+- -k, --insecure 允许HTTPS连接网站
+- -C, --continue-at 断点续传
+- -b, --cookie STRING/FILE 从文件中读取cookie
+- -c, --cookie-jar 把cookie保存到文件
+- -d, --data 使用POST方式发送数据
+- --data-urlencode POST的数据URL编码
+- -F, --form 指定POST数据的表单
+- -D, --dump-header 保存头信息到文件
+- --ftp-pasv 指定FTP连接模式PASV/EPSV
+- -P, --ftp-port 指定FTP端口
+- -L, --location 遵循URL重定向，默认不处理
+- -l, --list-only 指列出FTP目录名
+- -H, --header 自定义头信息发送给服务器
+- -I, --head 查看HTTP头信息
+- -o, --output FILE 输出到文件
+- -#, --progress-bar 显示bar进度条
+- -x, --proxy [PROTOCOL://]HOST[:PORT] 使用代理
+- -U, --proxy-user USER[:PASSWORD] 代理用户名和密码
+- -e, --referer 指定引用地址referer
+- -O, --remote-name 使用远程服务器上名字写到本地
+- --connect-timeout 连接超时时间，单位秒
+- --retry NUM 连接重试次数
+- --retry-delay 两次重试间隔等待时间
+- -s, --silent 静默模式，不输出任何内容
+- -Y, --speed-limit 限制下载速率
+- -u, --user USER[:PASSWORD] 指定http和ftp用户名和密码
+- -T, --upload-file 上传文件
+- -A, --user-agent 指定客户端信息
 
 
-- u, --user USER[:PASSWORD] 指定http和ftp用户名和密码
-- T, --upload-file 上传文件
-- A, --user-agent 指定客户端信息
-示例：
-
+**示例：**
+```bash
 下载页面：
-# curl - o badu.html [http://www.baidu.com](http://www.baidu.com)
+# curl - o badu.html http://www.baidu.com
 不输出下载信息：
-# curl - s - o baidu.html [http://www.baidu.com](http://www.baidu.com)
+# curl - s - o baidu.html http://www.baidu.com
 伪装客户端，指定user-agent和referer下载：
-# curl - A "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko)
-Chrome/44.0.2403.157 Safari/537.36" - e "baike.baidu.com" [http://127.0.0.1](http://127.0.0.1)
+# curl - A "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko)Chrome/44.0.2403.157 Safari/537.36" - e "baike.baidu.com" http://127.0.0.1
 模拟用户登录，并保存cookies到文件：
-# curl - c ./cookies.txt - F NAME=user - F PWD=123 [http://www.example.com/login.html](http://www.example.com/login.html)
+# curl - c ./cookies.txt - F NAME=user - F PWD=123 http://www.example.com/login.html
 使用cookie访问：
-# curl - b cookies.txt [http://www.baidu.com](http://www.baidu.com)
+# curl - b cookies.txt http://www.baidu.com
 访问HTTP认证页面：
-# curl - u user:pass [http://www.example.com](http://www.example.com)
+# curl - u user:pass http://www.example.com
 FTP上传文件：
 # curl - T filename ftp://user:pass@ip/a.txt
 # curl ftp://ip - u user:pass-T filename
@@ -6160,57 +6165,58 @@ FTP下载文件：
 FTP下载多个文件：
 # curl ftp://ip/img/[1,3,5].jpg
 查看HTTP头信息：
-# curl - I [http://www.baidu.com](http://www.baidu.com)
+# curl - I http://www.baidu.com
+```
 
 ## 11.33 scp
 
-##### 功能：基于SSH的安全远程服务器文件拷贝
+功能：基于SSH的安全远程服务器文件拷贝
 
-##### 常用选项：
+**常用选项：**
+- -i 指定私钥文件
+- -l 限制速率，单位Kb/s，1024Kb=1Mb
+- -P 指定远程主机SSH端口
+- -p 保存修改时间、访问时间和权限
+- -r 递归拷贝目录
+- -o SSH选项，有以下几个比较常用的：
+- ConnectionAttempts=NUM 连接失败后重试次数
+- ConnectTimeout=SEC 连接超时时间
+- StrictHostKeyChecking=no 自动拉去主机key文件
+- PasswordAuthentication=no 禁止密码认证
 
-- i 指定私钥文件
-- l 限制速率，单位Kb/s，1024Kb=1Mb
-- P 指定远程主机SSH端口
-- p 保存修改时间、访问时间和权限
-- r 递归拷贝目录
-- o SSH选项，有以下几个比较常用的：
-ConnectionAttempts=NUM 连接失败后重试次数
-ConnectTimeout=SEC 连接超时时间
-StrictHostKeyChecking=no 自动拉去主机key文件
-PasswordAuthentication=no 禁止密码认证
-示例：
 
+**示例：**
+```bash
 本地目录推送到远程主机：
 # scp - P 22 - r src_dir root@192.168.1.10:/dst_dir
 远程主机目录拉取到本地：
 # scp - P 22 - r root@192.168.1.10:dst_dir src_dir
-
-
 同步文件方式一样，不用加-r参数
+```
 
 ## 11.34 rsync
 
-##### 功能：远程或本地文件同步工具
+功能：远程或本地文件同步工具
 
-##### 常用选项：
+**常用选项：**
+- -v 显示复制信息
+- -q 不输出错误信息
+- -c 跳过基础效验，不判断修改时间和大小
+- -a 归档模式，等效-rlptgoD，保留权限、属组等
+- -r 递归目录
+- -l 拷贝软连接
+- -z 压缩传输数据
+- -e 指定远程shell，比如ssh、rsh
+- --progress 进度条，等同-P
+- --bwlimit=KB/s 限制速率， 0 为没有限制
+- --delete 删除那些DST中SRC没有的文件
+- --exclude=PATTERN 排除匹配的文件或目录
+- --exclude-from=FILE 从文件中读取要排除的文件或目录
+- --password-file=FILE 从文件读取远程主机密码
+- --port=PORT 监听端口
 
-- v 显示复制信息
-- q 不输出错误信息
-- c 跳过基础效验，不判断修改时间和大小
-- a 归档模式，等效-rlptgoD，保留权限、属组等
-- r 递归目录
-- l 拷贝软连接
-- z 压缩传输数据
-- e 指定远程shell，比如ssh、rsh
---progress 进度条，等同-P
---bwlimit=KB/s 限制速率， 0 为没有限制
---delete 删除那些DST中SRC没有的文件
---exclude=PATTERN 排除匹配的文件或目录
---exclude-from=FILE 从文件中读取要排除的文件或目录
---password-file=FILE 从文件读取远程主机密码
---port=PORT 监听端口
-示例：
-
+**示例：**
+```baash
 本地复制目录：
 # rsync - avz abc /opt
 本地目录推送到远程主机：
@@ -6223,56 +6229,59 @@ PasswordAuthentication=no 禁止密码认证
 # rsync - avz --exclude=no_dir SRC root@192.168.1.120:DST
 指定SSH端口：
 # rsync - avz /etc/hosts - e "ssh - p22" root@192.168.1.120:/opt
+```
 
 ## 11.35 nohup
 
-##### 功能：运行程序，忽略挂起信号
+功能：运行程序，忽略挂起信号
 
-##### 示例：
-
-##### 后台运行程序，终端关闭不影响：
-
+**示例：**
+```bash
+后台运行程序，终端关闭不影响：
 # nohup bash test.sh &>test.log &
-
+```
 
 ## 11.36 iconv
 
-##### 功能：将文件内容字符集转成其他字符集
+功能：将文件内容字符集转成其他字符集
 
-##### 常用选项：
+**常用选项：**
+- -l 列出所有已知的字符集
+- -f 原始文本编码
+- -t 输出编码
+- -o 输出到文件
+- -s 关闭警告
 
-- l 列出所有已知的字符集
-- f 原始文本编码
-- t 输出编码
-- o 输出到文件
-- s 关闭警告
-示例：
 
+**示例：**
+```bash
 将文件内容转换UTF8：
 # iconv - f gbk - t utf8 old.txt - o new.txt
 将csv文件转换GBK：
 # iconv - f utf8 - t gbk old.txt - o new.txt
 解决邮件乱码：
-# echo $(echo "content" | iconv - f utf8 - t gbk) | mail - s "$(echo "title" | iconv - f
-utf8 - t gbk)" example@mail.com
+# echo $(echo "content" | iconv - f utf8 - t gbk) | mail - s "$(echo "title" | iconv - f utf8 - t gbk)" example@mail.com
+```
 
 ## 11.37 uname
 
-##### 功能：输出系统信息
+功能：输出系统信息
 
-##### 常用选项：
+**常用选项：**
 
-- a 输出以下所有信息
-- s 输出内核名称
-- n 输出主机名
-- r 输出内核发行版
-- v 输出内核版本
-- m 输出主机的硬件架构名称
-- p 输出处理器类型或"unknown"
-- i 输出硬件平台或"unknown
-- o 输出操作系统名称
-示例：
+- -a 输出以下所有信息
+- -s 输出内核名称
+- -n 输出主机名
+- -r 输出内核发行版
+- -v 输出内核版本
+- -m 输出主机的硬件架构名称
+- -p 输出处理器类型或"unknown"
+- -i 输出硬件平台或"unknown
+- -o 输出操作系统名称
 
+
+**示例：**
+```bash
 输出所有系统信息：
 # uname - a
 输出主机名：
@@ -6281,45 +6290,48 @@ utf8 - t gbk)" example@mail.com
 # uname - r
 输出操作系统：
 # uname - o
+```
 
 ## 11.38 sshpass
 
-##### 功能：非交互SSH登录（需要安装）
+功能：非交互SSH登录（需要安装）
 
-##### 常用选项：
+**常用选项：**
+- -f 从文件中获取密码
+- -d 用文件描述符数字获取密码
+- -p 指定SSH密码
+- -e 密码作为环境变量传递，变量名是SSHPASS
 
 
-- f 从文件中获取密码
-- d 用文件描述符数字获取密码
-- p 指定SSH密码
-- e 密码作为环境变量传递，变量名是SSHPASS
-示例：
-
+**示例：**
+```bash
 免交互SSH登录：
 # sshpass - p 123456 ssh root@192.168.1.10
 免交互传输文件：
 # sshpass - p 123456 scp a.txt 192.168.1.10:/root
 密码传入系统变量：
 # SSHPASS=123456 rsync - avz /etc/hosts - e "sshpass - e ssh" root@192.168.1.221:/opt
+```
 
 ## 11.39 tar
 
-##### 功能：归档目录或文件
+功能：归档目录或文件
 
-##### 常用选项：
+**常用选项：**
+- -c 创建新归档
+- -d 比较归档和文件系统的差异
+- -r 追加文件到归档
+- -t 存档的内容列表
+- -x 提取归档所有文件
+- -C 改变解压目录
+- -f 使用归档文件或设备归档
+- -j bzip2压缩
+- -z gzip压缩
+- -v 输出处理过程
 
-- c 创建新归档
-- d 比较归档和文件系统的差异
-- r 追加文件到归档
-- t 存档的内容列表
-- x 提取归档所有文件
-- C 改变解压目录
-- f 使用归档文件或设备归档
-- j bzip2压缩
-- z gzip压缩
-- v 输出处理过程
-示例：
 
+**示例：**
+```bash
 创建归档文件来自foo和bar：
 # tar - cf archive.tar foo bar
 提取归档的所有文件：
@@ -6334,40 +6346,44 @@ utf8 - t gbk)" example@mail.com
 # tar - jcvf log.tar.bz log
 提取归档并解压到指定目录：
 # tar - zxvf log.tar.gz - C /opt
+```
 
 ## 11.40 logger
 
 功能：系统日志的shell命令行接口
-常用选项：
+
+**常用选项：**
+- -i 每行记录进程ID
+- -f 指定输出日志到文件
+- -p 设置记录的优先级
+- -t 添加标签
 
 
-- i 每行记录进程ID
-- f 指定输出日志到文件
-- p 设置记录的优先级
-- t 添加标签
-示例：
-
+**示例：**
+```bash
 # logger - i - t "my_test" - p local3.notice "test_info"
+```
 
 ## 11.41 netstat
 
-##### 功能：打印网络连接、路由表、接口统计信息、伪装连接和多播成员
+功能：打印网络连接、路由表、接口统计信息、伪装连接和多播成员
 
-##### 常用选项：
+**常用选项：**
+- -r 显示路由表
+- -i 显示接口表
+- -n 不解析名字
+- -p 显示程序名 PID/Program
+- -l 显示监听的socket
+- -a 显示所有socket
+- -o 显示计时器
+- -Z 显示上下文
+- -t 只显示tcp连接
+- -u 只显示udp连接
+- -s 显示每个协议统计信息
 
-- r 显示路由表
-- i 显示接口表
-- n 不解析名字
-- p 显示程序名 PID/Program
-- l 显示监听的socket
-- a 显示所有socket
-- o 显示计时器
-- Z 显示上下文
-- t 只显示tcp连接
-- u 只显示udp连接
-- s 显示每个协议统计信息
-示例：
 
+**示例：**
+```bash
 显示所有监听：
 # netstat - anltu
 显示所有TCP连接：
@@ -6376,39 +6392,41 @@ utf8 - t gbk)" example@mail.com
 # netstat - anup
 显示路由表：
 # netstat - r
+```
 
 ## 11.42 ss
 
 功能：比netstat更强大的socket查看工具
+
 格式：ss [options] [ FILTER ]
-常用选项：
 
-- n 不解析名字
-- a 显示所有socket
-- l 显示所有监听的socket
-- o 显示计时器
-- e 显示socket详细信息
-- m 显示socket内存使用
-- p 显示进程使用的socket
-- i 显示内部TCP信息
-- s 显示socket使用汇总
+**常用选项：**
+- -n 不解析名字
+- -a 显示所有socket
+- -l 显示所有监听的socket
+- -o 显示计时器
+- -e 显示socket详细信息
+- -m 显示socket内存使用
+- -p 显示进程使用的socket
+- -i 显示内部TCP信息
+- -s 显示socket使用汇总
+- -4 只显示IPV4的socket
+- -0 显示包socket
+- -t 只显示TCP socket
+- -u 只显示UDP socket
+- -d 只显示DCCP socket
+- -w 只显示RAW socket
+- -x 只显示Unix域socket
+- -f FAMILY 只显示socket族类型（ unix, inet, inet6, link, netlink）
+- -A 查询socket {all|inet|tcp|udp|raw|unix|packet|netlink}[,QUERY]
+- -D 将原始的TCP socket转储到文件
+- -F 从文件中读取过滤信息
+**过滤：**
+- -o state 显示TCP连接状态信息
 
 
-- 4 只显示IPV4的socket
-- 0 显示包socket
-- t 只显示TCP socket
-- u 只显示UDP socket
-- d 只显示DCCP socket
-- w 只显示RAW socket
-- x 只显示Unix域socket
-- f FAMILY 只显示socket族类型（ unix, inet, inet6, link, netlink）
-- A 查询socket {all|inet|tcp|udp|raw|unix|packet|netlink}[,QUERY]
-- D 将原始的TCP socket转储到文件
-- F 从文件中读取过滤信息
-过滤：
-- o state 显示TCP连接状态信息
-示例：
-
+**示例：**
+```bash
 显示所有TCP连接：
 # ss - t - a
 显示所有UDP连接：
@@ -6421,21 +6439,25 @@ utf8 - t gbk)" example@mail.com
 # ss - o state TIME-WAIT
 搜索所有本地进程连接到X Server：
 # ss - x src /tmp/.X11-unix/*
+```
 
 ## 11.43 lsof
 
-##### 功能：列出打开的文件
+功能：列出打开的文件
 
-##### 常用选项：
+**常用选项：**
 
-- i [i] 监听的网络地址，如果没有指定，默认列出所有。
+- -i [i] 监听的网络地址，如果没有指定，默认列出所有。
 [i]来自[46][protocol][@hostname|hostaddr][:service|port]
-- U 列出Unix域socket文件
-- p 指定PID
-- u 指定用户名或UID所有打开的文件
-+D 递归搜索
-示例：
+- -U 列出Unix域socket文件
+- -p 指定PID
+- -u 指定用户名或UID所有打开的文件
+- +D 递归搜索
 
+
+**示例：**
+
+```bash
 列出所有打开的文件：
 # lsof
 查看哪个进程占用文件：
@@ -6445,8 +6467,6 @@ utf8 - t gbk)" example@mail.com
 列出 80 端口监听的进程：
 # lsof - i:80
 列出端口 1 - 1024 之间的所有进程：
-
-
 # lsof - i:1- 1024
 列出所有TCP网络连接：
 # lsof - i tcp
@@ -6462,45 +6482,47 @@ utf8 - t gbk)" example@mail.com
 # lsof - p 123,456 - u 123,abc
 列出COMMAND列中包含字符串sshd：
 # lsof - c sshd
+```
 
 ## 11.44 ps
 
-##### 功能：报告当前进程的快照
+功能：报告当前进程的快照
 
-##### 常用选项：
-
-- a 显示所有进程
-- u 选择有效的用户ID或名称
-- x 显示无控制终端的进程
-- e 显示所有进程
-- f 全格式
-- r 只显示运行的进程
-- T 这个终端的所有进程
-- p 指定进程ID
---sort 对某列排序
-- m 线程
-- L 格式化代码列表
-- o 用户自定义格式
+**常用选项：**
+- -a 显示所有进程
+- -u 选择有效的用户ID或名称
+- -x 显示无控制终端的进程
+- -e 显示所有进程
+- -f 全格式
+- -r 只显示运行的进程
+- -T 这个终端的所有进程
+- -p 指定进程ID
+- --sort 对某列排序
+- -m 线程
+- -L 格式化代码列表
+- -o 用户自定义格式
+  
+```bash
 CODE NORMAL HEADER
-%C pcpu %CPU
-%G group GROUP
-%P ppid PPID
-%U user USER
-%a args COMMAND
-%c comm COMMAND
-%g rgroup RGROUP
-%n nice NI
-%p pid PID
-%r pgid PGID
-%t etime ELAPSED
-%u ruser RUSER
-%x time TIME
-%y tty TTY
+%C pcpu      %CPU
+%G group     GROUP
+%P ppid      PPID
+%U user      USER
+%a args      COMMAND
+%c comm      COMMAND
+%g rgroup    RGROUP
+%n nice      NI
+%p pid       PID
+%r pgid      PGID
+%t etime     ELAPSED
+%u ruser     RUSER
+%x time      TIME
+%y tty       TTY
+%z vsz       VSZ
+```
 
-
-%z vsz VSZ
-示例：
-
+**示例：**
+```bash
 打印系统上所有进程标准语法：
 # ps - ef
 打印系统上所有进程BSD语法：
@@ -6514,263 +6536,286 @@ CODE NORMAL HEADER
 自定义格式显示并对CPU排序：
 # ps - eo user,pid,pcpu,pmem,nice,lstart,time,args --sort=-pcpu
 或 ps - eo "%U %p %C %n %x %a"
+```
 
 USER PID %CPU %MEM VSZ RSS TTY STAT START TIME COMMAND
-USER 进程所有者
-PID 进程ID
-%CPU 占用CPU时间
-%MEM 物理内存
-VSZ 虚拟内存大小（kb）
-RSS 驻留集内存页数量（kb）
-TTY 终端
-STAT 进程状态；R运行，S休眠，D不可中断，T停止，Z僵尸，N表示普通优先级更低的优先级
-START 进程启动时间
-TIME使用CPU总时间
-COMMAND 命令名称和参数
+- USER 进程所有者
+- PID 进程ID
+- %CPU 占用CPU时间
+- %MEM 物理内存
+- VSZ 虚拟内存大小（kb）
+- RSS 驻留集内存页数量（kb）
+- TTY 终端
+- STAT 进程状态；R运行，S休眠，D不可中断，T停止，Z僵尸，N表示普通优先级更低的优先级
+- START 进程启动时间
+- TIME使用CPU总时间
+- COMMAND 命令名称和参数
 
 ## 11.45 top
 
-##### 功能：动态显示活动的进程和系统资源利用率
+功能：动态显示活动的进程和系统资源利用率
 
-##### 常用选项：
+**常用选项：**
+- -d 信息刷新时间间隔
+- -p 只监控指定的进程PID
+- -i 只显示正在使用CPU的进程
+- -H 显示线程
+- -u 只查看指定用户名的进程
+- -b 将输出编排成易处理格式，适合输出到文件处理
+- -n 指定最大循环刷新数
+**交互命令：**
+- f 添加或删除显示的指标
+- c 显示完整命令
+- P 按CPU使用百分比排序
+- M 按驻留内存大小排序
+- T 按进程使用CPU时间排序
+- 1 显示每个CPU核心使用率
+- k 终止一个进程
 
-- d 信息刷新时间间隔
-- p 只监控指定的进程PID
-- i 只显示正在使用CPU的进程
-- H 显示线程
-- u 只查看指定用户名的进程
-- b 将输出编排成易处理格式，适合输出到文件处理
-- n 指定最大循环刷新数
-交互命令：
-f 添加或删除显示的指标
-c 显示完整命令
-P 按CPU使用百分比排序
-M 按驻留内存大小排序
-T 按进程使用CPU时间排序
-1 显示每个CPU核心使用率
-k 终止一个进程
 
-
-##### 示例：
-
-##### 刷新一次并输出到文件：
-
+**示例：**
+```bash
+刷新一次并输出到文件：
 # top - b - n 1 > top.log
 只显示指定进程的线程：
 # top - Hp 123
+top - 09:31:08 up 16:49,  0 users,  load average: 0.03, 0.19, 0.22
+Threads:   0 total,   0 running,   0 sleeping,   0 stopped,   0 zombie
+%Cpu(s): 12.6 us,  1.0 sy,  0.0 ni, 86.2 id,  0.0 wa,  0.0 hi,  0.2 si,  0.0 st
+KiB Mem :  8008940 total,  7000600 free,   419132 used,   589208 buff/cache
+KiB Swap:  2097148 total,  2097148 free,        0 used.  7275176 avail Mem 
 
-##### 第一行：当前系统时间，系统运行了多长时间（ 9 天 22 小时 16 分钟），CPU负载： 1 分钟、 5 分钟、
+  PID USER      PR  NI    VIRT    RES    SHR S %CPU %MEM     TIME+ COMMAND                                                                                       
+```
 
-##### 15 分钟
+第一行：当前系统时间，系统运行了多长时间（ 9 天 22 小时 16 分钟），CPU负载： 1 分钟、 5 分钟、15 分钟
 
-##### 第二行：系统总共 178 个进程， 3 个CPU正在处理， 175 在休眠等待处理， 0 个停止， 0 个僵尸进程
+第二行：系统总共 178 个进程， 3 个CPU正在处理， 175 在休眠等待处理， 0 个停止， 0 个僵尸进程
 
-第三行：us用户空间使用CPU时间0.3%，sy内核空间使用CPU时间0.3%，ni系统调整进程优先级
-使用CPU时间0.0%，id空闲CPU时间99.3%，wa等待I/O响应CPU时间0.0%，hi硬中断，si软中
-断。
+第三行：us用户空间使用CPU时间0.3%，sy内核空间使用CPU时间0.3%，ni系统调整进程优先级使用CPU时间0.0%，id空闲CPU时间99.3%，wa等待I/O响应CPU时间0.0%，hi硬中断，si软中断。
+
 第四行和第五行：物理内存与交换分区使用率
+
 第六行：
-PID 进程ID
-USER 进程所有者
-PR 进程优先级
-NI 负值表示高优先级，正值表示低优先级
-VIRT 进程启动后使用虚拟内存总量（KB）， VIRT=SWAP+RES
-RES 实际物理内存使用大小（KB），RES=CODE+DATA
-SHR 共享内存大小（KB）,可能与其他进程共享的内存；计算进程使用物理内存大小：RES-SHR
-S 进程状态；R运行，S休眠，D不可中断，T停止，Z僵尸
-%CPU 上次更新到现在的CPU时间占用百分比
-%MEM 使用物理内存百分比
-TIME+ 使用CPU总时间
-COMMAND命令名称和参数
+- PID 进程ID
+- USER 进程所有者
+- PR 进程优先级
+- NI 负值表示高优先级，正值表示低优先级
+- VIRT 进程启动后使用虚拟内存总量（KB）， VIRT=SWAP+RES
+- RES 实际物理内存使用大小（KB），RES=CODE+DATA
+- SHR 共享内存大小（KB）,可能与其他进程共享的内存；计算进程使用物理内存大小：RES-SHR
+- S 进程状态；R运行，S休眠，D不可中断，T停止，Z僵尸
+- %CPU 上次更新到现在的CPU时间占用百分比
+- %MEM 使用物理内存百分比
+- TIME+ 使用CPU总时间
+- COMMAND 命令名称和参数
 
 ## 11.46 free
 
-##### 功能：查看内存使用率
+功能：查看内存使用率
 
-##### 常用选项：
+**常用选项：**
+- -b bytes显示
+- -k KB显示
+- -m M显示
+- -g G显示
+- -h 易读单位显示
+- -s 每几秒重复打印
+- -c 重复打印几次退出
 
-- b bytes显示
-- k KB显示
-- m M显示
-- g G显示
-- h 易读单位显示
-- s 每几秒重复打印
-- c 重复打印几次退出
-示例：
-
+**示例：**
+```bash
 查看物理内存：
 # free - m
 易读单位显示：
-
-
 # free - h
+```
 
 ## 11.47 df
 
-##### 功能：查看文件系统的磁盘空间使用情况
+功能：查看文件系统的磁盘空间使用情况
 
-##### 常用选项：
+**常用选项：**
 
-- a 包含虚拟文件系统
-- h 可易读单位显示
-- i 显示inode 信息而非块使用量
-- k 1K块的数量
-- t 只显示指定文件系统为指定类型的信息
-- T 显示文件系统类型
-示例：
+- -a 包含虚拟文件系统
+- -h 可易读单位显示
+- -i 显示inode 信息而非块使用量
+- -k 1K块的数量
+- -t 只显示指定文件系统为指定类型的信息
+- -T 显示文件系统类型
 
+**示例：**
+```bash
 查看所有文件系统：
 # df - ah
 输出指定文件系统：
 # df - t xfs
+```
 
 ## 11.48 vmstat
 
 功能：报告虚拟内存、swap、io、上下文和CPU统计信息。
+
 分析了这些文件：
-/proc/meminfo
-/proc/stat
-/proc/*/stat
-常用选项：
+- /proc/meminfo
+- /proc/stat
+- /proc/*/stat
 
-- a 打印活跃和不活跃的内存页
-- d 打印硬盘统计信息
-- D 打印硬盘表
-- p 打印硬盘分区统计信息
-- s 打印虚拟内存表
-- m 打印内存分配（slab）信息
-- t 添加时间戳到输出
-- S 显示单位，默认k、KB、m、M，大写是*1024
-示例：
 
+**常用选项：**
+- -a 打印活跃和不活跃的内存页
+- -d 打印硬盘统计信息
+- -D 打印硬盘表
+- -p 打印硬盘分区统计信息
+- -s 打印虚拟内存表
+- -m 打印内存分配（slab）信息
+- -t 添加时间戳到输出
+- -S 显示单位，默认k、KB、m、M，大写是*1024
+
+
+**示例：**
+```bash
 每秒刷新一次，统计五次：
 # vmstat - t 1 5
+[root@blog ~]# vmstat -t 1 5
+procs -----------memory---------- ---swap-- -----io---- -system-- ------cpu----- -----timestamp-----
+ r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa st                 CST
+ 1  0      0 6984504   2108 586796    0    0     3    10  142  106  6  1 93  0  0 2020-09-29 09:28:49
+ 0  0      0 6984504   2108 586828    0    0     0     0  149  174  0  0 100  0  0 2020-09-29 09:28:50
+ 0  0      0 6984504   2108 586828    0    0     0    69  121  154  1  0 100  0  0 2020-09-29 09:28:51
+ 0  0      0 6984504   2108 586828    0    0     0     0  128  155  0  0 100  0  0 2020-09-29 09:28:52
+ 1  0      0 6984504   2108 586828    0    0     0     0  113  146  0  0 100  0  0 2020-09-29 09:28:53
+ ```
 
-r：CPU正在运行的进程数
-b：在等待I/O的进程数
-swpd：已经使用的交换内存（kb）
-free：空闲的物理内存（kb）
-buff：已经使用的缓冲区内存（kb）；一般对设备数据缓存，写入到磁盘的数据。
-
-
-cache：已经使用的缓冲区内存（kb）；一般对文件数据缓存，从磁盘读取的数据。
-si：从磁盘交换到内存的交换页数量（kb/s）
-so：从内存交换到磁盘的交换页数据（kb/s）
-bi：块设备接收的块数量（kb/s）
-bo：块设备发送的块数量（kb/s）
-in：每秒CPU中断次数
-cs：每秒CPU上下文切换次数
-us：用户进程使用CPU时间（%）
-sy：系统进程使用CPU时间（%）
-id：CPU空闲时间（%）
-wa：等待I/O响应所消耗的CPU时间（%）
-st：从虚拟设备中获得的时间（%）
+- r：CPU正在运行的进程数
+- b：在等待I/O的进程数
+- swpd：已经使用的交换内存（kb）
+- free：空闲的物理内存（kb）
+- buff：已经使用的缓冲区内存（kb）；一般对设备数据缓存，写入到磁盘的数据。
+- cache：已经使用的缓冲区内存（kb）；一般对文件数据缓存，从磁盘读取的数据。
+- si：从磁盘交换到内存的交换页数量（kb/s）
+- so：从内存交换到磁盘的交换页数据（kb/s）
+- bi：块设备接收的块数量（kb/s）
+- bo：块设备发送的块数量（kb/s）
+- in：每秒CPU中断次数
+- cs：每秒CPU上下文切换次数
+- us：用户进程使用CPU时间（%）
+- sy：系统进程使用CPU时间（%）
+- id：CPU空闲时间（%）
+- wa：等待I/O响应所消耗的CPU时间（%）
+- st：从虚拟设备中获得的时间（%）
 
 ## 11.49 iostat
 
-##### 功能：报告CPU利用率和磁盘I/O
+功能：报告CPU利用率和磁盘I/O
 
 用法: iostat [ 选项 ] [ <时间间隔> [ <次数> ] ]
-常用选项：
 
-- c 显示CPU使用率
-- d 只显示磁盘使用率
-- k 单位KB/s代替Block/s
-- m 单位MB/s代替Block/s
-- N 显示所有映射设备名字
-- t 打印报告时间
-- x 显示扩展统计信息
-示例：
+**常用选项：**
+- -c 显示CPU使用率
+- -d 只显示磁盘使用率
+- -k 单位KB/s代替Block/s
+- -m 单位MB/s代替Block/s
+- -N 显示所有映射设备名字
+- -t 打印报告时间
+- -x 显示扩展统计信息
 
+
+**示例：**
+```bash
 显示CPU使用率：
 # iostat - c 1 3
 显示I/O磁盘统计信息：
 # iostat - d - x - k 1 3 # 间隔 1 秒，输出 3 次
+```
 
 ## 11.50 sar
 
-##### 功能：查看系统资源综合方面利用率
+功能：查看系统资源综合方面利用率
 
-##### 常用选项：
+**常用选项：**
+- -u, CPU
+- -r, memory
+- -b, disk
+- -n DEV, NIC traffic
+- -q, systemload
+- -b, TPS（Transaction Per Second，每秒事务处理量）
+- -o, output to file
 
-- u, CPU
-- r, memory
-- b, disk
-- n DEV, NIC traffic
-- q, systemload
-- b, TPS（Transaction Per Second，每秒事务处理量）
-- o, output to file
-示例：
-
+**示例：**
+```bash
 # sar - u 2 3 #每两秒执行一次，采集三次
 # sar - u 2 3 - o cpu.out
 # sar - f cpu.out #读取文件
-
+```
 
 ## 11.51 dstat
 
-##### 功能：查看系统资源综合方面利用率（需要安装）
+功能：查看系统资源综合方面利用率（需要安装）
 
-##### 常用选项：
+**常用选项：**
+- -c cpu统计
+- -d 磁盘统计
+- -m 内存统计
+- -n 网络统计
+- -s swap统计
+- -l 负载统计
+- --tcp tcp状态统计
+- --udp udp状态统计
+- --socket socket数量统计
+- -t 输出时间
+- --output 写入csv文件
+**插件：**
+- --list 支持的插件
+- --top-bio-adv 详细显示I/O进程写入block量，包括pid、r、w和cpu
+- --top-io-adv 进程写入磁盘总量
+- --top-cpu 占用CPU进程
+- --top-cpu-adv 查看最高CPU进程
+- --top-mem 内存进程
 
-- c cpu统计
-- d 磁盘统计
-- m 内存统计
-- n 网络统计
-- s swap统计
-- l 负载统计
---tcp tcp状态统计
---udp udp状态统计
---socket socket数量统计
-- t 输出时间
---output 写入csv文件
-插件：
---list 支持的插件
---top-bio-adv 详细显示I/O进程写入block量，包括pid、r、w和cpu
---top-io-adv 进程写入磁盘总量
---top-cpu 占用CPU进程
---top-cpu-adv 查看最高CPU进程
---top-mem 内存进程
-示例：
 
+**示例：**
+```bash
 查看CPU利用率：
 # dstat - c
 查看TCP连接状态：
 # dstat --tcp
+```
 
 ## 11.52 ip
 
-##### 功能：查看/操作路由表、设备、路由策略和隧道
+功能：查看/操作路由表、设备、路由策略和隧道
 
 格式：ip [ OPTIONS ] OBJECT { COMMAND | help }
-常用选项：
 
-- b, -batch <FILENAME> 从文件或标准输入读取命令并调用他们，第一次失败将终止
-- force 批量模式有错误不终止，如果有错误则状态返回非 0
-- s, -statistics 输出更多的统计信息
-- l, -loops <COUNT> 指定最大的循环数
-操作对象（OBEJECT）：
-address 网络设备地址
-12tp 以太网IP隧道
-link 配置网络设备
-maddress 多播地址
-monitor 动态监控网络连接
-mroute 多播路由缓存条目
-mrule 角色在多播路由策略数据库
-neighbour 管理ARP或NDISC缓存条目
-netns 管理网络命名空间
+**常用选项：**
+- -b, -batch <FILENAME> 从文件或标准输入读取命令并调用他们，第一次失败将终止
+- -force 批量模式有错误不终止，如果有错误则状态返回非 0
+- -s, -statistics 输出更多的统计信息
+- -l, -loops <COUNT> 指定最大的循环数
+**操作对象（OBEJECT）：**
+- address   网络设备地址
+- 12tp    以太网IP隧道
+- link  配置网络设备
+- maddress  多播地址
+- monitor   动态监控网络连接
+- mroute  多播路由缓存条目
+- mrule   角色在多播路由策略数据库
+- neighbour   管理ARP或NDISC缓存条目
+- netns   管理网络命名空间
+- ntable 管理neighbour缓存操作
+- route 路由表
+- rule 角色在路由策略数据库
+- tpc_metrics/tcpmetrics 管理TCP指标
+- tunnel IP隧道
+- tuntap 管理TUN/TAP设备
+- xfrm 管理IPSec策略
 
 
-ntable 管理neighbour缓存操作
-route 路由表
-rule 角色在路由策略数据库
-tpc_metrics/tcpmetrics 管理TCP指标
-tunnel IP隧道
-tuntap 管理TUN/TAP设备
-xfrm 管理IPSec策略
-可通过ip OBEJECT help再查看对象的操作方法。
-示例：
+可通过 ip OBEJECT help 再查看对象的操作方法。
 
+**示例：**
+```bash
 查看网络设备地址：
 # ip addr
 查看网卡统计信息：
@@ -6796,27 +6841,27 @@ xfrm 管理IPSec策略
 # ip link set dev eth0 mtu 1500
 设置MAC地址：
 # ip link set dev eth0 address 00:0c:29:52:73:8e
+```
 
 ## 11.53 nc
 
-##### 功能：TCP和UDP连接和监听
+功能：TCP和UDP连接和监听
 
-##### 常用选项：
+常用选项：
+- -i interval 指定间隔时间发送和接受行文本
+- -l 监听模式，管理传入的连接
+- -n 不解析域名
+- -p 指定本地源端口
+- -s 指定本地源IP地址
+- -u 使用udp协议，默认是tcp
+- -v 执行过程输出
+- -w timeout 连接超时时间
+- -x proxy_address[:port] 请求连接主机使用代理地址和端口
+- -z 指定扫描监听端口，不发送任何数据
 
-- i interval 指定间隔时间发送和接受行文本
-- l 监听模式，管理传入的连接
-- n 不解析域名
-- p 指定本地源端口
-- s 指定本地源IP地址
-- u 使用udp协议，默认是tcp
-- v 执行过程输出
-- w timeout 连接超时时间
 
-
-- x proxy_address[:port] 请求连接主机使用代理地址和端口
-- z 指定扫描监听端口，不发送任何数据
-示例：
-
+**示例：**
+```bash
 端口扫描：
 # nc - z 192.168.1.10 1 - 65535
 TCP协议连接到目标端口：
@@ -6845,31 +6890,31 @@ HELO host.example.com
 MAIL FROM: <user@host.example.com>
 RCPT TO: <user2@host.example.com>
 DATA
-Body of email.
-
+Body of email
+.
 QUIT
 EOF
 # echo - n "GET / HTTP/1.0\r\n\r\n" | nc host.example.com 80
+```
 
-### 11.54 time
+## 11.54 time
 
-##### 功能：执行脚本时间
+功能：执行脚本时间
 
-##### 常用选项：
-
-##### 示例：
-
+**示例：**
+```bash
 查看执行ls所需的时间：
 # time ls
+```
 
-
-### 11.55 eval
+## 11.55 eval
 
 功能：执行参数作为shell命令
-示例：
 
+**示例：**
+```bash
 for i in $@; do
-eval $i
+  eval $i
 done
 echo ---
 echo $a
@@ -6878,67 +6923,71 @@ echo $b
 ---
 1
 2
+```
 
-### 11.56 ssh
+## 11.56 ssh
 
-##### 功能：SSH客户端
+功能：SSH客户端
 
-##### 常用选项：
-
-- p 指定远程主机端口
-- i 指定认证文件
-- L [bind_address:]port:host:hostport
-- R [bind_address:]port:host:hostport]
-- D [bind_address:]port
-- o SSH选项，有以下几个比较常用的：
-ConnectionAttempts=NUM 连接失败后重试次数
-ConnectTimeout=SEC 连接超时时间
-StrictHostKeyChecking=no 自动拉去主机key文件
-PasswordAuthentication=no 禁止密码认证
-示例：
-
+**常用选项：**
+- -p 指定远程主机端口
+- -i 指定认证文件
+- -L [bind_address:]port:host:hostport
+- -R [bind_address:]port:host:hostport]
+- -D [bind_address:]port
+- -o SSH选项，有以下几个比较常用的：
+- ConnectionAttempts=NUM 连接失败后重试次数
+- ConnectTimeout=SEC 连接超时时间
+- StrictHostKeyChecking=no 自动拉去主机key文件
+- PasswordAuthentication=no 禁止密码认证
+  
+**示例：**
+```bash
 登录到远程主机：
 # ssh user@192.168.1.120
 远程主机执行命令：
 # ssh user@192.168.1.120 'ifconfig'
 本地文件内容写到远程主机文件：
 # ssh user@192.168.1.120 'cat >> file' < /etc/passwd
+```
 
 SSH还提供了一个非常有用的功能，就是端口转发，能帮你解决一些无法建立的连接。
+
 1 ）本地端口转发
+
 应用场景 1 ：A不能访问C，B能访问A和C，实现通过B能让A访问C
+
 在主机A执行：
+```bash
 # ssh -L 2222:主机C:22 主机B # ssh - L [绑定地址:]本地端口:主机C:C端口 主机B
-将SSH绑定本地端口 2222 ，本地 2222 端口数据转发主机B，主机B的所有数据转发到主机C的 22 端
-口；这样一来，只要在主机A ssh - p 2222 localhost，就等于连上了主机C的 22 端口。
-应用场景 2 ：一台Squid代理服务器，限制了本机可以清理缓存，但是我想从远程服务器清理
-在远程服务器执行：
+将SSH绑定本地端口 2222 ，本地 2222 端口数据转发主机B，主机B的所有数据转发到主机C的 22 端口；这样一来，只要在主机A ssh - p 2222 localhost，就等于连上了主机C的 22 端口。
+应用场景 2 ：一台Squid代理服务器，限制了本机可以清理缓存，但是我想从远程服务器清理在远程服务器执行：
 # ssh -L 31280 :localhost:3128 SquidHost
+在远程服务器上执行清理命令到本机 31280 端口， 31280 收到的数据加密转发到 SquidHost 的 SSH Server 上，SSH Client 解密收到的数据并转发到监听的 3128 端口上，最后将Squid返回的数据原路返回。
+```
 
-
-在远程服务器上执行清理命令到本机 31280 端口， 31280 收到的数据加密转发到SquidHost的SSH
-Server上，SSH Client解密收到的数据并转发到监听的 3128 端口上，最后将Squid返回的数据原路
-返回。
 2 ）远程端口转发
+
 应用场景 1 ：A不能访问C，B能访问A和C，但A不能访问B，比如A在外网，B在内网
+
 在主机B执行：
+```bash
 # ssh -R 2222:主机C:22 主机A
 将SSH绑定本机 2222 端口，与主机A建立SSH通道，当主机A访问本地 2222 端口，就等于访问主机
 B的 2222 端口，主机B的 2222 端口把数据转发到主机C的 22 端口。
-应用常见 2 ：公司有一台内网服务器，还有一台云主机不能SSH直接连接这台公司内网服务器，但内
-网服务器可以SSH连接云主机
-在公司内网服务器执行：
+应用常见 2 ：公司有一台内网服务器，还有一台云主机不能SSH直接连接这台公司内网服务器，但内网服务器可以SSH连接云主机在公司内网服务器执行：
 # ssh -R 2222 :localhost:22 云主机
-将云主机上的 2222 端口数据转发到内网服务器SSH Client上，SSH Client解密收到的数据并转发
-到监听的 22 端口上，最后再将返回的数据原路返回。
+将云主机上的 2222 端口数据转发到内网服务器SSH Client上，SSH Client解密收到的数据并转发到监听的 22 端口上，最后再将返回的数据原路返回。
+```
+
 3 ）动态端口转发（不限定端口，全权代理）
+
 应用场景：翻墙访问国外网站
-如果是MAC系统直接在终端执行：ssh -D 2222 国外云主机
-如果是Windows系统可借助putty工具实现，在putty里面端口转发->本地端口转发属性里面添加
-一个本地端口，并勾选SOCKS4/5动态转发，连接即可。
-将 SSH 绑定本机 8080 端口，SSH 就会创建一个 SOCKS 代理服务，直接在浏览器上设置代理本机
-127.0.0.1的 8080 端口即可，当浏览器访问国外网站时，本地代理把请求转发到国外云主机的SSH
-Server，SSH解密并转发给指定的网站。
+
+如果是 MAC 系统直接在终端执行：ssh -D 2222 国外云主机
+
+如果是 Windows 系统可借助 putty 工具实现，在 putty 里面端口转发->本地端口转发属性里面添加一个本地端口，并勾选 SOCKS4/5 动态转发，连接即可。
+将 SSH 绑定本机 8080 端口，SSH 就会创建一个 SOCKS 代理服务，直接在浏览器上设置代理本机 127.0.0.1 的 8080 端口即可，当浏览器访问国外网站时，本地代理把请求转发到国外云主机的SSH Server，SSH 解密并转发给指定的网站。
 
 注意：再Linux终端执行ssh绑定命令后，默认会进入一个新的shell，只要这个shell不退出，此
 端口转发就一直有效。如果要想放到后台执行就加-Nf两个选项，-N是不执行命令，-f后台执行，
@@ -6946,149 +6995,92 @@ Server，SSH解密并转发给指定的网站。
 
 参考资料：https://www.ibm.com/developerworks/cn/linux/l-cn-sshforward/
 
-### 11.57 iptables
+## 11.57 iptables
 
-##### 常见几种类型防火墙？
+常见几种类型防火墙？
 
-##### 包过滤防火墙：包过滤是IP层实现，包过滤根据数据包的源IP、目的IP、协议类型
+包过滤防火墙：包过滤是IP层实现，包过滤根据数据包的源IP、目的IP、协议类型（TCP/UDP/ICMP）、源端口、目的端口等包头信息及数据包传输方向灯信息来判断是否允许数据包通过。
 
-##### （TCP/UDP/ICMP）、源端口、目的端口等包头信息及数据包传输方向灯信息来判断是否允许数据包
+应用层防火墙：也称为应用层代理防火墙，基于应用层协议的信息流检测，可以拦截某应用程序的所有封包，提取包内容进行分析。有效防止SQL注入或者XSS（跨站脚本攻击）之类的恶意代码。
 
-##### 通过。
+状态检测防火墙：结合包过滤和应用层防火墙优点，基于连接状态检测机制，将属于同一连接的所有包作为一个整体的数据流看待，构成连接状态表（通信信息，应用程序信息等），通过规则表与状态表共同配合，对表中的各个连接状态判断。
 
-##### 应用层防火墙：也称为应用层代理防火墙，基于应用层协议的信息流检测，可以拦截某应用程序的
-
-##### 所有封包，提取包内容进行分析。有效防止SQL注入或者XSS（跨站脚本攻击）之类的恶意代码。
-
-##### 状态检测防火墙：结合包过滤和应用层防火墙优点，基于连接状态检测机制，将属于同一连接的所
-
-##### 有包作为一个整体的数据流看待，构成连接状态表（通信信息，应用程序信息等），通过规则表与
-
-##### 状态表共同配合，对表中的各个连接状态判断。
-
-iptables是Linux下的配置防火墙的工具，用于配置Linux内核集成的IP信息包过滤系统，使增
+iptables 是 Linux 下的配置防火墙的工具，用于配置 Linux 内核集成的 IP 信息包过滤系统，使增
 删改查信息包过滤表中的规则更加简单。
-iptables分为四表五链，表是链的容器，链是规则的容器，规则指定动作。
-四表：
 
-```
-filter 用于包过滤
-```
+iptables 分为四表五链，表是链的容器，链是规则的容器，规则指定动作。
 
-```
-nat 网络地址转发
-```
-```
-mangle 对特定数据包修改
-```
-```
-raw 不做数据包链接跟踪
-```
-五链：
+**四表：**
 
-```
-INPUT 本机数据包入口
-```
-```
-OUTPUT 本机数据包出口
-```
-```
-FORWARD 经过本机转发的数据包
-```
-```
-PREROUTING 防火墙之前，修改目的地址（DNAT）
-```
-```
-POSTROUTING 防火墙之后，修改源地址（SNAT）
-```
-表中的链：
+- filter 用于包过滤
+- nat 网络地址转发
+- mangle 对特定数据包修改
+- raw 不做数据包链接跟踪
 
-```
-表 链
-```
-```
-filter INPUT、OUTPUT和FORWARD
-```
-```
-nat PREROUTING、POSTROUTING和OUTPUT
-```
-```
-mangle PREROUTING、POSTROUTING、INPUT、OUTPUT和FORWARD
-```
-```
-raw PREROUTING和OUTPUT
-```
+**五链：**
+
+- INPUT 本机数据包入口
+- OUTPUT 本机数据包出口
+- FORWARD 经过本机转发的数据包
+- PREROUTING 防火墙之前，修改目的地址（DNAT）
+- POSTROUTING 防火墙之后，修改源地址（SNAT）
+
+**表中的链：**
+
+|表 |链|
+|---|---|
+|filter |INPUT、OUTPUT和FORWARD|
+|nat |PREROUTING、POSTROUTING和OUTPUT|
+|mangle |PREROUTING、POSTROUTING、INPUT、OUTPUT和FORWARD|
+|raw |PREROUTING和OUTPUT|
+
 命令格式：iptables [-t table] 命令 [chain] 匹配条件 动作
 
-```
-命令 描述
-```
-- A，append 追加一条规则
-- I，insert 插入一条规则，默认链头，后跟编号，指定第几条
-- D，delete 删除一条规则
-- F，flush 清空规则
-- L，list 列出规则
-- P，policy 设置链缺省规则
-- m，module 模块，比如state、multiport
 
-##### 匹配条件 描述
+|命令| 描述|
+|---|---|
+|- A，append |追加一条规则|
+|- I，insert |插入一条规则，默认链头，后跟编号，指定第几条|
+|- D，delete |删除一条规则|
+|- F，flush |清空规则|
+|- L，list |列出规则|
+|- P，policy |设置链缺省规则|
+|- m，module |模块，比如state、multiport|
 
+|匹配条件 |描述|
+|---|---|
+|- i |入口网卡|
+|- o |出口网卡|
+|- s |源地址|
+|- d |目的地址|
+|- p |协议类型|
+|--sport |源端口|
+|--dport |目的端口|
 
-- i 入口网卡
-- o 出口网卡
-- s 源地址
-- d 目的地址
-- p 协议类型
+|动作 |描述|
+|---|---|
+|ACCEPT |允许数据包通过|
+|DROP |丢弃数据包不做处理|
+|REJECT |拒绝数据包，并返回报错信息|
+|SNAT |一般用于nat表的POSTROUTING链，进行源地址转换|
+|DNAT |一般用于nat表的PREROUTING链，进行目的地址转换|
+|MASQUERADE |动态源地址转换，动态IP时使用|
 
-```
---sport 源端口
-```
-```
---dport 目的端口
-```
-##### 动作 描述
+|模块 |描述|
+|---|---|
+|state |包状态，有四个：NEW、RELATED、ESTABLISHED和INVALID|
+|mac |源MAC地址|
+|limit |包速率限制|
+|multiport |多端口，以逗号分隔|
+|iprange |端口范围，以逗号分隔|
 
-##### ACCEPT 允许数据包通过
-
-##### DROP 丢弃数据包不做处理
-
-##### REJECT 拒绝数据包，并返回报错信息
-
-```
-SNAT 一般用于nat表的POSTROUTING链，进行源地址转换
-```
-```
-DNAT 一般用于nat表的PREROUTING链，进行目的地址转换
-```
-```
-MASQUERADE 动态源地址转换，动态IP时使用
-```
-##### 模块 描述
-
-```
-state 包状态，有四个：NEW、RELATED、ESTABLISHED和INVALID
-```
-```
-mac 源MAC地址
-```
-```
-limit 包速率限制
-```
-```
-multiport 多端口，以逗号分隔
-```
-```
-iprange 端口范围，以逗号分隔
-```
-示例：常用的规则配置方法
-
+**示例：常用的规则配置方法**
+```bash
 iptables - F # 清空表规则，默认filter表
 iptables - t nat - F # 清空nat表
 iptables - A INPUT - p tcp --dport 22 - j ACCEPT # 允许TCP的 22 端口访问
 iptables - I INPUT - p udp --dport 53 - j ACCEPT # 允许UDP的 53 端口访问，插入在第一条
 iptables - A INPUT - p tcp --dport 22:25 - j ACCEPT # 允许端口范围访问
-
-
 iptables - D INPUT - p tcp --dport 22:25 - j ACCEPT # 删除这条规则
 # 允许多个TCP端口访问
 iptables - A INPUT - p tcp - m multiport --dports 22,80,8080 - j ACCEPT
@@ -7118,25 +7110,23 @@ iptables - t nat - A POSTROUTING - s 192.168.1.0/24 - o pppo - j MASQUERADE
 # 设置INPUT链缺省操作丢弃所有数据包，只要不符合规则的数据包都丢弃。注意要在最后设置，
 以免把自己关在外面！
 iptables - P INPUT DROP
+```
 
-## 第十二章 Shell脚本编写实战
+# 第十二章 Shell脚本编写实战
 
-##### 注意事项
+**注意事项**
+- 1 ）开头加解释器：#!/bin/bash
+- 2 ）语法缩进，使用四个空格；多加注释说明。
+- 3 ）命名建议规则：变量名大写、局部变量小写，函数名小写，名字体现出实际作用。
+- 4 ）默认变量是全局的，在函数中变量local指定为局部变量，避免污染其他作用域。
+- 5 ）有两个命令能帮助我调试脚本：set -e 遇到执行非 0 时退出脚本，set -x 打印执行过程。
+- 6 ）写脚本一定先测试再到生产上。
 
-1 ）开头加解释器：#!/bin/bash
-2 ）语法缩进，使用四个空格；多加注释说明。
-3 ）命名建议规则：变量名大写、局部变量小写，函数名小写，名字体现出实际作用。
-4 ）默认变量是全局的，在函数中变量local指定为局部变量，避免污染其他作用域。
-5 ）有两个命令能帮助我调试脚本：set -e 遇到执行非 0 时退出脚本，set -x 打印执行过程。
-6 ）写脚本一定先测试再到生产上。
+## 12.1 获取随机字符串或数字
 
-### 12.1 获取随机字符串或数字
-
-##### 获取随机 8 位字符串：
-
-##### 方法 1 ：
-
-
+获取随机 8 位字符串：
+```bash
+方法 1 ：
 # echo $RANDOM |md5sum |cut - c 1 - 8
 471b94f2
 方法 2 ：
@@ -7145,9 +7135,10 @@ vg3BEg==
 方法 3 ：
 # cat /proc/sys/kernel/random/uuid |cut - c 1 - 8
 ed9e032c
+```
 
 获取随机 8 位数字：
-
+```bash
 方法 1 ：
 # echo $RANDOM |cksum |cut - c 1 - 8
 23648321
@@ -7157,164 +7148,173 @@ ed9e032c
 方法 3 ：
 # date +%N |cut - c 1 - 8
 69024815
+```
 
 cksum：打印CRC效验和统计字节
 
-### 12.2 定义一个颜色输出字符串函数
+## 12.2 定义一个颜色输出字符串函数
 
-##### 方法 1 ：
-
+```bash
+方法 1 ：
 function echo_color() {
-if [ $1 == "green" ]; then
-echo - e "\033[32;40m$2\033[0m"
-elif [ $1 == "red" ]; then
-echo - e "\033[31;40m$2\033[0m"
-fi
+  if [ $1 == "green" ]; then
+    echo - e "\033[32;40m$2\033[0m"
+  elif [ $1 == "red" ]; then
+    echo - e "\033[31;40m$2\033[0m"
+  fi
 }
 方法 2 ：
 function echo_color() {
-case $1 in
-green)
-echo - e "\033[32;40m$2\033[0m"
-;;
-red)
-echo - e "\033[31;40m$2\033[0m"
-;;
-*)
-echo "Example: echo_color red string"
-esac
+  case $1 in
+    green)
+      echo - e "\033[32;40m$2\033[0m"
+    ;;
+    red)
+      echo - e "\033[31;40m$2\033[0m"
+    ;;
+    *)
+      echo "Example: echo_color red string"
+  esac
 }
 使用方法：echo_color green "test"
+```
 
-function关键字定义一个函数，可加或不加。
+**function** 关键字定义一个函数，可加或不加。
 
+## 12.3 批量创建用户
 
-### 12.3 批量创建用户
-
+```bash
 #!/bin/bash
 DATE=$(date +%F_%T)
 USER_FILE=user.txt
 echo_color(){
-if [ $1 == "green" ]; then
-echo - e "\033[32;40m$2\033[0m"
-elif [ $1 == "red" ]; then
-echo - e "\033[31;40m$2\033[0m"
-fi
+  if [ $1 == "green" ]; then
+    echo - e "\033[32;40m$2\033[0m"
+  elif [ $1 == "red" ]; then
+    echo - e "\033[31;40m$2\033[0m"
+  fi
 }
 # 如果用户文件存在并且大小大于 0 就备份
 if [ - s $USER_FILE ]; then
-mv $USER_FILE ${USER_FILE}-${DATE}.bak
-echo_color green "$USER_FILE exist, rename ${USER_FILE}-${DATE}.bak"
+  mv $USER_FILE ${USER_FILE}-${DATE}.bak
+  echo_color green "$USER_FILE exist, rename ${USER_FILE}-${DATE}.bak"
 fi
 echo - e "User\tPassword" >> $USER_FILE
 echo "----------------" >> $USER_FILE
+
 for USER in user{1..10}; do
-if! id $USER &>/dev/null; then
-PASS=$(echo $RANDOM |md5sum |cut - c 1 - 8)
-useradd $USER
-echo $PASS |passwd --stdin $USER &>/dev/null
-echo - e "$USER\t$PASS" >> $USER_FILE
-echo "$USER User create successful."
-else
-echo_color red "$USER User already exists!"
-fi
+  if ! id $USER &>/dev/null; then
+    PASS=$(echo $RANDOM |md5sum |cut - c 1 - 8)
+    useradd $USER
+    echo $PASS |passwd --stdin $USER &>/dev/null
+    echo - e "$USER\t$PASS" >> $USER_FILE
+    echo "$USER User create successful."
+  else
+    echo_color red "$USER User already exists!"
+  fi
 done
+```
 
-### 12.4 检查软件包是否安装
+## 12.4 检查软件包是否安装
 
+```bash
 #!/bin/bash
 if rpm - q sysstat &>/dev/null; then
-echo "sysstat is already installed."
+  echo "sysstat is already installed."
 else
-echo "sysstat is not installed!"
+  echo "sysstat is not installed!"
 fi
+```
 
-### 12.5 检查服务状态
+## 12.5 检查服务状态
 
+```bash
 #!/bin/bash
 PORT_C=$(ss - anu |grep - c 123)
 PS_C=$(ps - ef |grep ntpd |grep - vc grep)
-
-
 if [ $PORT_C - eq 0 - o $PS_C - eq 0 ]; then
-echo "内容" | mail - s "主题" dst@example.com
+  echo "内容" | mail - s "主题" dst@example.com
 fi
+```
 
-### 12.6 检查主机存活状态
+## 12.6 检查主机存活状态
 
 方法 1 ：将错误IP放到数组里面判断是否ping失败三次
-
+```bash
 #!/bin/bash
 IP_LIST="192.168.18.1 192.168.1.1 192.168.18.2"
 for IP in $IP_LIST; do
-NUM=1
-while [ $NUM - le 3 ]; do
-if ping - c 1 $IP > /dev/null; then
-echo "$IP Ping is successful."
-break
-else
-# echo "$IP Ping is failure $NUM"
-FAIL_COUNT[$NUM]=$IP
-let NUM++
-fi
+  NUM=1
+  while [ $NUM - le 3 ]; do
+    if ping - c 1 $IP > /dev/null; then
+      echo "$IP Ping is successful."
+      break
+    else
+    # echo "$IP Ping is failure $NUM"
+      FAIL_COUNT[$NUM]=$IP
+      let NUM++
+    fi
+  done
+  if [ ${#FAIL_COUNT[*]} - eq 3 ];then
+    echo "${FAIL_COUNT[1]} Ping is failure!"
+    unset FAIL_COUNT[*]
+  fi
 done
-if [ ${#FAIL_COUNT[*]} - eq 3 ];then
-echo "${FAIL_COUNT[1]} Ping is failure!"
-unset FAIL_COUNT[*]
-fi
-done
+```
 
 方法 2 ：将错误次数放到FAIL_COUNT变量里面判断是否ping失败三次
-
+```bash
 #!/bin/bash
 IP_LIST="192.168.18.1 192.168.1.1 192.168.18.2"
 for IP in $IP_LIST; do
-FAIL_COUNT=0
-for ((i=1;i<=3;i++)); do
-if ping - c 1 $IP >/dev/null; then
-echo "$IP Ping is successful."
-break
-else
-# echo "$IP Ping is failure $i"
-let FAIL_COUNT++
-fi
+  FAIL_COUNT=0
+  for ((i=1;i<=3;i++)); do
+    if ping - c 1 $IP >/dev/null; then
+      echo "$IP Ping is successful."
+      break
+    else
+    # echo "$IP Ping is failure $i"
+      let FAIL_COUNT++
+    fi
+  done
+  if [ $FAIL_COUNT - eq 3 ]; then
+    echo "$IP Ping is failure!"
+  fi
 done
-if [ $FAIL_COUNT - eq 3 ]; then
-echo "$IP Ping is failure!"
-fi
-done
+```
 
 方法 3 ：利用for循环将ping通就跳出循环继续，如果不跳出就会走到打印ping失败
 
-
+```bash
 #!/bin/bash
 ping_success_status() {
-if ping - c 1 $IP >/dev/null; then
-echo "$IP Ping is successful."
-continue
-fi
+  if ping - c 1 $IP >/dev/null; then
+    echo "$IP Ping is successful."
+    continue
+  fi
 }
 IP_LIST="192.168.18.1 192.168.1.1 192.168.18.2"
 for IP in $IP_LIST; do
-ping_success_status
-ping_success_status
-ping_success_status
-echo "$IP Ping is failure!"
+  ping_success_status
+  ping_success_status
+  ping_success_status
+  echo "$IP Ping is failure!"
 done
+```
 
-### 12.7 监控CPU、内存和硬盘利用率
+## 12.7 监控CPU、内存和硬盘利用率
 
-##### 1 ）CPU
+**1 ）CPU**
 
 借助vmstat工具来分析CPU统计信息。
-
+```bash
 #!/bin/bash
 DATE=$(date +%F" "%H:%M)
 IP=$(ifconfig eth0 |awk - F '[ :]+' '/inet addr/{print $4}') # 只支持CentOS6
 MAIL="example@mail.com"
-if! which vmstat &>/dev/null; then
-echo "vmstat command no found, Please install procps package."
-exit 1
+if ! which vmstat &>/dev/null; then
+  echo "vmstat command no found, Please install procps package."
+  exit 1
 fi
 US=$(vmstat |awk 'NR==3{print $13}')
 SY=$(vmstat |awk 'NR==3{print $14}')
@@ -7322,37 +7322,35 @@ IDLE=$(vmstat |awk 'NR==3{print $15}')
 WAIT=$(vmstat |awk 'NR==3{print $16}')
 USE=$(($US+$SY))
 if [ $USE - ge 50 ]; then
-echo "
-Date: $DATE
-Host: $IP
-Problem: CPU utilization $USE
-" | mail - s "CPU Monitor" $MAIL
+  echo "
+  Date: $DATE
+  Host: $IP
+  Problem: CPU utilization $USE
+  " | mail - s "CPU Monitor" $MAIL
 fi
+```
 
-2 ）内存
-
+**2 ）内存**
+```bash
 #!/bin/bash
 DATE=$(date +%F" "%H:%M)
 IP=$(ifconfig eth0 |awk - F '[ :]+' '/inet addr/{print $4}')
 MAIL="example@mail.com"
 TOTAL=$(free - m |awk '/Mem/{print $2}')
 USE=$(free - m |awk '/Mem/{print $3-$6-$7}')
-
-
-##### FREE=$(($TOTAL-$USE))
-
-##### # 内存小于1G发送报警邮件
-
+FREE=$(($TOTAL-$USE))
+# 内存小于1G发送报警邮件
 if [ $FREE - lt 1024 ]; then
-echo "
-Date: $DATE
-Host: $IP
-Problem: Total=$TOTAL,Use=$USE,Free=$FREE
-" | mail - s "Memory Monitor" $MAIL
+  echo "
+  Date: $DATE
+  Host: $IP
+  Problem: Total=$TOTAL,Use=$USE,Free=$FREE
+  " | mail - s "Memory Monitor" $MAIL
 fi
+```
 
-3 ）硬盘
-
+**3 ）硬盘**
+```bash
 #!/bin/bash
 DATE=$(date +%F" "%H:%M)
 IP=$(ifconfig eth0 |awk - F '[ :]+' '/inet addr/{print $4}')
@@ -7360,387 +7358,391 @@ MAIL="example@mail.com"
 TOTAL=$(fdisk - l |awk - F'[: ]+' 'BEGIN{OFS="="}/^Disk \/dev/{printf "%s=%sG,",$2,$3}')
 PART_USE=$(df - h |awk 'BEGIN{OFS="="}/^\/dev/{print $1,int($5),$6}')
 for i in $PART_USE; do
-PART=$(echo $i |cut - d"=" - f1)
-USE=$(echo $i |cut - d"=" - f2)
-MOUNT=$(echo $i |cut - d"=" - f3)
-if [ $USE - gt 80 ]; then
-echo "
-Date: $DATE
-Host: $IP
-Total: $TOTAL
-Problem: $PART=$USE($MOUNT)
-" | mail - s "Disk Monitor" $MAIL
-fi
+  PART=$(echo $i |cut - d"=" - f1)
+  USE=$(echo $i |cut - d"=" - f2)
+  MOUNT=$(echo $i |cut - d"=" - f3)
+  if [ $USE - gt 80 ]; then
+    echo "
+    Date: $DATE
+    Host: $IP
+    Total: $TOTAL
+    Problem: $PART=$USE($MOUNT)
+    " | mail - s "Disk Monitor" $MAIL
+  fi
 done
+```
 
-### 12.8 批量主机磁盘利用率监控
+## 12.8 批量主机磁盘利用率监控
 
-##### 前提监控端和被监控端SSH免交互登录或者密钥登录。
+前提监控端和被监控端SSH免交互登录或者密钥登录。
 
 写一个配置文件保存被监控主机SSH连接信息，文件内容格式：IP User Port
-
+```bash
 #!/bin/bash
 HOST_INFO=host.info
 for IP in $(awk '/^[^#]/{print $1}' $HOST_INFO); do
-USER=$(awk - v ip=$IP 'ip==$1{print $2}' $HOST_INFO)
-PORT=$(awk - v ip=$IP 'ip==$1{print $3}' $HOST_INFO)
-TMP_FILE=/tmp/disk.tmp
-ssh - p $PORT $USER@$IP 'df - h' > $TMP_FILE
-USE_RATE_LIST=$( awk 'BEGIN{OFS="="}/^\/dev/{print $1,int($5)}' $TMP_FILE)
-for USE_RATE in $USE_RATE_LIST; do
-PART_NAME=${USE_RATE%=*}
-USE_RATE=${USE_RATE#*=}
-if [ $USE_RATE - ge 80 ]; then
-
-
-echo "Warning: $PART_NAME Partition usage $USE_RATE%!"
-fi
+  USER=$(awk - v ip=$IP 'ip==$1{print $2}' $HOST_INFO)
+  PORT=$(awk - v ip=$IP 'ip==$1{print $3}' $HOST_INFO)
+  TMP_FILE=/tmp/disk.tmp
+  ssh - p $PORT $USER@$IP 'df - h' > $TMP_FILE
+  USE_RATE_LIST=$( awk 'BEGIN{OFS="="}/^\/dev/{print $1,int($5)}' $TMP_FILE)
+  for USE_RATE in $USE_RATE_LIST; do
+    PART_NAME=${USE_RATE%=*}
+    USE_RATE=${USE_RATE#*=}
+    if [ $USE_RATE - ge 80 ]; then
+      echo "Warning: $PART_NAME Partition usage $USE_RATE%!"
+    fi
+  done
 done
-done
+```
 
-### 12.9 检查网站可用性
+## 12.9 检查网站可用性
 
-##### 1 ）检查URL可用性
+**1 ）检查URL可用性**
 
-##### 方法 1 ：
-
+```bash
+方法 1 ：
 check_url() {
 HTTP_CODE=$(curl - o /dev/null --connect-timeout 3 - s - w "%{http_code}" $1)
 if [ $HTTP_CODE - ne 200 ]; then
-echo "Warning: $1 Access failure!"
+  echo "Warning: $1 Access failure!"
 fi
 }
 方法 2 ：
 check_url() {
-if! wget - T 10 --tries=1 --spider $1 >/dev/null 2>&1; then
-#-T超时时间，--tries尝试 1 次，--spider爬虫模式
-echo "Warning: $1 Access failure!"
+if ! wget - T 10 --tries=1 --spider $1 >/dev/null 2>&1; then
+  #-T超时时间，--tries尝试 1 次，--spider爬虫模式
+  echo "Warning: $1 Access failure!"
 fi
 }
-使用方法：check_url [http://www.baidu.com](http://www.baidu.com)
+使用方法：check_url www.baidu.com
+```
 
-2 ）判断三次URL可用性
+**2 ）判断三次URL可用性**
+
 思路与上面检查主机存活状态一样。
-
+```bash
 方法 1 ：利用循环技巧，如果成功就跳出当前循环，否则执行到最后一行
 #!/bin/bash
 check_url() {
-HTTP_CODE=$(curl - o /dev/null --connect-timeout 3 - s - w "%{http_code}" $1)
-if [ $HTTP_CODE - eq 200 ]; then
-continue
-fi
+  HTTP_CODE=$(curl - o /dev/null --connect-timeout 3 - s - w "%{http_code}" $1)
+  if [ $HTTP_CODE - eq 200 ]; then
+    continue
+  fi
 }
-URL_LIST="www.baidu.com [http://www.agasgf.com"](http://www.agasgf.com")
+URL_LIST="www.baidu.com www.agasgf.com"
 for URL in $URL_LIST; do
-check_url $URL
-check_url $URL
-check_url $URL
-echo "Warning: $URL Access failure!"
+  check_url $URL
+  check_url $URL
+  check_url $URL
+  echo "Warning: $URL Access failure!"
 done
+
 方法 2 ：错误次数保存到变量
 #!/bin/bash
-URL_LIST="www.baidu.com [http://www.agasgf.com"](http://www.agasgf.com")
+URL_LIST="www.baidu.com www.agasgf.com"
 for URL in $URL_LIST; do
-FAIL_COUNT=0
-for ((i=1;i<=3;i++)); do
-
-
-HTTP_CODE=$(curl - o /dev/null --connect-timeout 3 - s - w "%{http_code}" $URL)
-if [ $HTTP_CODE - ne 200 ]; then
-let FAIL_COUNT++
-else
-break
-fi
+  FAIL_COUNT=0
+  for ((i=1;i<=3;i++)); do
+    HTTP_CODE=$(curl - o /dev/null --connect-timeout 3 - s - w "%{http_code}" $URL)
+    if [ $HTTP_CODE - ne 200 ]; then
+      let FAIL_COUNT++
+    else
+      break
+    fi
+  done
+  if [ $FAIL_COUNT - eq 3 ]; then
+    echo "Warning: $URL Access failure!"
+  fi
 done
-if [ $FAIL_COUNT - eq 3 ]; then
-echo "Warning: $URL Access failure!"
-fi
-done
+
 方法 3 ：错误次数保存到数组
 #!/bin/bash
-URL_LIST="www.baidu.com [http://www.agasgf.com"](http://www.agasgf.com")
+URL_LIST="www.baidu.com www.agasgf.com"
 for URL in $URL_LIST; do
-NUM=1
-while [ $NUM - le 3 ]; do
-HTTP_CODE=$(curl - o /dev/null --connect-timeout 3 - s - w "%{http_code}" $URL)
-if [ $HTTP_CODE - ne 200 ]; then
-FAIL_COUNT[$NUM]=$IP #创建数组，以$NUM下标，$IP元素
-let NUM++
-else
-break
-fi
+  NUM=1
+  while [ $NUM - le 3 ]; do
+    HTTP_CODE=$(curl - o /dev/null --connect-timeout 3 - s - w "%{http_code}" $URL)
+    if [ $HTTP_CODE - ne 200 ]; then
+      FAIL_COUNT[$NUM]=$IP #创建数组，以$NUM下标，$IP元素
+      let NUM++
+    else
+      break
+    fi
+  done
+  if [ ${#FAIL_COUNT[*]} - eq 3 ]; then
+    echo "Warning: $URL Access failure!"
+    unset FAIL_COUNT[*] #清空数组
+  fi
 done
-if [ ${#FAIL_COUNT[*]} - eq 3 ]; then
-echo "Warning: $URL Access failure!"
-unset FAIL_COUNT[*] #清空数组
-fi
-done
+```
 
-### 12.10 检查MySQL主从同步状态
+## 12.10 检查MySQL主从同步状态
 
+```bash
 #!/bin/bash
 USER=bak
 PASSWD=123 456
-IO_SQL_STATUS=$(mysql - u$USER - p$PASSWD - e 'show slave status\G' |awk - F:
-'/Slave_.*_Running/{gsub(": ",":");print $0}') #gsub去除冒号后面的空格
+IO_SQL_STATUS=$(mysql - u$USER - p$PASSWD - e 'show slave status\G' |awk - F:'/Slave_.*_Running/{gsub(": ",":");print $0}') #gsub去除冒号后面的空格
 for i in $IO_SQL_STATUS; do
-THREAD_STATUS_NAME=${i%:*}
-THREAD_STATUS=${i#*:}
-if [ "$THREAD_STATUS" != "Yes" ]; then
-echo "Error: MySQL Master-Slave $THREAD_STATUS_NAME status is
-$THREAD_STATUS!"
-fi
+  THREAD_STATUS_NAME=${i%:*}
+  THREAD_STATUS=${i#*:}
+  if [ "$THREAD_STATUS" != "Yes" ]; then
+    echo "Error: MySQL Master-Slave $THREAD_STATUS_NAME status is
+    $THREAD_STATUS!"
+  fi
 done
+```
 
+## 12. 11 屏蔽网站访问频繁的IP
 
-##### 12. 11 屏蔽网站访问频繁的IP
+**1 ）屏蔽每分钟访问超过 200 的IP**
 
-##### 1 ）屏蔽每分钟访问超过 200 的IP
-
+```bash
 方法 1 ：以Nginx日志作为测试
 DATE=$(date +%d/%b/%Y:%H:%M)
-ABNORMAL_IP=$(tail - n5000 access.log |grep $DATE |awk '{a[$1]++}END{for(i in
-a)if(a[i]>100)print i}')
-#先tail防止文件过大，读取慢，数字可调整每分钟最大的访问量。awk不能直接过滤日志，因为
-包含特殊字符。
+ABNORMAL_IP=$(tail - n5000 access.log |grep $DATE |awk '{a[$1]++}END{for(i in a)if(a[i]>100)print i}')
+#先tail防止文件过大，读取慢，数字可调整每分钟最大的访问量。awk不能直接过滤日志，因为包含特殊字符。
 for IP in $ABNORMAL_IP; do
-if [ $(iptables - vnL |grep - c "$IP") - eq 0 ]; then
-iptables - I INPUT - s $IP - j DROP
-fi
+  if [ $(iptables - vnL |grep - c "$IP") - eq 0 ]; then
+    iptables - I INPUT - s $IP - j DROP
+  fi
 done
 方法 2 ：通过建立连接数
-ABNORMAL_IP=$(netstat - an |awk '$4~/:80$/ && $6~/ESTABLISHED/{gsub(/:[0-
-9]+/,"",$5);{a[$5]++}}END{for(i in a)if(a[i]>100)print i}')
+ABNORMAL_IP=$(netstat - an |awk '$4~/:80$/ && $6~/ESTABLISHED/{gsub(/:[0-9]+/,"",$5);{a[$5]++}}END{for(i in a)if(a[i]>100)print i}')
 #gsub是将第五列（客户端IP）的冒号和端口去掉
 for IP in $ABNORMAL_IP; do
-if [ $(iptables - vnL |grep - c "$IP") - eq 0 ]; then
-iptables - I INPUT - s $IP - j DROP
-fi
+  if [ $(iptables - vnL |grep - c "$IP") - eq 0 ]; then
+    iptables - I INPUT - s $IP - j DROP
+  fi
 done
+```
 
-2 ）屏蔽每分钟SSH暴力破解超过 10 次的IP
+**2 ）屏蔽每分钟SSH暴力破解超过 10 次的IP**
 
+```bash
 方法 1 ：通过lastb获取登录状态:
 DATE=$(date +"%a %b %e %H:%M") #星期月天时分 %e单数字时显示 7 ，而%d显示 07
 ABNORMAL_IP=$(lastb |grep "$DATE" |awk '{a[$3]++}END{for(i in a)if(a[i]>10)print i}')
 for IP in $ABNORMAL_IP; do
-if [ $(iptables - vnL |grep - c "$IP") - eq 0 ]; then
-iptables - I INPUT - s $IP - j DROP
-fi
+  if [ $(iptables - vnL |grep - c "$IP") - eq 0 ]; then
+    iptables - I INPUT - s $IP - j DROP
+  fi
 done
+
 方法 2 ：通过日志获取登录状态
 DATE=$(date +"%b %d %H")
-ABNORMAL_IP="$(tail - n10000 /var/log/auth.log |grep "$DATE" |awk '/Failed/{a[$(NF-
-3)]++}END{for(i in a)if(a[i]>5)print i}')"
+ABNORMAL_IP="$(tail - n10000 /var/log/auth.log |grep "$DATE" |awk '/Failed/{a[$(NF-3)]++}END{for(i in a)if(a[i]>5)print i}')"
 for IP in $ABNORMAL_IP; do
-if [ $(iptables - vnL |grep - c "$IP") - eq 0 ]; then
-iptables - A INPUT - s $IP - j DROP
-echo "$(date +"%F %T") - iptables - A INPUT - s $IP - j DROP" >>~/ssh-login-
-limit.log
-fi
+  if [ $(iptables - vnL |grep - c "$IP") - eq 0 ]; then
+    iptables - A INPUT - s $IP - j DROP
+    echo "$(date +"%F %T") - iptables - A INPUT - s $IP - j DROP" >>~/ssh-login-limit.log
+  fi
 done
+```
 
+## 12.12 判断输入是否为IP
 
-### 12.12 判断输入是否为IP
-
-##### 方法1:
-
+**方法1:**
+```bash
 function check_ip(){
-IP=$1
-VALID_CHECK=$(echo $IP|awk - F. '$1<=255&&$2<=255&&$3<=255&&$4<=255{print "yes"}')
-if echo $IP|grep - E "^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$">/dev/null;
-then
-if [ $VALID_CHECK == "yes" ]; then
-echo "$IP available."
-else
-echo "$IP not available!"
-fi
-else
-echo "Format error!"
-fi
+  IP=$1
+  VALID_CHECK=$(echo $IP|awk - F. '$1<=255&&$2<=255&&$3<=255&&$4<=255{print "yes"}')
+  if echo $IP|grep - E "^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$">/dev/null;then
+    if [ $VALID_CHECK == "yes" ]; then
+      echo "$IP available."
+    else
+      echo "$IP not available!"
+    fi
+  else
+    echo "Format error!"
+  fi
 }
 check_ip 192.168.1.1
 check_ip 256.1.1.1
+
 方法 2 ：
 function check_ip(){
 IP=$1
 if [[ $IP =~ ^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$ ]]; then
-FIELD1=$(echo $IP|cut - d. - f1)
-FIELD2=$(echo $IP|cut - d. - f2)
-FIELD3=$(echo $IP|cut - d. - f3)
-FIELD4=$(echo $IP|cut - d. - f4)
-if [ $FIELD1 - le 255 - a $FIELD2 - le 255 - a $FIELD3 - le 255 - a $FIELD4 - le
-255 ]; then
-echo "$IP available."
+  FIELD1=$(echo $IP|cut - d. - f1)
+  FIELD2=$(echo $IP|cut - d. - f2)
+  FIELD3=$(echo $IP|cut - d. - f3)
+  FIELD4=$(echo $IP|cut - d. - f4)
+  if [ $FIELD1 - le 255 - a $FIELD2 - le 255 - a $FIELD3 - le 255 - a $FIELD4 - le 255 ]; then
+    echo "$IP available."
+  else
+    echo "$IP not available!"
+  fi
 else
-echo "$IP not available!"
-fi
-else
-echo "Format error!"
+    echo "Format error!"
 fi
 }
 check_ip 192.168.1.1
 check_ip 256.1.1.1
+```
 
 增加版：加个死循环，如果IP可用就退出，不可用提示继续输入，并使用awk判断
 
+```bash
 function check_ip(){
 local IP=$1
 VALID_CHECK=$(echo $IP|awk - F. '$1<=255&&$2<=255&&$3<=255&&$4<=255{print "yes"}')
-if echo $IP|grep - E "^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[ 0 - 9]{1,3}$" >/dev/null;
-then
-if [ $VALID_CHECK == "yes" ]; then
-return 0
-
-
+if echo $IP|grep - E "^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[ 0 - 9]{1,3}$" >/dev/null;then
+  if [ $VALID_CHECK == "yes" ]; then
+    return 0
+  else
+    echo "$IP not available!"
+    return 1
+  fi
 else
-echo "$IP not available!"
-return 1
-fi
-else
-echo "Format error! Please input again."
-return 1
+  echo "Format error! Please input again."
+  return 1
 fi
 }
 while true; do
-read - p "Please enter IP: " IP
-check_ip $IP
-[ $? - eq 0 ] && break || continue
+  read - p "Please enter IP: " IP
+  check_ip $IP
+  [ $? - eq 0 ] && break || continue
 done
+```
 
-### 12.13 判断输入是否为数字
+## 12.13 判断输入是否为数字
 
-##### 方法 1 ：
-
+```bash
+方法 1 ：
 if [[ $1 =~ ^[0-9]+$ ]]; then
-echo "Is Number."
+  echo "Is Number."
 else
-echo "No Number."
+  echo "No Number."
 fi
+
 方法 2 ：
 if [ $1 - gt 0 ] 2>/dev/null; then
-echo "Is Number."
+  echo "Is Number."
 else
-echo "No Number."
+  echo "No Number."
 fi
+
 方法 3 ：
 echo $1 |awk '{print $0~/^[0-9]+$/?"Is Number.":"No Number."}' #三目运算符
+```
 
-### 12.14 找出包含关键字的文件
+## 12.14 找出包含关键字的文件
 
-##### DIR=$1
-
-##### KEY=$2
+```bash
+DIR=$1
+KEY=$2
 
 for FILE in $(find $DIR - type f); do
-if grep $KEY $FILE &>/dev/null; then
-echo "--> $FILE"
-fi
+  if grep $KEY $FILE &>/dev/null; then
+    echo "--> $FILE"
+  fi
 done
+```
 
+## 12.15 监控目录，将新创建的文件名追加到日志中
 
-### 12.15 监控目录，将新创建的文件名追加到日志中
-
-需安装inotify-tools软件包。
-
+需安装 `inotify-tools` 软件包。
+```bash
 #!/bin/bash
 MON_DIR=/opt
 inotifywait - mq --format %f - e create $MON_DIR |\
 while read files; do
-echo $files >> test.log
+  echo $files >> test.log
 done
+```
 
-### 12.16 多个网卡选择
+## 12.16 多个网卡选择
 
+```bash
 function local_nic() {
-local NUM ARRAY_LENGTH
-NUM=0
-for NIC_NAME in $(ls /sys/class/net|grep - vE "lo|docker0"); do
-NIC_IP=$(ifconfig $NIC_NAME |awk - F'[: ]+' '/inet addr/{print $4}')
-if [ - n "$NIC_IP" ]; then
-NIC_IP_ARRAY[$NUM]="$NIC_NAME:$NIC_IP" #将网卡名和对应IP放到数
-组
-let NUM++
-fi
-done
-ARRAY_LENGTH=${#NIC_IP_ARRAY[*]}
-if [ $ARRAY_LENGTH - eq 1 ]; then #如果数组里面只有一条记录说明就一个网卡
-NIC=${NIC_IP_ARRAY[0]%:*}
-return 0
-elif [ $ARRAY_LENGTH - eq 0 ]; then #如果没有记录说明没有网卡
-echo "No available network card!"
-exit 1
-else
-#如果有多条记录则提醒输入选择
-for NIC in ${NIC_IP_ARRAY[*]}; do
-echo $NIC
-done
-while true; do
-read - p "Please enter local use to network card name: "
-INPUT_NIC_NAME
-COUNT=0
-for NIC in ${NIC_IP_ARRAY[*]}; do
-NIC_NAME=${NIC%:*}
-if [ $NIC_NAME == "$INPUT_NIC_NAME" ]; then
-NIC=${NIC_IP_ARRAY[$COUNT]%:*}
-return 0
-else
-COUNT+=1
-
-
-fi
-done
-echo "Not match! Please input again."
-done
-fi
+  local NUM ARRAY_LENGTH
+  NUM=0
+  for NIC_NAME in $(ls /sys/class/net|grep - vE "lo|docker0"); do
+    NIC_IP=$(ifconfig $NIC_NAME |awk - F'[: ]+' '/inet addr/{print $4}')
+    if [ - n "$NIC_IP" ]; then
+      NIC_IP_ARRAY[$NUM]="$NIC_NAME:$NIC_IP" #将网卡名和对应IP放到数组
+      let NUM++
+    fi
+  done
+  ARRAY_LENGTH=${#NIC_IP_ARRAY[*]}
+  if [ $ARRAY_LENGTH - eq 1 ]; then #如果数组里面只有一条记录说明就一个网卡
+    NIC=${NIC_IP_ARRAY[0]%:*}
+    return 0
+  elif [ $ARRAY_LENGTH - eq 0 ]; then #如果没有记录说明没有网卡
+    echo "No available network card!"
+    exit 1
+  else
+  #如果有多条记录则提醒输入选择
+    for NIC in ${NIC_IP_ARRAY[*]}; do
+      echo $NIC
+    done
+    while true; do
+      read - p "Please enter local use to network card name: " INPUT_NIC_NAME
+      COUNT=0
+      for NIC in ${NIC_IP_ARRAY[*]}; do
+        NIC_NAME=${NIC%:*}
+        if [ $NIC_NAME == "$INPUT_NIC_NAME" ]; then
+          NIC=${NIC_IP_ARRAY[$COUNT]%:*}
+          return 0
+        else
+          COUNT+=1
+        fi
+      done
+    echo "Not match! Please input again."
+    done
+  fi
 }
 local_nic
+```
 
 如果有只有一个网卡就不选择。
 
-### 12.17 查看网卡实时流量
+## 12.17 查看网卡实时流量
 
+```bash
 #!/bin/bash
 # Description: Only CentOS6
 traffic_unit_conv() {
-local traffic=$1
-if [ $traffic - gt 1024000 ]; then
-printf "%.1f%s" "$(($traffic/1024/1024))" "MB/s"
-elif [ $traffic - lt 1024000 ]; then
-printf "%.1f%s" "$(($traffic/1024))" "KB/s"
-fi
+  local traffic=$1
+  if [ $traffic - gt 1024000 ]; then
+    printf "%.1f%s" "$(($traffic/1024/1024))" "MB/s"
+  elif [ $traffic - lt 1024000 ]; then
+    printf "%.1f%s" "$(($traffic/1024))" "KB/s"
+  fi
 }
 NIC=$1
 echo - e " In ------ Out"
 while true; do
-OLD_IN=$(awk - F'[: ]+' '$0~"'$NIC'"{print $3}' /proc/net/dev)
-OLD_OUT=$(awk - F'[: ]+' '$0~"'$NIC'"{print $11}' /proc/net/dev)
-sleep 1
-NEW_IN=$(awk - F'[: ]+' '$0~"'$NIC'"{print $3}' /proc/net/dev)
-NEW_OUT=$(awk - F'[: ]+' '$0~"'$NIC'"{print $11}' /proc/net/dev)
-IN=$(($NEW_IN-$OLD_IN))
-OUT=$(($NEW_OUT-$OLD_OUT))
-echo "$(traffic_unit_conv $IN) $(traffic_unit_conv $OUT)"
-sleep 1
+  OLD_IN=$(awk - F'[: ]+' '$0~"'$NIC'"{print $3}' /proc/net/dev)
+  OLD_OUT=$(awk - F'[: ]+' '$0~"'$NIC'"{print $11}' /proc/net/dev)
+  sleep 1
+  NEW_IN=$(awk - F'[: ]+' '$0~"'$NIC'"{print $3}' /proc/net/dev)
+  NEW_OUT=$(awk - F'[: ]+' '$0~"'$NIC'"{print $11}' /proc/net/dev)
+  IN=$(($NEW_IN-$OLD_IN))
+  OUT=$(($NEW_OUT-$OLD_OUT))
+  echo "$(traffic_unit_conv $IN) $(traffic_unit_conv $OUT)"
+  sleep 1
 done
 
 # 也可以通过ficonfig命令获取收发流量
 while true; do
-OLD_IN=$(ifconfig $NIC |awk - F'[: ]+' '/bytes/{print $4}')
-OLD_OUT=$(ifconfig $NIC |awk - F'[: ]+' '/bytes/{print $9}')
-sleep 1
-NEW_IN=$(ifconfig $NIC |awk - F'[: ]+' '/bytes/{print $4}')
-NEW_OUT=$(ifconfig $NIC |awk - F'[: ]+' '/bytes/{print $9}')
-IN=$(($NEW_IN-$OLD_IN))
-OUT=$(($NEW_OUT-$OLD_OUT))
-echo "$(traffic_unit_conv $IN) $(traffic_unit_conv $OUT)"
-sleep 1
-
-
+  OLD_IN=$(ifconfig $NIC |awk - F'[: ]+' '/bytes/{print $4}')
+  OLD_OUT=$(ifconfig $NIC |awk - F'[: ]+' '/bytes/{print $9}')
+  sleep 1
+  NEW_IN=$(ifconfig $NIC |awk - F'[: ]+' '/bytes/{print $4}')
+  NEW_OUT=$(ifconfig $NIC |awk - F'[: ]+' '/bytes/{print $9}')
+  IN=$(($NEW_IN-$OLD_IN))
+  OUT=$(($NEW_OUT-$OLD_OUT))
+  echo "$(traffic_unit_conv $IN) $(traffic_unit_conv $OUT)"
+  sleep 1
 done
+```
 
-### 12.18 MySQL数据库备份
+## 12.18 MySQL数据库备份
 
+```bash
 #!/bin/bash
 DATE=$(date +%F_%H-%M-%S)
 HOST=192.168.1.120
@@ -7752,22 +7754,22 @@ BACKUP_DIR=/data/db_backup
 SQL_FILE=${DB}_full_$DATE.sql
 BAK_FILE=${DB}_full_$DATE.zip
 cd $BACKUP_DIR
-if mysqldump - h$HOST - u$USER - p$PASS --single-transaction --routines --triggers - B
-$DB > $SQL_FILE; then
-zip $BAK_FILE $SQL_FILE && rm - f $SQL_FILE
-if [! - s $BAK_FILE ]; then
-echo "$DATE 内容" | mail - s "主题" $MAIL
-fi
+if mysqldump - h$HOST - u$USER - p$PASS --single-transaction --routines --triggers - B $DB > $SQL_FILE; then
+  zip $BAK_FILE $SQL_FILE && rm - f $SQL_FILE
+  if [! - s $BAK_FILE ]; then
+    echo "$DATE 内容" | mail - s "主题" $MAIL
+  fi
 else
-echo "$DATE 内容" | mail - s "主题" $MAIL
+  echo "$DATE 内容" | mail - s "主题" $MAIL
 fi
 find $BACKUP_DIR - name '*.zip' - ctime +14 - exec rm {} \;
+```
 
-### 12.19 Nginx启动脚本
+## 12.19 Nginx启动脚本
 
+```bash
 #!/bin/bash
 # Description: Only support RedHat system
-
 . /etc/init.d/functions
 
 WORD_DIR=/data/project/nginx1.10
@@ -7777,136 +7779,131 @@ NAME=nginx
 
 PID=$(awk - F'[; ]+' '/^[^#]/{if($0~/pid;/)print $2}' $CONF)
 if [ - z "$PID" ]; then
-PID=$WORD_DIR/logs/nginx.pid
+  PID=$WORD_DIR/logs/nginx.pid
 else
-PID=$WORD_DIR/$PID
+  PID=$WORD_DIR/$PID
 fi
 
 stop() {
-
-
-$DAEMON - s stop
-sleep 1
-[! - f $PID ] && action "* Stopping $NAME" /bin/true || action "* Stopping
-$NAME" /bin/false
+  $DAEMON - s stop
+  sleep 1
+  [! - f $PID ] && action "* Stopping $NAME" /bin/true || action "* Stopping $NAME" /bin/false
 }
 start() {
-$DAEMON
-sleep 1
-[ - f $PID ] && action "* Starting $NAME" /bin/true || action "* Starting $NAME"
-/bin/false
+  $DAEMON
+  sleep 1
+  [ - f $PID ] && action "* Starting $NAME" /bin/true || action "* Starting $NAME" /bin/false
 }
 reload() {
-$DAEMON - s reload
+  $DAEMON - s reload
 }
 test_config() {
-$DAEMON - t
+  $DAEMON - t
 }
 
 case "$1" in
-start)
-if [! - f $PID ]; then
-start
-else
-echo "$NAME is running..."
-exit 0
-fi
-;;
-stop)
-if [ - f $PID ]; then
-stop
-else
-echo "$NAME not running!"
-exit 0
-fi
-;;
-restart)
-if [! - f $PID ]; then
-echo "$NAME not running!"
-start
-else
-stop
-start
-fi
-;;
-reload)
-reload
-;;
-testconfig)
-
-
-test_config
-;;
-status)
-[ - f $PID ] && echo "$NAME is running..." || echo "$NAME not running!"
-;;
-*)
-echo "Usage: $ 0 {start|stop|restart|reload|testconfig|status}"
-exit 3
-;;
+  start)
+  if [! - f $PID ]; then
+    start
+  else
+    echo "$NAME is running..."
+    exit 0
+  fi
+  ;;
+  stop)
+  if [ - f $PID ]; then
+    stop
+  else
+    echo "$NAME not running!"
+    exit 0
+  fi
+  ;;
+  restart)
+  if [! - f $PID ]; then
+    echo "$NAME not running!"
+    start
+  else
+    stop
+    start
+  fi
+  ;;
+  reload)
+  reload
+  ;;
+  testconfig)
+  test_config
+  ;;
+  status)
+  [ - f $PID ] && echo "$NAME is running..." || echo "$NAME not running!"
+  ;;
+  *)
+  echo "Usage: $ 0 {start|stop|restart|reload|testconfig|status}"
+  exit 3
+  ;;
 esac
+```
 
-### 12.20 选择SSH连接主机
+## 12.20 选择 SSH 连接主机
 
 写一个配置文件保存被监控主机SSH连接信息，文件内容格式：主机名 IP User Port
 
+```bash
 #!/bin/bash
 PS3="Please input number: "
 HOST_FILE=host
 while true; do
-select NAME in $(awk '{print $1}' $HOST_FILE) quit; do
-[ ${NAME:=empty} == "quit" ] && exit 0
-IP=$(awk - v NAME=${NAME} '$1==NAME{print $2}' $HOST_FILE)
-USER=$(awk - v NAME=${NAME} '$1==NAME{print $3}' $HOST_FILE)
-PORT=$(awk - v NAME=${NAME} '$1==NAME{print $4}' $HOST_FILE)
-if [ $IP ]; then
-echo "Name: $NAME, IP: $IP"
-ssh - o StrictHostKeyChecking=no - p $PORT - i id_rsa $USER@$IP # 密钥登录
-break
-else
-echo "Input error, Please enter again!"
-break
-fi
+  select NAME in $(awk '{print $1}' $HOST_FILE) quit; do
+    [ ${NAME:=empty} == "quit" ] && exit 0
+    IP=$(awk - v NAME=${NAME} '$1==NAME{print $2}' $HOST_FILE)
+    USER=$(awk - v NAME=${NAME} '$1==NAME{print $3}' $HOST_FILE)
+    PORT=$(awk - v NAME=${NAME} '$1==NAME{print $4}' $HOST_FILE)
+    if [ $IP ]; then
+      echo "Name: $NAME, IP: $IP"
+      ssh - o StrictHostKeyChecking=no - p $PORT - i id_rsa $USER@$IP # 密钥登录
+      break
+    else
+      echo "Input error, Please enter again!"
+      break
+    fi
+  done
 done
-done
+```
 
-### 12.21 FTP下载文件
+## 12.21 FTP 下载文件
 
+```bash
 #!/bin/bash
 if [ $# - ne 1 ]; then
-echo "Usage: $0 filename"
+  echo "Usage: $0 filename"
 fi
 dir=$(dirname $1)
 file=$(basename $1)
 ftp - n - v << EOF # - n 自动登录
 open 192.168.1.10
 user admin adminpass
-
-
 binary # 设置ftp传输模式为二进制，避免MD5值不同或.tar.gz压缩包格式错误
 cd $dir
 get "$file"
 EOF
+```
 
-### 12.22 输入五个 100 数之内的字符，统计和、最小和最大
+## 12.22 输入五个 100 数之内的字符，统计和、最小和最大
 
-##### COUNT=1
-
-##### SUM=0
-
-##### MIN=0
-
-##### MAX=100
+```bash
+COUNT=1
+SUM=0
+MIN=0
+MAX=100
 
 while [ $COUNT - le 5 ]; do
-read - p "请输入 1 - 10 个整数：" INT
-if [[! $INT =~ ^[0-9]+$ ]]; then
-echo "输入必须是整数！"
-exit 1
-elif [[ $INT - gt 100 ]]; then
-echo "输入必须是 100 以内！"
-exit 1
-fi
+  read - p "请输入 1 - 10 个整数：" INT
+  if [[! $INT =~ ^[0-9]+$ ]]; then
+    echo "输入必须是整数！"
+    exit 1
+  elif [[ $INT - gt 100 ]]; then
+    echo "输入必须是 100 以内！"
+    exit 1
+  fi
 SUM=$(($SUM+$INT))
 [ $MIN - lt $INT ] && MIN=$INT
 [ $MAX - gt $INT ] && MAX=$INT
@@ -7915,105 +7912,113 @@ done
 echo "SUM: $SUM"
 echo "MIN: $MIN"
 echo "MAX: $MAX"
+```
 
-### 12.23 将结果分别赋值给变量
+## 12.23 将结果分别赋值给变量
 
-##### 方法 1 ：
-
+```bash
+方法 1 ：
 for i in $(echo "4 5 6"); do
-eval a$i=$i
+  eval a$i=$i
 done
 echo $a4 $a5 $a6
+
 方法 2 ：将位置参数192.168.18.1{1,2}拆分为到每个变量
 num=0
 for i in $(eval echo $*);do #eval将{1,2}分解为 1 2
-let num+=1
-eval node${num}="$i"
+  let num+=1
+  eval node${num}="$i"
 done
 echo $node1 $node2 $node3
 # bash a.sh 192.168.18.1{1,2}
 192.168.18.11 192.168.18.12
 
-
-##### 方法 3 ：
-
+方法 3 ：
 arr=(4 5 6)
 INDEX1=$(echo ${arr[0]})
 INDEX2=$(echo ${arr[1]})
 INDEX3=$(echo ${arr[2]})
+```
 
-##### 12. 24 批量修改文件名
+## 12. 24 批量修改文件名
 
+```bash
 # touch article_{1..3}.html
 # ls
 article_1.html article_2.html article_3.html
+```
 
 现在想把article改为bbs：
 
+```bash
 方法 1 ：
 for file in $(ls *html); do
-mv $file bbs_${file#*_}
+  mv $file bbs_${file#*_}
 # mv $file $(echo $file |sed - r 's/.*(_.*)/bbs\1/')
 # mv $file $(echo $file |echo bbs_$(cut - d_ - f2)
 done
+
 方法 2 ：
 for file in $(find. - maxdepth 1 - name "*html"); do
-mv $file bbs_${file#*_}
+  mv $file bbs_${file#*_}
 done
+
 方法 3 ：
 # rename article bbs *.html
+```
 
-### 12.25 统计当前目录中以.html结尾的文件总大小
+## 12.25 统计当前目录中以 .html 结尾的文件总大小
 
-##### 方法 1 ：
-
+```bash
+方法 1 ：
 # find. - name "*.html" - maxdepth 1 - exec du - b {} \; |awk '{sum+=$1}END{print sum}'
+
 方法 2 ：
 for size in $(ls - l *.html |awk '{print $5}'); do
-sum=$(($sum+$size))
+  sum=$(($sum+$size))
 done
 echo $sum
 递归统计：
 # find. - name "*.html" - exec du - k {} \; |awk '{sum+=$1}END{print sum}'
+```
 
-### 12.26 扫描主机端口状态
+## 12.26 扫描主机端口状态
 
+```bash
 #!/bin/bash
 HOST=$1
 PORT="22 25 80 8080"
 for PORT in $PORT; do
-
-
-if echo &>/dev/null > /dev/tcp/$HOST/$PORT; then
-echo "$PORT open"
-else
-echo "$PORT close"
-fi
+  if echo &>/dev/null > /dev/tcp/$HOST/$PORT; then
+    echo "$PORT open"
+  else
+    echo "$PORT close"
+  fi
 done
+```
 
-### 12.27 Expect实现SSH免交互执行命令
+## 12.27 Expect 实现 SSH 免交互执行命令
 
-需要先安装expect工具。
+需要先安装`expect`工具。
 
 expect涉及用法说明：
 
-```
-命令 描述
-set 可以设置超时，也可以设置变量
-timeout 超时等待时间，默认10s
-spawn 执行一个命令
-```
-```
-expect "" 匹配输出的内容
-exp_continue 继续执行下面匹配
-\r 回车
-$argc 统计位置参数数量
-[lindex $argv 0] 位置参数
-puts 打印字符串，类似于echo
-expect{...} 输入多行记录
-```
-方法 1 ：EOF标准输出作为expect标准输入
+|命令| 描述|
+|---|---|
+|set |可以设置超时，也可以设置变量|
+|timeout |超时等待时间，默认10s|
+|spawn |执行一个命令|
+|expect "" |匹配输出的内容|
+|exp_continue |继续执行下面匹配|
+|\r |回车|
+|$argc |统计位置参数数量|
+|[lindex $argv 0] |位置参数|
+|puts |打印字符串，类似于echo|
+|expect{...} |输入多行记录|
 
+
+**方法 1 ：EOF 标准输出作为 expect 标准输入**
+```bash
 #!/bin/bash
 USER=root
 PASS=123.com
@@ -8029,142 +8034,155 @@ expect "$USER@*" {send "$1\r"}
 expect "$USER@*" {send "exit\r"}
 expect eof
 EOF
+```
 
-方法 2 ：
+**方法 2 ：**
 
-
+```bash
 #!/bin/bash
 USER=root
 PASS=123.com
 IP=192.168.1.120
 expect -c "
-spawn ssh $USER@$IP
-expect {
-\"(yes/no)\" {send \"yes\r\"; exp_continue}
-\"password:\" {send \"$PASS\r\"; exp_continue}
-\"$USER@*\" {send \"df -h\r exit\r\"; exp_continue}
-}"
+  spawn ssh $USER@$IP
+  expect {
+    \"(yes/no)\" {send \"yes\r\"; exp_continue}
+    \"password:\" {send \"$PASS\r\"; exp_continue}
+    \"$USER@*\" {send \"df -h\r exit\r\"; exp_continue}
+  }"
+```
 
-方法 3 ：将expect脚本独立出来
+**方法 3 ：将expect脚本独立出来**
+
 login.exp登录文件：
-
+```bash
 #!/usr/bin/expect
 set ip [lindex $argv 0]
 set user [lindex $argv 1]
 set passwd [lindex $argv 2]
 set cmd [lindex $argv 3]
 if { $argc != 4 } {
-puts "Usage: expect login.exp ip user passwd"
-exit 1
+  puts "Usage: expect login.exp ip user passwd"
+  exit 1
 }
 set timeout 30
 spawn ssh $user@$ip
 expect {
-"(yes/no)" {send "yes\r"; exp_continue}
-"password:" {send "$passwd\r"}
+  "(yes/no)" {send "yes\r"; exp_continue}
+  "password:" {send "$passwd\r"}
 }
 expect "$user@*" {send "$cmd\r"}
 expect "$user@*" {send "exit\r"}
 expect eof
+```
 
 执行命令脚本：
 
+```bash
 #!/bin/bash
 HOST_INFO=user_info
 for ip in $(awk '{print $1}' $HOST_INFO)
 do
-user=$(awk -v I="$ip" 'I==$1{print $2}' $HOST_INFO)
-pass=$(awk -v I="$ip" 'I==$1{print $3}' $HOST_INFO)
-expect login.exp $ip $user $pass $1
+  user=$(awk -v I="$ip" 'I==$1{print $2}' $HOST_INFO)
+  pass=$(awk -v I="$ip" 'I==$1{print $3}' $HOST_INFO)
+  expect login.exp $ip $user $pass $1
 done
+```
 
 SSH连接信息文件：
 
+```bash
 # cat user_info
 192.168.1.120 root 123 456
+```
 
-
-### 12.28 批量修改服务器用户密码
+## 12.28 批量修改服务器用户密码
 
 旧密码SSH主机信息old_info文件：
-
+```bash
 # ip user passwd port
 #--------------------------------------
 192.168.18.217 root 123456 22
 192.168.18.218 root 123456 22
+```
 
 修改密码脚本：
-
+```bash
 #!/bin/bash
 OLD_INFO=old_info
 NEW_INFO=new_info
 for IP in $(awk '/^[^#]/{print $1}' $OLD_INFO); do
-USER=$(awk -v I=$IP 'I==$1{print $2}' $OLD_INFO)
-PASS=$(awk -v I=$IP 'I==$1{print $3}' $OLD_INFO)
-PORT=$(awk -v I=$IP 'I==$1{print $4}' $OLD_INFO)
-NEW_PASS=$(mkpasswd -l 8)
-echo "$IP $USER $NEW_PASS $PORT" >> $NEW_INFO
-expect -c "
-spawn ssh -p$PORT $USER@$IP
-set timeout 2
-expect {
-\"(yes/no)\" {send \"yes\r\";exp_continue}
-\"password:\" {send \"$PASS\r\";exp_continue}
-\"$USER@*\" {send \"echo \'$NEW_PASS\' |passwd --stdin $USER\r
-exit\r\";exp_continue}
-}"
+  USER=$(awk -v I=$IP 'I==$1{print $2}' $OLD_INFO)
+  PASS=$(awk -v I=$IP 'I==$1{print $3}' $OLD_INFO)
+  PORT=$(awk -v I=$IP 'I==$1{print $4}' $OLD_INFO)
+  NEW_PASS=$(mkpasswd -l 8)
+  echo "$IP $USER $NEW_PASS $PORT" >> $NEW_INFO
+  expect -c "
+  spawn ssh -p$PORT $USER@$IP
+  set timeout 2
+  expect {
+    \"(yes/no)\" {send \"yes\r\";exp_continue}
+    \"password:\" {send \"$PASS\r\";exp_continue}
+    \"$USER@*\" {send \"echo \'$NEW_PASS\' |passwd --stdin $USER\rexit\r\";exp_continue}
+  }"
 done
-
+```
 生成新密码new_info文件：
-
+```bash
 192.168.18.217 root n8wX3mU% 22
 192.168.18.218 root c87;ZnnL 22
+```
 
-### 12.29 打印乘法口诀
+## 12.29 打印乘法口诀
 
-##### 方法 1 ：
-
+```bash
+方法 1 ：
 # awk 'BEGIN{for(n=0;n++<9;){for(i=0;i++<n;)printf i"x"n"="i*n" ";print ""}}'
+
 方法 2 ：
 for ((i=1;i<=9;i++)); do
-for ((j=1;j<=i;j++)); do
-result=$(($i*$j))
-echo - n "$j*$i=$result "
+  for ((j=1;j<=i;j++)); do
+    result=$(($i*$j))
+    echo - n "$j*$i=$result "
+  done
+  echo
 done
-echo
-done
+```
 
+## 12.30 getopts 工具完善脚本命令行参数
 
-### 12.30 getopts工具完善脚本命令行参数
+getopts是一个解析脚本选项参数的工具。 
 
-getopts是一个解析脚本选项参数的工具。
 命令格式：getopts optstring name [arg]
+
 初次使用你要注意这几点：
-1 ）脚本位置参数会与optstring中的单个字母逐个匹配，如果匹配到就赋值给name，否则赋值name
-为问号；
-2 ）optstring中单个字母是一个选项，如果字母后面加冒号，表示该选项后面带参数，参数值并会赋
-值给OPTARG变量；
-3 ）optstring中第一个是冒号，表示屏蔽系统错误（test.sh: illegal option -- h）；
-4 ）允许把选项放一起，例如-ab
+
+- 1 ）脚本位置参数会与optstring中的单个字母逐个匹配，如果匹配到就赋值给name，否则赋值name为问号；
+- 2 ）optstring中单个字母是一个选项，如果字母后面加冒号，表示该选项后面带参数，参数值并会赋值给OPTARG变量；
+- 3 ）optstring中第一个是冒号，表示屏蔽系统错误（test.sh: illegal option -- h）；
+- 4 ）允许把选项放一起，例如-ab
+
+
 下面写一个打印文件指定行的简单例子，用于引导你思路，扩展你的脚本选项功能：
 
+```bash
 #!/bin/bash
 while getopts :f:n: option; do
-case $option in
-f)
-FILE=$OPTARG
-[! - f $FILE ] && echo "$FILE File not exist!" && exit
-;;
-n)
-sed - n "${OPTARG}p" $FILE
-;;
-?)
-echo "Usage: $0 - f <file_path> - n <line_number>"
-echo "-f, --file specified file"
-echo "-n, --line-number print specified line"
-exit 1
-;;
-esac
+  case $option in
+  f)
+    FILE=$OPTARG
+    [! - f $FILE ] && echo "$FILE File not exist!" && exit
+  ;;
+  n)
+    sed - n "${OPTARG}p" $FILE
+  ;;
+  ?)
+    echo "Usage: $0 - f <file_path> - n <line_number>"
+    echo "-f, --file specified file"
+    echo "-n, --line-number print specified line"
+    exit 1
+  ;;
+  esac
 done
 # bash test.sh - h
 Usage: test.sh - f <file_path> - n <line_number>
@@ -8174,12 +8192,10 @@ Usage: test.sh - f <file_path> - n <line_number>
 
 # bash test.sh - f /etc/passwd - n 1
 root:x:0:0:root:/root:/bin/bash
+```
 
 思路扩展：限定脚本参数，将参数保存变量，下面调用变量继续操作。
 
-# 作者信息 李振良（阿良），微信：init 1024
 
-# 官方网站 http://www.ctnrs.com
-
-
-
+>作者信息 李振良（阿良），微信：init 1024
+>官方网站 http://www.ctnrs.com
