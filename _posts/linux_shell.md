@@ -364,12 +364,12 @@ patterm 前面开头一个正斜杠为只匹配第一个字符串，两个正斜
 ## 2.4 字符串截取
 
 **格式：**
-- ${parameter#word} # 删除匹配前缀
+- ${parameter#word}         # 删除匹配前缀
 - ${parameter##word}
-- ${parameter%word} # 删除匹配后缀
+- ${parameter%word}         # 删除匹配后缀
 - ${parameter%%word}
-- \# 去掉左边，最短匹配模式，## 最长匹配模式。
-- % 去掉右边，最短匹配模式，%% 最长匹配模式。
+- \#   去掉左边，最短匹配模式，## 最长匹配模式。
+- %    去掉右边，最短匹配模式，%% 最长匹配模式。
 
 ```bash
 # URL="http://www.baidu.com/baike/user.html"
@@ -395,10 +395,10 @@ html
 
 ## 2.5 变量状态赋值
 
-- ${VAR:-string} 如果 VAR 变量为空则返回 string
-- ${VAR:+string} 如果 VAR 变量不为空则返回 string
-- ${VAR:=string} 如果 VAR 变量为空则重新赋值VAR变量值为 string
-- ${VAR:?string} 如果 VAR 变量为空则将 string 输出到 stderr
+- ${VAR:-string}   如果 VAR 变量为空则返回 string
+- ${VAR:+string}   如果 VAR 变量不为空则返回 string
+- ${VAR:=string}   如果 VAR 变量为空则重新赋值VAR变量值为 string
+- ${VAR:?string}   如果 VAR 变量为空则将 string 输出到 stderr
 
 ```bash
 如果变量为空就返回hello world!：
@@ -442,7 +442,7 @@ ${} 主要用途大概就这么多了，另外还可以获取数组元素，在�
 |格式|
 |---|
 |\033[1;31;40m # 1是显示方式，可选。31是字体颜色。40m是字体背景颜色。|
-|\033[0m # 恢复终端默认颜色，即取消颜色设置。|
+|\033[0m       # 恢复终端默认颜色，即取消颜色设置。|
 
 **示例：**
 
@@ -450,15 +450,15 @@ ${} 主要用途大概就这么多了，另外还可以获取数组元素，在�
 #!/bin/bash
 # 字体颜色
 for i in {31..37}; do
-echo - e "\033[$i;40mHello world!\033[0m"
+  echo - e "\033[$i;40mHello world!\033[0m"
 done
 # 背景颜色
 for i in {41..47}; do
-echo - e "\033[47;${i}mHello world!\033[0m"
+  echo - e "\033[47;${i}mHello world!\033[0m"
 done
 # 显示方式
 for i in {1..8}; do
-echo - e "\033[$i;31;40mHello world!\033[0m"
+  echo - e "\033[$i;31;40mHello world!\033[0m"
 done
 ```
 
@@ -478,12 +478,12 @@ done
 
 |比较符 |描述 |示例|
 |---|---|---|
-|- eq，equal 等于| [ 1 -eq 1 ]为true|
-|- ne，not equal 不等于| [ 1 -ne 1 ]为false|
-|- gt，greater than 大于| [ 2 -gt 1 ]为true|
-|- lt，lesser than 小于| [ 2 -lt 1 ]为false|
-|- ge，greater or equal 大于或等于| [ 2 -ge 1 ]为true|
-|- le，lesser or equal 小于或等于| [ 2 -le 1 ]为false|
+|- eq，equal |等于| [ 1 -eq 1 ]为true|
+|- ne，not equal |不等于| [ 1 -ne 1 ]为false|
+|- gt，greater than |大于| [ 2 -gt 1 ]为true|
+|- lt，lesser than |小于| [ 2 -lt 1 ]为false|
+|- ge，greater or equal |大于或等于| [ 2 -ge 1 ]为true|
+|- le，lesser or equal |小于或等于| [ 2 -le 1 ]为false|
 
 ## 3.3 字符串比较符
 
@@ -536,16 +536,16 @@ yes
 
 |运算符| 描述|示例|
 |---|---|---|
-|! |非关系，条件结果取反 |[! 1 -eq 2 ]为true|
-|- a |和关系，在[]表达式中使用 |[ 1 -eq 1 -a 2 -eq 2 ]为true|
-|- o |或关系，在[]表达式中使用 |[ 1 -eq 1 -o 2 -eq 1 ]为true|
+|  ! |非关系，条件结果取反 |[ ! 1 -eq 2 ] 为true|
+|- a |和关系，在[ ]表达式中使用 |[ 1 -eq 1 -a 2 -eq 2 ] 为true|
+|- o |或关系，在[ ]表达式中使用 |[ 1 -eq 1 -o 2 -eq 1 ] 为true|
 
 ## 3.6 逻辑判断符
 
 |判断符 |描述|示例|
 |---|---|---|
-|&& |逻辑和，在[[]]和(())表达式中<br>或判断表达式是否为真时使用|[[ 1 -eq 1 && 2 -eq 2 ]]为true<br>(( 1 == 1 && 2 == 2 ))为true<br>[ 1 -eq 1 ] && echo yes 如果&&前<br>面表达式为true则执行后面的|
-| \|\| |逻辑或，在[[]]和(())表达式中<br>或判断表达式是否为真时使用|[[ 1 -eq 1 || 2 -eq 1 ]]为true<br>(( 1 == 1 || 2 == 2 ))为true<br>[ 1 -eq 2 ] \|\| echo yes 如果||前<br>面表达式为false则执行后面的|
+|&& |逻辑和，在[[ ]]和(( ))表达式中<br>或判断表达式是否为真时使用|[[ 1 -eq 1 && 2 -eq 2 ]]为true<br>(( 1 == 1 && 2 == 2 ))为true<br>[ 1 -eq 1 ] && echo yes 如果&&前<br>面表达式为true则执行后面的|
+| \|\| |逻辑或，在[[ ]]和(( ))表达式中<br>或判断表达式是否为真时使用|[[ 1 -eq 1 || 2 -eq 1 ]]为true<br>(( 1 == 1 || 2 == 2 ))为true<br>[ 1 -eq 2 ] \|\| echo yes 如果||前<br>面表达式为false则执行后面的|
 
 ## 3.7 整数运算
 
@@ -559,12 +559,12 @@ yes
 
 |运算表达式| 示例|
 |---|---|
-|$(()) |$((1+1))|
-|$[] |$[1+1]|
+|$(( )) |$((1+1))|
+|$[ ] |$[1+1]|
 
 上面两个都不支持浮点运算。
 
-$(()) 表达式还有一个用途，三目运算：
+$(( )) 表达式还有一个用途，三目运算：
 
 ```bash
 # 如果条件为真返回 1 ，否则返回 0
@@ -588,7 +588,7 @@ $(()) 表达式还有一个用途，三目运算：
 |命令 |描述 |示例|
 |---|---|---|
 |let |赋值并运算，支持++、-- |let VAR=(1+2)*3 ; echo $VAR<br>x=10 ; y=5<br>let x++;echo $x 每执行一次x加 1<br>let y--;echo $y 每执行一次y减 1<br>let x+=2 每执行一次x加 2<br>let x-=2 每执行一次x减 2|
-|expr |乘法*需要加反斜杠转义\*| expr 1 \* 2^ 运算符两边必须有空格<br>expr \( 1 + 2 \) \* 2 使用双括号时要转义|
+|expr |乘法\\*需要加反斜杠转义\\\*| expr 1 \\* 2 运算符两边必须有空格<br>expr \\( 1 + 2 \\) \\* 2 使用双括号时要转义|
 |bc |计算器，支持浮点运算、平方等|bc本身就是一个计算器，可直接输入命令，进入解释器。<br>echo 1 + 2 \|bc 将管道符前面标准输出作为bc的标准输入<br>echo "1.2+2" \|bc<br>echo "10^10" \|bc<br>echo 'scale=2;10/3' \|bc 用scale保留两位小数点|
 
 由于Shell不支持浮点数比较，可以借助bc来完成需求：
@@ -633,6 +633,8 @@ ing
 
 看到这里，想一想里面所讲的小括号、中括号的用途，是不是有点懵逼了。那我们总结一下！
 
+|括号|用途|
+|---|---|
 |( )|用途 1 ：在运算中，先计算小括号里面的内容<br>用途 2 ：数组<br>用途 3 ：匹配分组|
 |(( ))|用途 1 ：表达式，不支持-eq这类的运算符。不支持-a和-o，支持<=、>=、<、>这类<br>比较符和&&、\|\|<br>用途 2 ：C语言风格的for(())表达式|
 |$( ) |执行Shell命令，与反撇号等效|
@@ -822,7 +824,7 @@ done
 #!/bin/bash
 OLD_IFS=$IFS
 IFS=":"
-for i in $(head - 1 /etc/passwd); do
+for i in $(head -1 /etc/passwd); do
   echo $i
 done
 IFS=$OLD_IFS # 恢复默认值
@@ -864,7 +866,7 @@ done
 
 ```bash
 #!/bin/bash
-URL="www.baidu.com www.sina.com www.jd.com www.jd.com"
+URL="www.baidu.com www.sina.com www.jd.com"
 for url in $URL; do
   HTTP_CODE=$(curl - o /dev/null - s - w %{http_code} http://$url)
   if [ $HTTP_CODE - eq 200 - o $HTTP_CODE - eq 301 ]; then
@@ -922,7 +924,7 @@ while true; do
 done
 ```
 
-还可以条件表达式用冒号，冒号在Shell中的意思是不做任何操作。但状态是 0 ，因此为true：
+还可以条件表达式用冒号，冒号在 Shell 中的意思是不做任何操作。但状态是 0 ，因此为 true：
 
 ```bash
 #!/bin/bash
@@ -942,14 +944,14 @@ a b c
 x y z
 ```
 
-要想使用while循环逐行读取a.txt文件，有三种方式：
+要想使用 while 循环逐行读取 a.txt 文件，有三种方式：
 
 **方式 1 ：**
 
 ```bash
 #!/bin/bash
 cat ./a.txt | while read LINE; do
-echo $LINE
+                echo $LINE
 done
 ```
 
@@ -976,8 +978,8 @@ done
 
 ## 4.4 break 和 continue 语句
 
-- break是终止循环。
-- continue是跳出当前循环。
+- break    是终止循环。
+- continue 是跳出当前循环。
 
 **示例 1 ：在死循环中，满足条件终止循环**
 
@@ -986,7 +988,7 @@ done
 N=0
 while true; do
   let N++
-  if [ $N - eq 5 ]; then
+  if [ $N -eq 5 ]; then
     break
   fi
   echo $N
@@ -1005,9 +1007,9 @@ done
 ```bash
 #!/bin/bash
 N=0
-while [ $N - lt 5 ]; do
+while [ $N -lt 5 ]; do
   let N++
-  if [ $N - eq 3 ]; then
+  if [ $N -eq 3 ]; then
     continue
   fi
   echo $N
@@ -1019,7 +1021,7 @@ done
 5
 ```
 
-当变量N等于 3 时，continue 跳过了当前循环，没有执行下面的echo。
+当变量 N 等于 3 时，continue 跳过了当前循环，没有执行下面的 echo。
 
 **注意：continue 与 break 语句只能循环语句中使用。**
 
@@ -1169,14 +1171,14 @@ while true; do
       5.1)
         echo "mysql 5.1"
         break
-      ;;
+        ;;
       5.6)
         echo "mysql 5.6"
         break
-      ;;
+        ;;
       quit)
         exit
-      ;;
+        ;;
       *)
          echo "Input error, Please enter again!"
       break
@@ -1214,14 +1216,14 @@ command
 }
 ```
 
-function 关键字可写，也可不写。
+**function** 关键字可写，也可不写。
 
 **示例 1 ：**
 
 ```bash
 #!/bin/bash
 func() {
-echo "This is a function."
+  echo "This is a function."
 }
 func
 # bash test.sh
@@ -1275,15 +1277,17 @@ test() {
 test
 ```
 
-执行会一直在调用本身打印 hello，这就形成了闭环。像经典的 fork 炸弹就是函数递归调用：
+执行会一直在调用本身打印 hello，这就形成了闭环。
 
-:(){ :|:& };: 或 .(){.|.&};.
+像经典的 fork 炸弹就是函数递归调用：
+
+`:(){ :|:& };:` 或 `.(){.|.&};.`
 
 这样看起来不好理解，我们更改下格式：
 
 ```bash
 :() {
-:|:&
+  :|:&
 };
 :
 ```
@@ -1298,21 +1302,14 @@ bomb
 ```
 
 分析下：
-:(){ } 定义一个函数，函数名是冒号。
-
-: 调用自身函数
-
-| 管道符
-
-: 再一次递归调用自身函数
-
-:|: 表示每次调用函数":"的时候就会生成两份拷贝。
-
-& 放到后台
-
-; 分号是继续执行下一个命令，可以理解为换行。
-
-: 最后一个冒号是调用函数。
+- :(){ } 定义一个函数，函数名是冒号。
+- : 调用自身函数
+- | 管道符
+- : 再一次递归调用自身函数
+- :|: 表示每次调用函数":"的时候就会生成两份拷贝。
+- & 放到后台
+- ; 分号是继续执行下一个命令，可以理解为换行。
+- : 最后一个冒号是调用函数。
 
 因此不断生成新进程，直到系统资源崩溃。
 
@@ -1379,7 +1376,7 @@ b c d e f g
 
 <font color=red>数组下标从 0 开始。</font>
 
-**示例 1 **：讲seq生成的数字序列循环放到数组里面
+**示例 1**：讲 seq 生成的数字序列循环放到数组里面
 
 ```bash
 #!/bin/bash
@@ -1405,6 +1402,7 @@ done
 192.168.1.1
 192.168.1.2
 192.168.1.3
+
 方法 2 ：
 #!/bin/bash
 IP=(192.168.1.1 192.168.1.2 192.168.1.3)
@@ -1417,12 +1415,12 @@ done
 
 正则表达式在每种语言中都会有，功能就是匹配符合你预期要求的字符串。
 
-Shell正则表达式分为**两种**：
+Shell 正则表达式分为**两种**：
 
 - 基础正则表达式：BRE（basic regular express）
-- 扩展正则表达式：ERE（extend regular express），扩展的表达式有+、?、|和()
+- 扩展正则表达式：ERE（extend regular express），扩展的表达式有+、?、| 和 ()
 
-下面是一些常用的正则表达式符号，我们先拿grep工具举例说明。
+下面是一些常用的正则表达式符号，我们先拿 grep 工具举例说明。
 
 
 |符号 |描述 |示例|
@@ -1464,7 +1462,7 @@ Shell正则表达式分为**两种**：
 **示例：**
 
 ```bash
-echo - e "1\n12\n123\n1234a" |grep '[[:digit:]]'
+echo -e "1\n12\n123\n1234a" |grep '[[:digit:]]'
 ```
 
 在Shell下使用这些正则表达式处理文本最多的命令有下面几个工具：
@@ -1481,19 +1479,19 @@ echo - e "1\n12\n123\n1234a" |grep '[[:digit:]]'
 |---|---|
 |\w |匹配任意数字和字母，等效[a-zA-Z0-9_]|
 |\W |与\w相反，等效[^a-zA-Z0-9_]|
-|\b |匹配字符串开始或结束，等效\<和\>|
+|\b |匹配字符串开始或结束，等效\\<和\\>|
 |\s |匹配任意的空白字符|
 |\S |匹配非空白字符|
 
 
 |空白符| 描述|
 |---|---|
-|\n 换行符|
-|\r 回车符|
-|\t 水平制表符|
-|\v 垂直制表符|
-|\ 0 空值符|
-|\b 退后一格|
+|\n |换行符|
+|\r |回车符|
+|\t |水平制表符|
+|\v |垂直制表符|
+|\ 0 |空值符|
+|\b |退后一格|
 
 
 # 七、 Shell 文本处理三剑客
@@ -1502,8 +1500,7 @@ echo - e "1\n12\n123\n1234a" |grep '[[:digit:]]'
 
 过滤来自一个文件或标准输入匹配模式内容。
 
-除了 grep 外，还有 egrep、fgrep。egrep 是 grep 的扩展，相当于grep -E。fgrep 相当于 grep -
-f，用的少。
+除了 grep 外，还有 egrep、fgrep。egrep 是 grep 的扩展，相当于grep -E。fgrep 相当于 grep -f，用的少。
 
 **Usage: grep [OPTION]... PATTERN [FILE]...**
 
@@ -1545,22 +1542,22 @@ f，用的少。
 
 **示例：**
 
-1 ）输出b文件中在a文件相同的行
+1 ）输出 b 文件中在 a 文件相同的行
 
 ```bash
-# grep - f a b
+# grep -f a b
 ```
 
 2 ）输出b文件中在a文件不同的行
 
 ```bash
-# grep - v - f a b
+# grep -v -f a b
 ```
 
 3 ） 匹配多个模式
 
 ```bash
-# echo "a bc de" |xargs - n1 |grep - e 'a' - e 'bc'
+# echo "a bc de" |xargs - n1 |grep -e 'a' -e 'bc'
 a
 bc
 ```
@@ -1568,15 +1565,15 @@ bc
 4 ）去除空格http.conf文件空行或开头#号的行
 
 ```bash
-# grep - E - v "^$|^#" /etc/httpd/conf/httpd.conf
+# grep -E -v "^$|^#" /etc/httpd/conf/httpd.conf
 ```
 
 5 ） 匹配开头不分大小写的单词
 
 ```bash
-# echo "A a b c" |xargs - n1 |grep - i a
+# echo "A a b c" |xargs -n1 |grep - i a
 或
-# echo "A a b c" |xargs - n1 |grep '[Aa]'
+# echo "A a b c" |xargs -n1 |grep '[Aa]'
 A
 a
 ```
@@ -1584,7 +1581,7 @@ a
 6 ）只显示匹配的字符串
 
 ```bash
-# echo "this is a test" |grep - o 'is'
+# echo "this is a test" |grep -o 'is'
 is
 is
 ```
@@ -1592,7 +1589,7 @@ is
 7 ）输出匹配的前五个结果
 
 ```bash
-# seq 1 20 |grep - m 5 - E '[0-9]{2}'
+# seq 1 20 |grep -m 5 -E '[0-9]{2}'
 10
 11
 12
@@ -1603,46 +1600,46 @@ is
 8 ）统计匹配多少行
 
 ```bash
-# seq 1 20 |grep - c - E '[0-9]{2}'
+# seq 1 20 |grep -c -E '[0-9]{2}'
 11
 ```
 
 9 ） 匹配b字符开头的行
 
 ```bash
-# echo "a bc de" |xargs - n1 |grep '^b'
+# echo "a bc de" |xargs -n1 |grep '^b'
 bc
 ```
 
 10 ） 匹配de字符结尾的行并输出匹配的行
 
 ```bash
-# echo "a ab abc abcd abcde" |xargs - n1 |grep - n 'de$'
+# echo "a ab abc abcd abcde" |xargs -n1 |grep -n 'de$'
 5:abcde
 ```
 
 11 ） 递归搜索/etc目录下包含ip的conf后缀文件
 
 ```bash
-# grep - r '192.167.1.1' /etc --include *.conf
+# grep -r '192.167.1.1' /etc --include *.conf
 ```
 
 12 ） 排除搜索bak后缀的文件
 
 ```bash
-# grep - r '192.167.1.1' /opt --exclude *.bak
+# grep -r '192.167.1.1' /opt --exclude *.bak
 ```
 
 13 ） 排除来自file中的文件
 
 ```bash
-# grep - r '192.167.1.1' /opt --exclude-from file
+# grep -r '192.167.1.1' /opt --exclude-from file
 ```
 
 14 ） 匹配 41 或 42 的数字
 
 ```bash
-# seq 41 45 |grep - E '4[12]'
+# seq 41 45 |grep -E '4[12]'
 41
 42
 ```
@@ -1650,7 +1647,7 @@ bc
 15 ） 匹配至少 2 个字符
 
 ```bash
-# seq 13 |grep - E '[0-9]{2}'
+# seq 13 |grep -E '[0-9]{2}'
 10
 11
 12
@@ -1660,7 +1657,7 @@ bc
 16 ） 匹配至少 2 个字符的单词，最多 3 个字符的单词
 
 ```bash
-# echo "a ab abc abcd abcde" |xargs - n1 |grep - E - w - o '[a-z]{2,3}'
+# echo "a ab abc abcd abcde" |xargs -n1 |grep -E -w -o '[a-z]{2,3}'
 ab
 abc
 ```
@@ -1668,13 +1665,13 @@ abc
 17 ） 匹配所有IP
 
 ```bash
-# ifconfig |grep - E - o "[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}"
+# ifconfig |grep -E -o "[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}"
 ```
 
 18 ） 打印匹配结果及后 3 行
 
 ```bash
-# seq 1 10 |grep 5 - A 3
+# seq 1 10 |grep 5 -A 3
 5
 6
 7
@@ -1684,7 +1681,7 @@ abc
 19 ） 打印匹配结果及前 3 行
 
 ```bash
-# seq 1 10 |grep 5 - B 3
+# seq 1 10 |grep 5 -B 3
 2
 3
 4
@@ -1694,7 +1691,7 @@ abc
 20 ） 打印匹配结果及前后 3 行
 
 ```bash
-# seq 1 10 |grep 5 - C 3
+# seq 1 10 |grep 5 -C 3
 2 3 4 5 6 7 8
 ```
 
@@ -1704,11 +1701,11 @@ abc
 不显示错误输出：
 # grep 'a' abc
 grep: abc: No such file or directory
-# grep - s 'a' abc
+# grep -s 'a' abc
 # echo $?
 2
 不显示正常输出：
-# grep - q 'a' a.txt
+# grep -q 'a' a.txt
 ```
 
 grep 支持上一章的基础和扩展正则表达式字符。
@@ -1720,17 +1717,19 @@ grep 支持上一章的基础和扩展正则表达式字符。
 **工作原理**：sed命令将当前处理的行读入模式空间进行处理，处理完把结果输出，并清空模式空间。然后再将下一行读入模式空间进行处理输出，以此类推，直到最后一行。还有一个空间叫保持空间，又称暂存空间，可以暂时存放一些处理的数据，但不能直接输出，只能放到模式空间输出。这两个空间其实就是在内存中初始化的一个内存区域，存放正在处理的数据和临时存放的数据。
 
 **Usage:**
+
 sed [OPTION]... {script-only-if-no-other-script} [input-file]...
+
 sed [选项] '地址 命令' file
 
 
 |选项 |描述|
 |---|---|
-|- n |不打印模式空间|
-|- e |执行脚本、表达式来处理|
-|- f |执行动作从文件读取执行|
-|- i |修改原文件|
-|- r |使用扩展正则表达式|
+| -n |不打印模式空间|
+| -e |执行脚本、表达式来处理|
+| -f |执行动作从文件读取执行|
+| -i |修改原文件|
+| -r |使用扩展正则表达式|
 
 |命令| 描述|
 |---|---|
@@ -1772,16 +1771,16 @@ sed [选项] '地址 命令' file
 
 ```bash
 # tail /etc/services
-nimgtw 48003/udp # Nimbus Gateway
-3gpp-cbsp 48049/tcp # 3GPP Cell Broadcast Service Protocol
-isnetserv 48128/tcp # Image Systems Network Services
-isnetserv 48128/udp # Image Systems Network Services
-blp5 48129/tcp # Bloomberg locator
-blp5 48129/udp # Bloomberg locator
-com-bardac-dw 48556/tcp # com-bardac-dw
-com-bardac-dw 48556/udp # com-bardac-dw
-iqobject 48619/tcp # iqobject
-iqobject 48619/udp # iqobject
+nimgtw        48003/udp   # Nimbus Gateway
+3gpp-cbsp     48049/tcp   # 3GPP Cell Broadcast Service Protocol
+isnetserv     48128/tcp   # Image Systems Network Services
+isnetserv     48128/udp   # Image Systems Network Services
+blp5          48129/tcp   # Bloomberg locator
+blp5          48129/udp   # Bloomberg locator
+com-bardac-dw 48556/tcp   # com-bardac-dw
+com-bardac-dw 48556/udp   # com-bardac-dw
+iqobject      48619/tcp   # iqobject
+iqobject      48619/udp   # iqobject
 ```
 
 ### 7.2.1 匹配打印（p）
@@ -1789,31 +1788,31 @@ iqobject 48619/udp # iqobject
 1 ）打印匹配 blp5 开头的行
 
 ```bash
-# tail /etc/services |sed - n '/^blp5/p'
-blp5 48129/tcp # Bloomberg locator
-blp5 48129/udp # Bloomberg locator
+# tail /etc/services |sed -n '/^blp5/p'
+blp5     48129/tcp     # Bloomberg locator
+blp5     48129/udp     # Bloomberg locator
 ```
 
 2 ）打印第一行
 
 ```bash
-# tail /etc/services |sed - n '1p'
-nimgtw 48003/udp # Nimbus Gateway
+# tail /etc/services |sed -n '1p'
+nimgtw     48003/udp     # Nimbus Gateway
 ```
 
 3 ）打印第一行至第三行
 
 ```bash
-# tail /etc/services |sed - n '1,3p'
-nimgtw 48003/udp # Nimbus Gateway
-3gpp-cbsp 48049/tcp # 3GPP Cell Broadcast Service Protocol
-isnetserv 48128/tcp # Image Systems Network Services
+# tail /etc/services |sed -n '1,3p'
+nimgtw         48003/udp     # Nimbus Gateway
+3gpp-cbsp      48049/tcp     # 3GPP Cell Broadcast Service Protocol
+isnetserv      48128/tcp     # Image Systems Network Services
 ```
 
 4 ）打印奇数行
 
 ```bash
-# seq 10 |sed - n '1~2p'
+# seq 10 |sed -n '1~2p'
 1
 3
 5
@@ -1824,32 +1823,32 @@ isnetserv 48128/tcp # Image Systems Network Services
 5 ）打印匹配行及后一行
 
 ```bash
-# tail /etc/services |sed - n '/blp5/,+1p'
-blp5 48129/tcp # Bloomberg locator
-blp5 48129/udp # Bloomberg locator
+# tail /etc/services |sed -n '/blp5/,+1p'
+blp5      48129/tcp     # Bloomberg locator
+blp5      48129/udp     # Bloomberg locator
 ```
 
 6 ）打印最后一行
 
 ```bash
-# tail /etc/services |sed - n '$p'
-iqobject 48619/udp # iqobject
+# tail /etc/services |sed -n '$p'
+iqobject       48619/udp      # iqobject
 ```
 
 7 ）不打印最后一行
 
 ```bash
-# tail /etc/services |sed - n '$!p'
-3gpp-cbsp 48049/tcp # 3GPP Cell Broadcast Service
+# tail /etc/services |sed -n '$!p'
+3gpp-cbsp      48049/tcp # 3GPP Cell Broadcast Service
 Protocol
-isnetserv 48128/tcp # Image Systems Network Services
-isnetserv 48128/udp # Image Systems Network Services
-blp5 48129/tcp # Bloomberg locator
-blp5 48129/udp # Bloomberg locator
-com-bardac-dw 48556/tcp # com-bardac-dw
-com-bardac-dw 48556/udp # com-bardac-dw
-iqobject 48619/tcp # iqobject
-iqobject 48619/udp # iqobject
+isnetserv      48128/tcp     # Image Systems Network Services
+isnetserv      48128/udp     # Image Systems Network Services
+blp5           48129/tcp     # Bloomberg locator
+blp5           48129/udp     # Bloomberg locator
+com-bardac-dw  48556/tcp     # com-bardac-dw
+com-bardac-dw  48556/udp     # com-bardac-dw
+iqobject       48619/tcp     # iqobject
+iqobject       48619/udp     # iqobject
 ```
 
 感叹号也就是对后面的命令取反。
@@ -1857,22 +1856,22 @@ iqobject 48619/udp # iqobject
 8 ）匹配范围
 
 ```bash
-# tail /etc/services |sed - n '/^blp5/,/^com/p'
-blp5 48129/tcp # Bloomberg locator
-blp5 48129/udp # Bloomberg locator
-com-bardac-dw 48556/tcp # com-bardac-dw
+# tail /etc/services |sed -n '/^blp5/,/^com/p'
+blp5            48129/tcp       # Bloomberg locator
+blp5            48129/udp       # Bloomberg locator
+com-bardac-dw   48556/tcp       # com-bardac-dw
 ```
 
 匹配开头行到最后一行：
 
 ```bash
-# tail /etc/services |sed - n '/blp5/,$p'
-blp5 48129/tcp # Bloomberg locator
-blp5 48129/udp # Bloomberg locator
-com-bardac-dw 48556/tcp # com-bardac-dw
-com-bardac-dw 48556/udp # com-bardac-dw
-iqobject 48619/tcp # iqobject
-iqobject 48619/udp # iqobject
+# tail /etc/services |sed -n '/blp5/,$p'
+blp5          48129/tcp     # Bloomberg locator
+blp5          48129/udp     # Bloomberg locator
+com-bardac-dw 48556/tcp     # com-bardac-dw
+com-bardac-dw 48556/udp     # com-bardac-dw
+iqobject      48619/tcp     # iqobject
+iqobject      48619/udp     # iqobject
 ```
 
 以逗号分开两个样式选择某个范围。
@@ -1881,9 +1880,9 @@ iqobject 48619/udp # iqobject
 
 ```bash
 # a=1
-# tail /etc/services |sed - n ''$a',3p'
+# tail /etc/services |sed -n ''$a',3p'
 或
-# tail /etc/services |sed - n "$a,3p"
+# tail /etc/services |sed -n "$a,3p"
 ```
 
 sed 命令用单引号时，里面变量用单引号引起来，或者 sed 命令用双引号，因为双引号解释特殊符号原有意义。
@@ -1894,39 +1893,39 @@ sed 命令用单引号时，里面变量用单引号引起来，或者 sed 命�
 
 ```bash
 # tail /etc/services |sed '/blp5/d'
-nimgtw 48003/udp # Nimbus Gateway
-3gpp-cbsp 48049/tcp # 3GPP Cell Broadcast Service
-isnetserv 48128/tcp # Image Systems Network Services
-isnetserv 48128/udp # Image Systems Network Services
-com-bardac-dw 48556/tcp # com-bardac-dw
-com-bardac-dw 48556/udp # com-bardac-dw
-iqobject 48619/tcp # iqobject
-iqobject 48619/udp # iqobject
+nimgtw            48003/udp    # Nimbus Gateway
+3gpp-cbsp         48049/tcp    # 3GPP Cell Broadcast Service
+isnetserv         48128/tcp    # Image Systems Network Services
+isnetserv         48128/udp    # Image Systems Network Services
+com-bardac-dw     48556/tcp    # com-bardac-dw
+com-bardac-dw     48556/udp    # com-bardac-dw
+iqobject          48619/tcp    # iqobject
+iqobject          48619/udp    # iqobject
 # tail /etc/services |sed '1d'
-3gpp-cbsp 48049/tcp # 3GPP Cell Broadcast Service
+3gpp-cbsp        48049/tcp # 3GPP Cell Broadcast Service
 Protocol
-isnetserv 48128/tcp # Image Systems Network Services
-isnetserv 48128/udp # Image Systems Network Services
-blp5 48129/tcp # Bloomberg locator
-blp5 48129/udp # Bloomberg locator
-com-bardac-dw 48556/tcp # com-bardac-dw
-com-bardac-dw 48556/udp # com-bardac-dw
-iqobject 48619/tcp # iqobject
-iqobject 48619/udp # iqobject
+isnetserv        48128/tcp     # Image Systems Network Services
+isnetserv        48128/udp     # Image Systems Network Services
+blp5             48129/tcp     # Bloomberg locator
+blp5             48129/udp     # Bloomberg locator
+com-bardac-dw    48556/tcp     # com-bardac-dw
+com-bardac-dw    48556/udp     # com-bardac-dw
+iqobject         48619/tcp     # iqobject
+iqobject         48619/udp     # iqobject
 # tail /etc/services |sed '1~2d'
-3gpp-cbsp 48049/tcp # 3GPP Cell Broadcast Service
-isnetserv 48128/udp # Image Systems Network Services
-blp5 48129/udp # Bloomberg locator
-com-bardac-dw 48556/udp # com-bardac-dw
-iqobject 48619/udp # iqobject
+3gpp-cbsp         48049/tcp     # 3GPP Cell Broadcast Service
+isnetserv         48128/udp     # Image Systems Network Services
+blp5              48129/udp     # Bloomberg locator
+com-bardac-dw     48556/udp     # com-bardac-dw
+iqobject          48619/udp     # iqobject
 # tail /etc/services |sed '1,3d'
-isnetserv 48128/udp # Image Systems Network Services
-blp5 48129/tcp # Bloomberg locator
-blp5 48129/udp # Bloomberg locator
-com-bardac-dw 48556/tcp # com-bardac-dw
-com-bardac-dw 48556/udp # com-bardac-dw
-iqobject 48619/tcp # iqobject
-iqobject 48619/udp # iqobject
+isnetserv         48128/udp     # Image Systems Network Services
+blp5              48129/tcp     # Bloomberg locator
+blp5              48129/udp     # Bloomberg locator
+com-bardac-dw     48556/tcp     # com-bardac-dw
+com-bardac-dw     48556/udp     # com-bardac-dw
+iqobject          48619/tcp     # iqobject
+iqobject          48619/udp     # iqobject
 ```
 
 去除空格 http.conf 文件空行或开头 # 号的行：
@@ -1943,16 +1942,16 @@ iqobject 48619/udp # iqobject
 
 ```bash
 # tail /etc/services |sed 's/blp5/test/'
-3gpp-cbsp 48049/tcp # 3GPP Cell Broadcast Service
-isnetserv 48128/tcp # Image Systems Network Services
-isnetserv 48128/udp # Image Systems Network Services
-test 48129/tcp # Bloomberg locator
-test 48129/udp # Bloomberg locator
-com-bardac-dw 48556/tcp # com-bardac-dw
-com-bardac-dw 48556/udp # com-bardac-dw
-iqobject 48619/tcp # iqobject
-iqobject 48619/udp # iqobject
-matahari 49000/tcp # Matahari Broker
+3gpp-cbsp          48049/tcp     # 3GPP Cell Broadcast Service
+isnetserv          48128/tcp     # Image Systems Network Services
+isnetserv          48128/udp     # Image Systems Network Services
+test               48129/tcp     # Bloomberg locator
+test               48129/udp     # Bloomberg locator
+com-bardac-dw      48556/tcp     # com-bardac-dw
+com-bardac-dw      48556/udp     # com-bardac-dw
+iqobject           48619/tcp     # iqobject
+iqobject           48619/udp     # iqobject
+matahari           49000/tcp     # Matahari Broker
 ```
 
 全局替换加g：
@@ -1961,51 +1960,51 @@ matahari 49000/tcp # Matahari Broker
 # tail /etc/services |sed 's/blp5/test/g'
 ```
 
-2 ）替换开头是blp5的字符串并打印
+2 ）替换开头是 blp5 的字符串并打印
 
 ```bash
-# tail /etc/services |sed - n 's/^blp5/test/p'
-test 481 29/tcp # Bloomberg locator
-test 48129/udp # Bloomberg locator
+# tail /etc/services |sed -n 's/^blp5/test/p'
+test          481 29/tcp      # Bloomberg locator
+test          48129/udp       # Bloomberg locator
 ```
 
-3 ）使用&命令引用匹配内容并替换
+3 ）使用 & 命令引用匹配内容并替换
 
 ```bash
 # tail /etc/services |sed 's/48049/&.0/'
-3gpp-cbsp 48049.0/tcp # 3GPP Cell Broadcast Service
-isnetserv 48128/tcp # Image Systems Network Services
-isnetserv 48128/udp # Image Systems Network Services
-blp5 48129/tcp # Bloomberg locator
-blp5 48129/udp # Bloomberg locator
-com-bardac-dw 48556/tcp # com-bardac-dw
-com-bardac-dw 48556/udp # com-bardac-dw
-iqobject 48619/tcp # iqobject
-iqobject 48619/udp # iqobject
-matahari 49000/tcp # Matahari Broker
+3gpp-cbsp             48049.0/tcp     # 3GPP Cell Broadcast Service
+isnetserv             48128/tcp       # Image Systems Network Services
+isnetserv             48128/udp       # Image Systems Network Services
+blp5                  48129/tcp       # Bloomberg locator
+blp5                  48129/udp       # Bloomberg locator
+com-bardac-dw         48556/tcp       # com-bardac-dw
+com-bardac-dw         48556/udp       # com-bardac-dw
+iqobject              48619/tcp       # iqobject
+iqobject              48619/udp       # iqobject
+matahari              49000/tcp       # Matahari Broker
 ```
 
 IP加单引号：
 
 ```bash
-# echo '10.10.10.1 10.10.10.2 10.10.10.3' |sed - r 's/[^ ]+/"&"/g'
+# echo '10.10.10.1 10.10.10.2 10.10.10.3' |sed -r 's/[^ ]+/"&"/g'
 "10.10.10.1" "10.10.10.2" "10.10.10.3"
 ```
 
-4 ）对 1 - 4 行的blp5进行替换
+4 ）对 1 - 4 行的 blp5 进行替换
 
 ```bash
 # tail /etc/services | sed '1,4s/blp5/test/'
-3gpp-cbsp 48049/tcp # 3GPP Cell Broadcast Service
-isnetserv 48128/tcp # Image Systems Network Services
-isnetserv 48128/udp # Image Systems Network Services
-test 48129/tcp # Bloomberg locator
-blp5 48129/udp # Bloomberg locator
-com-bardac-dw 48556/tcp # com-bardac-dw
-com-bardac-dw 48556/udp # com-bardac-dw
-iqobject 48619/tcp # iqobject
-iqobject 48619/udp # iqobject
-matahari 49000/tcp # Matahari Broker
+3gpp-cbsp           48049/tcp       # 3GPP Cell Broadcast Service
+isnetserv           48128/tcp       # Image Systems Network Services
+isnetserv           48128/udp       # Image Systems Network Services
+test                48129/tcp       # Bloomberg locator
+blp5                48129/udp       # Bloomberg locator
+com-bardac-dw       48556/tcp       # com-bardac-dw
+com-bardac-dw       48556/udp       # com-bardac-dw
+iqobject            48619/tcp       # iqobject
+iqobject            48619/udp       # iqobject
+matahari            49000/tcp       # Matahari Broker
 ```
 
 5 ）对匹配行进行替换
@@ -2043,7 +2042,7 @@ matahari 49000/tcp # Matahari Broker
 7 ）分组使用，在每个字符串后面添加 123
 
 ```bash
-# tail /etc/services |sed - r 's/(.*) (.*)(#.*)/\ 1 \2test \3/'
+# tail /etc/services |sed -r 's/(.*) (.*)(#.*)/\ 1 \2test \3/'
 3gpp-cbsp 48049/tcp test # 3GPP Cell Broadcast Service
 isnetserv 48128/tcp test # Image Systems Network Services
 isnetserv 48128/udp test # Image Systems Network Services
@@ -2061,7 +2060,7 @@ matahari 49000/tcp test # Matahari Broker
 8 ）将协议与端口号位置调换
 
 ```bash
-# tail /etc/services |sed - r 's/(.*)(\<[0-9]+\>)\/(tcp|udp)(.*)/\ 1 \ 3 \/\ 2 \4/'
+# tail /etc/services |sed -r 's/(.*)(\<[0-9]+\>)\/(tcp|udp)(.*)/\ 1 \ 3 \/\ 2 \4/'
 3gpp-cbsp tcp/48049 # 3GPP Cell Broadcast Service
 isnetserv tcp/48128 # Image Systems Network Services
 isnetserv udp/48128 # Image Systems Network Services
@@ -2078,10 +2077,10 @@ matahari tcp/49000 # Matahari Broker
 
 ```bash
 替换x字符为大写：
-# echo "abc cde xyz" |sed - r 's/(.*)x/\1X/'
+# echo "abc cde xyz" |sed -r 's/(.*)x/\1X/'
 abc cde Xyz
 456 与cde调换：
-# echo "abc:cde;123:456" |sed - r 's/([^:]+)(;.*:)([^:]+$)/\ 3 \ 2 \1/'
+# echo "abc:cde;123:456" |sed -r 's/([^:]+)(;.*:)([^:]+$)/\ 3 \ 2 \1/'
 abc:456;123:cde
 ```
 
@@ -2104,19 +2103,19 @@ abc:456;123:cde
 11 ）注释指定多行
 
 ```bash
-# seq 5 |sed - r 's/^3|^4/&#/'
+# seq 5 |sed -r 's/^3|^4/&#/'
 1
 2
 3#
 4#
 5
-# seq 5 |sed - r '/^3|^4/s/^/#/'
+# seq 5 |sed -r '/^3|^4/s/^/#/'
 1
 2
 #3
 #4
 5
-# seq 5 |sed - r 's/^3|^4/#\0/'
+# seq 5 |sed -r 's/^3|^4/#\0/'
 1
 2
 #3
@@ -2134,7 +2133,7 @@ abc:456;123:cde
 ### 7.2.4 多重编辑（-e）
 
 ```bash
-# tail /etc/services |sed - e '1,2d' - e 's/blp5/test/'
+# tail /etc/services |sed -e '1,2d' -e 's/blp5/test/'
 isnetserv 48128/udp # Image Systems Network Services
 test 48129/tcp # Bloomberg locator
 test 48129/udp # Bloomberg locator
@@ -2292,14 +2291,14 @@ blp5 48129/udp # Bloomberg locator
 **1 ）**打印匹配的下一行
 
 ```bash
-# seq 5 |sed - n '/3/{n;p}'
+# seq 5 |sed -n '/3/{n;p}'
 4
 ```
 
 **2 ）**打印偶数
 
 ```bash
-# seq 6 |sed - n 'n;p'
+# seq 6 |sed -n 'n;p'
 2
 4
 6
@@ -2319,7 +2318,7 @@ sed 先读取第一行 1 ，执行 n 命令，获取下一行 2 ，此时模式�
 sed先读取第一行 1 ，此时模式空间是 1 ，并打印模式空间 1 ，执行n命令，获取下一行 2 ，执行d命令，删除模式空间的 2 ，sed再读取 3 ，此时模式空间是 3 ，并打印模式空间，再执行n命令，获取下一行 4 ，执行d命令，删除模式空间的 3 ，以此类推。
 
 ```bash
-# seq 6 |sed - n 'p;n'
+# seq 6 |sed -n 'p;n'
 1
 3
 5
@@ -2391,12 +2390,12 @@ sed先读取第一行 1 ，并打印模式空间 1 ，执行n命令，获取下�
 为了进一步说明N的功能，看第二个命令：执行N命令后，此时模式空间是 1 \n2，再执行把\n替换为空，此时模式空间是 12 ，并打印。
 
 ```bash
-# seq 5 |sed - n 'N;p'
+# seq 5 |sed -n 'N;p'
 1
 2
 3
 4
-# seq 6 |sed - n 'N;p'
+# seq 6 |sed -n 'N;p'
 1
 2
 3
@@ -2413,7 +2412,7 @@ sed先读取第一行 1 ，并打印模式空间 1 ，执行n命令，获取下�
 **7 ）**打印奇数行数时的最后一行
 
 ```bash
-# seq 5 |sed - n '$!N;p'
+# seq 5 |sed -n '$!N;p'
 1
 2
 3
@@ -2432,7 +2431,7 @@ sed先读取第一行 1 ，并打印模式空间 1 ，执行n命令，获取下�
 **1 ）**打印奇数
 
 ```bash
-# seq 6 |sed - n 'N;P'
+# seq 6 |sed -n 'N;P'
 1
 3
 5
@@ -2461,7 +2460,7 @@ sed先读取第一行 1 ，并打印模式空间 1 ，执行n命令，获取下�
 **1 ）**将匹配的内容覆盖到另一个匹配
 
 ```bash
-# seq 6 |sed - e '/3/{h;d}' - e '/5/g'
+# seq 6 |sed -e '/3/{h;d}' -e '/5/g'
 1
 2
 4
@@ -2474,7 +2473,7 @@ h命令把匹配的 3 复制到保持空间，d命令删除模式空间的 3 。
 **2 ）**将匹配的内容放到最后
 
 ```bash
-# seq 6 |sed - e '/3/{h;d}' - e '$G'
+# seq 6 |sed -e '/3/{h;d}' -e '$G'
 1 
 2 
 4 
@@ -2485,7 +2484,7 @@ h命令把匹配的 3 复制到保持空间，d命令删除模式空间的 3 。
 **3 ）**交换模式空间和保持空间
 
 ```bash
-# seq 6 |sed - e '/3/{h;d}' - e '/5/x' - e '$G'
+# seq 6 |sed -e '/3/{h;d}' -e '/5/x' -e '$G'
 1 
 2 
 4 
@@ -2544,7 +2543,7 @@ $!d 最后一行不执行删除模式空间的内容。
 **6 ）**打印匹配行的上一行内容
 
 ```bash
-# seq 5 |sed - n '/3/{x;p};h'
+# seq 5 |sed -n '/3/{x;p};h'
 2
 ```
 
@@ -2556,19 +2555,19 @@ $!d 最后一行不执行删除模式空间的内容。
 7 ）打印匹配行到最后一行或下一行到最后一行
 
 ```bash
-# seq 5 |sed - n '/3/,$p'
+# seq 5 |sed -n '/3/,$p'
 3
 4
 5
-# seq 5 |sed - n '/3/,${h;x;p}'
+# seq 5 |sed -n '/3/,${h;x;p}'
 3
 4
 5
-# seq 5 |sed - n '/3/{:a;N;$!ba;p}'
+# seq 5 |sed -n '/3/{:a;N;$!ba;p}'
 3
 4
 5
-# seq 5 |sed - n '/3/{n;:a;N;$!ba;p}'
+# seq 5 |sed -n '/3/{n;:a;N;$!ba;p}'
 4
 5
 ```
@@ -2632,11 +2631,11 @@ sed读取第一行 1 ，N命令读取下一行 2 ，此时模式空间是 1 \n2$
 **2 ）**每三个数字加个一个逗号
 
 ```bash
-# echo "123456789" |sed - r 's/([0-9]+)([0-9]+{3})/\1,\2/'
+# echo "123456789" |sed -r 's/([0-9]+)([0-9]+{3})/\1,\2/'
 123456,789
-# echo "123456789" |sed - r ':a;s/([0-9]+)([0-9]+{3})/\1,\2/;t a'
+# echo "123456789" |sed -r ':a;s/([0-9]+)([0-9]+{3})/\1,\2/;t a'
 123,456,789
-# echo "123456789" |sed - r ':a;s/([0-9]+)([0-9]+{2})/\1,\2/;t a'
+# echo "123456789" |sed -r ':a;s/([0-9]+)([0-9]+{2})/\1,\2/;t a'
 1,23,45,67,89
 ```
 
@@ -2646,7 +2645,7 @@ sed读取第一行 1 ，N命令读取下一行 2 ，此时模式空间是 1 \n2$
 ### 7.2.12 忽略大小写匹配（I）
 
 ```bash
-# echo - e "a\nA\nb\nc" |sed 's/a/1/Ig'
+# echo -e "a\nA\nb\nc" |sed 's/a/1/Ig'
 1
 1
 b
@@ -2656,7 +2655,7 @@ c
 ### 7.2.13 获取总行数（#）
 
 ```bash
-# seq 10 |sed - n '$='
+# seq 10 |sed -n '$='
 ```
 
 ## 7.3 awk
@@ -2684,9 +2683,9 @@ awk 处理的工作方式与数据库类似，支持对记录和字段处理，�
 |- f program-file |从文件中读取awk程序源文件|
 |- F fs |指定fs为输入字段分隔符|
 |- v var=value |变量赋值|
-|--posix |兼容POSIX正则表达式|
-|--dump-variables=[file] |把awk命令时的全局变量写入文件，<br>默认文件是awkvars.out|
-|--profile=[file] |格式化awk语句到文件，默认是awkprof.out|
+|- -posix |兼容POSIX正则表达式|
+|- -dump-variables=[file] |把awk命令时的全局变量写入文件，<br>默认文件是awkvars.out|
+|- -profile=[file] |格式化awk语句到文件，默认是awkprof.out|
 
 
 ### 7.3.2 模式
@@ -2712,7 +2711,7 @@ awk 处理的工作方式与数据库类似，支持对记录和字段处理，�
 ```bash
 # vi test.awk
 {print $2}
-# tail - n3 /etc/services |awk - f test.awk
+# tail - n3 /etc/services |awk -f test.awk
 48049/tcp
 48128/tcp
 49000/tcp
@@ -2722,12 +2721,12 @@ awk 处理的工作方式与数据库类似，支持对记录和字段处理，�
 
 ```bash
 打印第二字段，默认以空格分隔：
-# tail - n3 /etc/services |awk '{print $2}'
+# tail -n3 /etc/services |awk '{print $2}'
 48049/tcp
 48128/tcp
 48128/udp
 指定冒号为分隔符打印第一字段：
-# awk - F ':' '{print $1}' /etc/passwd
+# awk -F ':' '{print $1}' /etc/passwd
 root
 bin
 daemon
@@ -2740,23 +2739,23 @@ sync
 还可以指定多个分隔符，作为同一个分隔符处理：
 
 ```bash
-# tail - n3 /etc/services |awk - F'[/#]' '{print $3}'
+# tail -n3 /etc/services |awk -F'[/#]' '{print $3}'
 iqobject
 iqobject
 Matahari Broker
-# tail - n3 /etc/services |awk - F'[/#]' '{print $1}'
+# tail -n3 /etc/services |awk -F'[/#]' '{print $1}'
 iqobject 48619
 iqobject 48619
 matahari 49000
-# tail - n3 /etc/services |awk - F'[/#]' '{print $2}'
+# tail -n3 /etc/services |awk -F'[/#]' '{print $2}'
 tcp
 udp
 tcp
-# tail - n3 /etc/services |awk - F'[/#]' '{print $3}'
+# tail -n3 /etc/services |awk -F'[/#]' '{print $3}'
 iqobject
 iqobject
 Matahari Broker
-# tail - n3 /etc/services |awk - F'[ /]+' '{print $2}'
+# tail -n3 /etc/services |awk -F'[ /]+' '{print $2}'
 48619
 48619
 49000
@@ -2767,11 +2766,11 @@ Matahari Broker
 **3 ）**变量赋值
 
 ```bash
-# awk - v a=123 'BEGIN{print a}'
+# awk -v a=123 'BEGIN{print a}'
 123
 系统变量作为awk变量的值：
 # a=123
-# awk - v a=$a 'BEGIN{print a}'
+# awk -v a=$a 'BEGIN{print a}'
 123
 或使用单引号
 # awk 'BEGIN{print '$a'}'
@@ -2988,19 +2987,19 @@ com-bardac-dw 48556/tcp # com-bardac-dw
 
 **示例：**
 
-**1 ）**FS和OFS
+**1 ）** FS 和 OFS
 
 在程序开始前重新赋值FS变量，改变默认分隔符为冒号，与-F一样。
 
 ```bash
-# awk 'BEGIN{FS=":"}{print $1,$2}' /etc/passwd |head - n5
+# awk 'BEGIN{FS=":"}{print $1,$2}' /etc/passwd |head -n5
 root x
 bin x
 daemon x
 adm x
 lp x
 也可以使用-v来重新赋值这个变量：
-# awk - vFS=':' '{print $1,$2}' /etc/passwd |head - n5 # 中间逗号被换成了OFS的默
+# awk -vFS=':' '{print $1,$2}' /etc/passwd |head -n5 # 中间逗号被换成了OFS的默
 认值
 root x
 bin x
@@ -3008,14 +3007,14 @@ daemon x
 adm x
 lp x
 由于OFS默认以空格分隔，反向引用多个字段分隔的也是空格，如果想指定输出分隔符这样：
-# awk 'BEGIN{FS=":";OFS=":"}{print $1,$2}' /etc/passwd |head - n5
+# awk 'BEGIN{FS=":";OFS=":"}{print $1,$2}' /etc/passwd |head -n5
 root:x
 bin:x
 daemon:x
 adm:x
 lp:x
 也可以通过字符串拼接实现分隔：
-# awk 'BEGIN{FS=":"}{print $1"#"$2}' /etc/passwd |head - n5
+# awk 'BEGIN{FS=":"}{print $1"#"$2}' /etc/passwd |head -n5
 root#x
 bin#x
 daemon#x
@@ -3023,9 +3022,9 @@ adm#x
 lp#x
 ```
 
-**2 ）**RS和ORS
+**2 ）** RS 和 ORS
 
-RS默认是\n分隔每行，如果想指定以某个字符作为分隔符来处理记录：
+RS 默认是 \n 分隔每行，如果想指定以某个字符作为分隔符来处理记录：
 
 ```bash
 # echo "www.baidu.com/user/test.html" |awk 'BEGIN{RS="/"}{print $0}'
@@ -3034,7 +3033,7 @@ user
 test.html
 
 RS也支持正则，简单演示下：
-# seq - f "str%02g" 10 |sed 'n;n;a\-----' |awk 'BEGIN{RS="-+"}{print $1}'
+# seq -f "str%02g" 10 |sed 'n;n;a\-----' |awk 'BEGIN{RS="-+"}{print $1}'
 str01
 str04
 str07
@@ -3045,14 +3044,14 @@ str10
 1+2+3+4+5+6+7+8+9+10+
 
 替换某个字符：
-# tail - n2 /etc/services |awk 'BEGIN{RS="/";ORS="#"}{print $0}'
+# tail -n2 /etc/services |awk 'BEGIN{RS="/";ORS="#"}{print $0}'
 iqobject 48619#udp # iqobject
 matahari 49000#tcp # Matahari Broker
 ```
 
 **3 ）**NF
 
-NF是字段个数。
+NF 是字段个数。
 
 ```bash
 # echo "a b c d e f" |awk '{print NF}'
@@ -3071,35 +3070,35 @@ a b c d
 b c d e f
 ```
 
-**4 ）**NR和FNR
+**4 ）** NR 和 FNR
 
-NR统计记录编号，每处理一行记录，编号就会+1，FNR不同的是在统计第二个文件时会重新计数。
+NR 统计记录编号，每处理一行记录，编号就会 +1，FNR 不同的是在统计第二个文件时会重新计数。
 
 ```bash
 打印行数：
-# tail - n5 /etc/services |awk '{print NR,$0}'
+# tail -n5 /etc/services |awk '{print NR,$0}'
 1 com-bardac-dw 48556/tcp # com-bardac-dw
 2 com-bardac-dw 48556/udp # com-bardac-dw
 3 iqobject 48619/tcp # iqobject
 4 iqobject 48619/udp # iqobject
 5 matahari 49000/tcp # Matahari Broker
 打印总行数：
-# tail - n5 /etc/services |awk 'END{print NR}'
+# tail -n5 /etc/services |awk 'END{print NR}'
 5
 打印第三行：
-# tail - n5 /etc/services |awk 'NR==3'
+# tail -n5 /etc/services |awk 'NR==3'
 iqobject 48619/tcp # iqobject
 打印第三行第二个字段：
-# tail - n5 /etc/services |awk 'NR==3{print $2}'
+# tail -n5 /etc/services |awk 'NR==3{print $2}'
 48619/tcp
 打印前三行：
-# tail - n5 /etc/services |awk 'NR<=3{print NR,$0}'
+# tail -n5 /etc/services |awk 'NR<=3{print NR,$0}'
 1 com-bardac-dw 48556/tcp # com-bardac-dw
 2 com-bardac-dw 48556/udp # com-bardac-dw
 3 iqobject 48619/tcp # iqobject
 ```
 
-看下NR和FNR的区别：
+看下 NR 和 FNR 的区别：
 
 ```bash
 # cat a
@@ -3119,7 +3118,7 @@ e
 6 3 e
 ```
 
-可以看出NR每处理一行就会+1，而FNR在处理第二个文件时，编号重新计数。同时也知道awk处理两个文件时，是合并到一起处理。
+可以看出 NR 每处理一行就会 +1，而 FNR 在处理第二个文件时，编号重新计数。同时也知道 awk 处理两个文件时，是合并到一起处理。
 
 ```bash
 # awk 'FNR==NR{print $0"1"}FNR!=NR{print $0"2"}' a b
@@ -3131,14 +3130,14 @@ d2
 e2
 ```
 
-当FNR==NR时，说明在处理第一个文件内容，不等于时说明在处理第二个文件内容。
-一般FNR在处理多个文件时会用到，下面会讲解。
+当 FNR==NR 时，说明在处理第一个文件内容，不等于时说明在处理第二个文件内容。
+一般 FNR 在处理多个文件时会用到，下面会讲解。
 
 **5 ）**ARGC和ARGV
 
-ARGC是命令行参数数量
+ARGC 是命令行参数数量
 
-ARGV是将命令行参数存到数组，元素由ARGC指定，数组下标从 0 开始
+ARGV 是将命令行参数存到数组，元素由 ARGC 指定，数组下标从 0 开始
 
 ```bash
 # awk 'BEGIN{print ARGC}' 1 2 3
@@ -3153,7 +3152,7 @@ awk
 
 **6 ）**ARGIND
 
-ARGIND是当前正在处理的文件索引值，第一个文件是 1 ，第二个文件是 2 ，以此类推，从而可以通过这种方式判断正在处理哪个文件。
+ARGIND 是当前正在处理的文件索引值，第一个文件是 1 ，第二个文件是 2 ，以此类推，从而可以通过这种方式判断正在处理哪个文件。
 
 ```bash
 # awk '{print ARGIND,$0}' a b
@@ -3174,12 +3173,12 @@ b->e
 
 **7 ）**ENVIRON
 
-ENVIRON调用系统变量。
+ENVIRON 调用系统变量。
 
 ```bash
 # awk 'BEGIN{print ENVIRON["HOME"]}'
 /root
-如果是设置的环境变量，还需要用export导入到系统变量才可以调用：
+如果是设置的环境变量，还需要用 export 导入到系统变量才可以调用：
 # awk 'BEGIN{print ENVIRON["a"]}'
 
 # export a
@@ -3204,7 +3203,7 @@ b->e
 9 ）忽略大小写
 
 ```bash
-# echo "A a b c" |xargs - n1 |awk 'BEGIN{IGNORECASE=1}/a/'
+# echo "A a b c" |xargs -n1 |awk 'BEGIN{IGNORECASE=1}/a/'
 A
 a
 ```
