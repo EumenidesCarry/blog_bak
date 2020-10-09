@@ -504,19 +504,19 @@ done
 **举例说明：**
 
 ```bash
-# [ - z $a ] && echo yes || echo no
+# [ -z $a ] && echo yes || echo no
 yes
-# [ - n $a ] && echo yes || echo no
+# [ -n $a ] && echo yes || echo no
 yes
 # 加了双引号才能正常判断是否为空
-# [ - z "$a" ] && echo yes || echo no
+# [ -z "$a" ] && echo yes || echo no
 yes
-# [ - n "$a" ] && echo yes || echo no
+# [ -n "$a" ] && echo yes || echo no
 no
 # 使用了双中括号就不用了双引号
-# [[ - n $a ]] && echo yes || echo no
+# [[ -n $a ]] && echo yes || echo no
 no
-# [[ - z $a ]] && echo yes || echo no
+# [[ -z $a ]] && echo yes || echo no
 yes
 ```
 
@@ -603,9 +603,9 @@ $(( )) 表达式还有一个用途，三目运算：
 # echo "1.2 != 2.2" |bc
 1
 看出规律了嘛？运算如果为真返回 1 ，否则返回 0 ，写一个例子：
-# [ $(echo "2.2 > 2" |bc) - eq 1 ] && echo yes || echo no
+# [ $(echo "2.2 > 2" |bc) -eq 1 ] && echo yes || echo no
 yes
-# [ $(echo "2.2 < 2" |bc) - eq 1 ] && echo yes || echo no
+# [ $(echo "2.2 < 2" |bc) -eq 1 ] && echo yes || echo no
 no
 ```
 
@@ -667,7 +667,7 @@ fi
 ```bash
 #!/bin/bash
 N=10
-if [ $N - gt 5 ]; then
+if [ $N -gt 5 ]; then
   echo yes
 fi
 # bash test.sh
@@ -689,7 +689,7 @@ fi
 ```bash
 #!/bin/bash
 N=10
-if [ $N - lt 5 ]; then
+if [ $N -lt 5 ]; then
   echo yes
 else
   echo no
@@ -703,8 +703,8 @@ no
 ```bash
 #!/bin/bash
 NAME=crond
-NUM=$(ps - ef |grep $NAME |grep - vc grep)
-if [ $NUM - eq 1 ]; then
+NUM=$(ps -ef |grep $NAME |grep -vc grep)
+if [ $NUM -eq 1 ]; then
   echo "$NAME running."
 else
   echo "$NAME is not running!"
@@ -715,7 +715,7 @@ fi
 
 ```bash
 #!/bin/bash
-if ping - c 1 192.168.1. 1 >/dev/null; then
+if ping -c 1 192.168.1. 1 >/dev/null; then
   echo "OK."
 else
   echo "NO!"
@@ -743,11 +743,11 @@ fi
 ```bash
 #!/bin/bash
 N=$1
-if [ $N - eq 3 ]; then
+if [ $N -eq 3 ]; then
   echo "eq 3"
-elif [ $N - eq 5 ]; then
+elif [ $N -eq 5 ]; then
   echo "eq 5"
-elif [ $N - eq 8 ]; then
+elif [ $N -eq 8 ]; then
   echo "eq 8"
 else
   echo "no"
@@ -760,10 +760,10 @@ fi
 
 ```bash
 #!/bin/bash
-if [ - e /etc/redhat-release ]; then
-  yum install wget - y
-elif [ $(cat /etc/issue |cut - d' ' - f 1 ) == "Ubuntu" ]; then
-  apt-get install wget - y
+if [ -e /etc/redhat-release ]; then
+  yum install wget -y
+elif [ $(cat /etc/issue |cut -d' ' -f 1 ) == "Ubuntu" ]; then
+  apt-get install wget -y
 else
   echo 'perating system does not support.'
   exit
@@ -854,7 +854,7 @@ done
 ```bash
 #!/bin/bash
 for ip in 192.168.1.{1..254}; do
-  if ping - c 1 $ip >/dev/null; then
+  if ping -c 1 $ip >/dev/null; then
    echo "$ip OK."
   else
    echo "$ip NO!"
@@ -868,8 +868,8 @@ done
 #!/bin/bash
 URL="www.baidu.com www.sina.com www.jd.com"
 for url in $URL; do
-  HTTP_CODE=$(curl - o /dev/null - s - w %{http_code} http://$url)
-  if [ $HTTP_CODE - eq 200 - o $HTTP_CODE - eq 301 ]; then
+  HTTP_CODE=$(curl -o /dev/null -s -w %{http_code} http://$url)
+  if [ $HTTP_CODE -eq 200 -o $HTTP_CODE -eq 301 ]; then
     echo "$url OK."
   else
     echo "$url NO!"
@@ -892,7 +892,7 @@ done
 ```bash
 #!/bin/bash
 N=0
-while [ $N - lt 5 ]; do
+while [ $N -lt 5 ]; do
   let N++
   echo $N
 done
@@ -910,7 +910,7 @@ done
 
 ```bash
 #!/bin/bash
-while [ 1 - eq 1 ]; do
+while [ 1 -eq 1 ]; do
   echo "yes"
 done
 ```
@@ -1557,7 +1557,7 @@ echo -e "1\n12\n123\n1234a" |grep '[[:digit:]]'
 3 ） 匹配多个模式
 
 ```bash
-# echo "a bc de" |xargs - n1 |grep -e 'a' -e 'bc'
+# echo "a bc de" |xargs -n1 |grep -e 'a' -e 'bc'
 a
 bc
 ```
@@ -1571,7 +1571,7 @@ bc
 5 ） 匹配开头不分大小写的单词
 
 ```bash
-# echo "A a b c" |xargs -n1 |grep - i a
+# echo "A a b c" |xargs -n1 |grep -i a
 或
 # echo "A a b c" |xargs -n1 |grep '[Aa]'
 A
@@ -2711,7 +2711,7 @@ awk 处理的工作方式与数据库类似，支持对记录和字段处理，�
 ```bash
 # vi test.awk
 {print $2}
-# tail - n3 /etc/services |awk -f test.awk
+# tail -n3 /etc/services |awk -f test.awk
 48049/tcp
 48128/tcp
 49000/tcp
@@ -3250,14 +3250,14 @@ false
 **1 ）**截取整数
 
 ```bash
-# echo "123abc abc123 123abc123" |xargs - n1 | awk '{print +$0}'
+# echo "123abc abc123 123abc123" |xargs -n1 | awk '{print +$0}'
 123
 0
 123
-# echo "123abc abc123 123abc123" |xargs - n1 | awk '{print - $0}'
-- 123
+# echo "123abc abc123 123abc123" |xargs -n1 | awk '{print -$0}'
+-123
 0
-- 123
+-123
 ```
 
 **2 ）**感叹号
@@ -3285,14 +3285,14 @@ false
 
 ```bash
 # tail /etc/services |awk '!/blp5/{print $0}'
-3gpp-cbsp 48049/tcp # 3GPP Cell Broadcast Service
-isnetserv 48128/tcp # Image Systems Network Services
-isnetserv 48128/udp # Image Systems Network Services
-com-bardac-dw 48556/tcp # com-bardac-dw
-com-bardac-dw 48556/udp # com-bardac-dw
-iqobject 48619/tcp # iqobject
-iqobject 48619/udp # iqobject
-matahari 49000/tcp # Matahari Broker
+3gpp-cbsp       48049/tcp # 3GPP Cell Broadcast Service
+isnetserv       48128/tcp # Image Systems Network Services
+isnetserv       48128/udp # Image Systems Network Services
+com-bardac-dw   48556/tcp # com-bardac-dw
+com-bardac-dw   48556/udp # com-bardac-dw
+iqobject        48619/tcp # iqobject
+iqobject        48619/udp # iqobject
+matahari        49000/tcp # Matahari Broker
 ```
 
 **4 ）**乘法和除法
@@ -3450,8 +3450,7 @@ no
 1 2 3
 4 5 6
 7 8 9
-# awk '{if($1==4){print "1"} else if($2==5){print "2"} else if($3==6){print "3"} else
-{print "no"}}' file
+# awk '{if($1==4){print "1"} else if($2==5){print "2"} else if($3==6){print "3"} else {print "no"}}' file
 no
 1
 no
@@ -3476,7 +3475,7 @@ no
 awk是按行处理的，每次读取一行，并遍历打印每个字段。
 ```
 
-**3 ）for语句C语言风格**
+**3 ）for 语句 C 语言风格**
 
 格式：for (expr1; expr2; expr3) statement
 
@@ -3529,10 +3528,8 @@ awk是按行处理的，每次读取一行，并遍历打印每个字段。
 4 5
 7 8
 IP加单引号：
-# echo '10.10.10.1 10.10.10.2 10.10.10.3' |awk '{for(i=1;i<=NF;i++)printf
-"\047"$i"\047"}
-'10.10.10.1' '10.10.10.2' '10.10.10.3'
-\ 047 是ASCII码，可以通过showkey - a命令查看。
+# echo '10.10.10.1 10.10.10.2 10.10.10.3' |awk '{for(i=1;i<=NF;i++)printf"\047"$i"\047"}'10.10.10.1' '10.10.10.2' '10.10.10.3'
+\047 是ASCII码，可以通过 showkey -a 命令查看。
 ```
 
 **4 ）for语句遍历数组**
@@ -3540,7 +3537,7 @@ IP加单引号：
 格式：for (var in array) statement
 
 ```bash
-# seq - f "str%.g" 5 |awk '{a[NR]=$0}END{for(v in a)print v,a[v]}'
+# seq -f "str%.g" 5 |awk '{a[NR]=$0}END{for(v in a)print v,a[v]}'
 4 str4
 5 str5
 1 str1
@@ -3548,9 +3545,9 @@ IP加单引号：
 3 str3
 ```
 
-**5 ）break和continue语句**
+**5 ）break 和 continue 语句**
 
-break跳过所有循环，continue跳过当前循环。
+break跳过所有循环，continue 跳过当前循环。
 
 ```bash
 # awk 'BEGIN{for(i=1;i<=5;i++){if(i==3){break};print i}}'
@@ -3572,9 +3569,9 @@ delete array[index] 删除数组元素
 delete array 删除数组
 
 ```bash
-# seq - f "str%.g" 5 |awk '{a[NR]=$0}END{delete a;for(v in a)print v,a[v]}'
+# seq -f "str%.g" 5 |awk '{a[NR]=$0}END{delete a;for(v in a)print v,a[v]}'
 空的...
-# seq - f "str%.g" 5 |awk '{a[NR]=$0}END{delete a[3];for(v in a)print v,a[v]}'
+# seq -f "str%.g" 5 |awk '{a[NR]=$0}END{delete a[3];for(v in a)print v,a[v]}'
 4 str4
 5 str5
 1 str1
@@ -3612,24 +3609,24 @@ test
 **2 ）通过NR设置记录下标，下标从 1 开始**
 
 ```bash
-# tail - n3 /etc/passwd |awk - F: '{a[NR]=$1}END{print a[1]}'
+# tail -n3 /etc/passwd |awk -F: '{a[NR]=$1}END{print a[1]}'
 systemd-network
-# tail - n3 /etc/passwd |awk - F: '{a[NR]=$1}END{print a[2]}'
+# tail -n3 /etc/passwd |awk -F: '{a[NR]=$1}END{print a[2]}'
 zabbix
-# tail - n3 /etc/passwd |awk - F: '{a[NR]=$1}END{print a[3]}'
+# tail -n3 /etc/passwd |awk -F: '{a[NR]=$1}END{print a[3]}'
 user
 ```
 
 **3 ）通过for循环遍历数组**
 
 ```bash
-# tail - n 5 /etc/passwd |awk - F: '{a[NR]=$1}END{for(v in a)print a[v],v}'
+# tail -n5 /etc/passwd |awk -F: '{a[NR]=$1}END{for(v in a)print a[v],v}'
 zabbix 4
 user 5
 admin 1
 systemd-bus-proxy 2
 systemd-network 3
-# tail - n5 /etc/passwd |awk - F: '{a[NR]=$1}END{for(i=1;i<=NR;i++)print a[i],i}'
+# tail -n5 /etc/passwd |awk -F: '{a[NR]=$1}END{for(i=1;i<=NR;i++)print a[i],i}'
 admin 1
 systemd-bus-proxy 2
 systemd-network 3
@@ -3645,7 +3642,7 @@ user 5
 **4 ）通过++方式作为下标**
 
 ```bash
-# tail - n5 /etc/passwd |awk - F: '{a[x++]=$1}END{for(i=0;i<=x-1;i++)print a[i],i}'
+# tail -n5 /etc/passwd |awk -F: '{a[x++]=$1}END{for(i=0;i<=x-1;i++)print a[i],i}'
 admin 0
 systemd-bus-proxy 1
 systemd-network 2
@@ -3658,7 +3655,7 @@ x被awk初始化值是 0 ，没循环一次+1
 **5 ）使用字段作为下标**
 
 ```bash
-# tail - n5 /etc/passwd |awk - F: '{a[$1]=$7}END{for(v in a)print a[v],v}'
+# tail -n5 /etc/passwd |awk -F: '{a[$1]=$7}END{for(v in a)print a[v],v}'
 /sbin/nologin admin
 /bin/bash user
 /sbin/nologin systemd-network
@@ -3693,7 +3690,7 @@ x被awk初始化值是 0 ，没循环一次+1
 **7 ）统计TCP连接状态**
 
 ```bash
-# netstat - antp |awk '/^tcp/{a[$6]++}END{for(v in a)print a[v],v}'
+# netstat -antp |awk '/^tcp/{a[$6]++}END{for(v in a)print a[v],v}'
 9 LISTEN
 6 ESTABLISHED
 6 TIME_WAIT
@@ -3762,7 +3759,7 @@ matahari
 **10 ）统计每个相同字段的某字段总数：**
 
 ```bash
-# tail /etc/services |awk - F'[ /]+' '{a[$1]+=$2}END{for(v in a)print v, a[v]}'
+# tail /etc/services |awk -F'[ /]+' '{a[$1]+=$2}END{for(v in a)print v, a[v]}'
 com-bardac-dw 97112
 3gpp-cbsp 48049
 iqobject 97238
@@ -3828,7 +3825,7 @@ D 192.168.1.4 NGINX
 
 ```bash
 截断为整数：
-# echo - e "123abc\nabc123\n123abc123" | awk '{print int($0)}'
+# echo -e "123abc\nabc123\n123abc123" | awk '{print int($0)}'
 123
 0
 123
@@ -3861,19 +3858,17 @@ rand()并不是每次运行就是一个随机数，会一直保持一个不变�
 
 如果想更完美生成随机数，还得做相应的处理！
 
-**4 ）asort()和asorti()**
+**4 ）asort() 和 asorti()**
 
 ```bash
 排序数组：
-# seq - f "str%.g" 5 |awk '{a[x++]=$0}END{s=asort(a,b);for(i=1;i<=s;i++)print
-b[i],i}'
+# seq -f "str%.g" 5 |awk '{a[x++]=$0}END{s=asort(a,b);for(i=1;i<=s;i++)print b[i],i}'
 str1 1
 str2 2
 str3 3
 str4 4
 str5 5
-# seq - f "str%.g" 5 |awk '{a[x++]=$0}END{s=asorti(a,b);for(i=1;i<=s;i++)print
-b[i],i}'
+# seq -f "str%.g" 5 |awk '{a[x++]=$0}END{s=asorti(a,b);for(i=1;i<=s;i++)print b[i],i}'
 0 1
 1 2
 2 3
@@ -3881,9 +3876,9 @@ b[i],i}'
 4 5
 ```
 
-asort将a数组的值放到数组b，a下标丢弃，并将数组b的总行号赋值给s，新数组b下标从 1 开始，然后遍历。
+asort 将 a 数组的值放到数组 b，a 下标丢弃，并将数组b的总行号赋值给 s，新数组 b 下标从 1 开始，然后遍历。
 
-**5 ）sub()和gsub()**
+**5 ）sub() 和 gsub()**
 
 ```bash
 替换正则匹配的字符串：
@@ -3922,7 +3917,7 @@ txt
 
 ```bash
 获取字段索引起始位置：
-# tail - n 5 /etc/services |awk '{print index($2,"tcp")}'
+# tail -n 5 /etc/services |awk '{print index($2,"tcp")}'
 7
 0
 7
@@ -3934,14 +3929,14 @@ txt
 
 ```bash
 统计字段长度：
-# tail - n 5 /etc/services |awk '{print length($2)}'
+# tail -n 5 /etc/services |awk '{print length($2)}'
 9
 9
 9
 9
 9
 统计数组的长度：
-# tail - n 5 /etc/services |awk '{a[$1]=$2}END{print length(a)}'
+# tail -n 5 /etc/services |awk '{a[$1]=$2}END{print length(a)}'
 3
 ```
 
@@ -3963,11 +3958,11 @@ txt
 
 ```bash
 切分记录为数组a：
-# echo - e "123#456#789\nabc#cde#fgh" |awk '{split($0,a);for(v in a)print a[v],v}'
+# echo -e "123#456#789\nabc#cde#fgh" |awk '{split($0,a);for(v in a)print a[v],v}'
 123#456#789 1
 abc#cde#fgh 1
 以#号切分记录为数据a：
-# echo - e "123#456#789\nabc#cde#fgh" |awk '{split($0,a,"#");for(v in a)print a[v],v}'
+# echo -e "123#456#789\nabc#cde#fgh" |awk '{split($0,a,"#");for(v in a)print a[v],v}'
 123 1
 456 2
 789 3
@@ -3980,11 +3975,11 @@ fgh 3
 
 ```bash
 截取字符串索引 4 到最后：
-# echo - e "123#456#789\nabc#cde#fgh" |awk '{printsubstr($0,4)}'
+# echo -e "123#456#789\nabc#cde#fgh" |awk '{printsubstr($0,4)}'
 #456#789
 #cde#fgh
 截取字符串索引 4 到长度 5 ：
-# echo - e "123#456#789\nabc#cde#fgh" |awk '{print substr($0,4,5)}'
+# echo -e "123#456#789\nabc#cde#fgh" |awk '{print substr($0,4,5)}'
 #456#
 #cde#
 ```
@@ -3993,11 +3988,11 @@ fgh 3
 
 ```bash
 转换小写：
-# echo - e "123#456#789\nABC#cde#fgh" |awk '{print tolower($0)}'
+# echo -e "123#456#789\nABC#cde#fgh" |awk '{print tolower($0)}'
 123#456#789
 abc#cde#fgh
 转换大写：
-# echo - e "123#456#789\nabc#cde#fgh" |awk '{print toupper($0)}'
+# echo -e "123#456#789\nabc#cde#fgh" |awk '{print toupper($0)}'
 123#456#789
 ABC#CDE#FGH
 ```
@@ -4013,7 +4008,7 @@ ABC#CDE#FGH
 2017 - 01 - 01 14:09:26
 ```
 
-### 7.3.8 I/O语句
+### 7.3.8 I/O 语句
 
 |语句 |描述|
 |---|---|
@@ -4135,15 +4130,14 @@ hello 3 c
 
 ```bash
 执行shell命令判断返回值：
-# awk 'BEGIN{if(system("grep root /etc/passwd &>/dev/null")==0)print "yes";else print
-"no"}'
+# awk 'BEGIN{if(system("grep root /etc/passwd &>/dev/null")==0)print "yes";else print "no"}'
 yes
 ```
 
 **6 ）打印结果写到文件**
 
 ```bash
-# tail - n5 /etc/services |awk '{print $2 > "a.txt"}'
+# tail -n5 /etc/services |awk '{print $2 > "a.txt"}'
 # cat a.txt
 48049/tcp
 48128/tcp
@@ -4212,12 +4206,12 @@ print "+--------------------+--------------------+";
 printf "|%-20s|%-20s|\n","Name","Number";
 print "+--------------------+--------------------+";
 }
-# awk - f test.awk
+# awk -f test.awk
 +--------------------+--------------------+
 |Name |Number |
 +--------------------+--------------------+
 格式化输出：
-# awk - F: 'BEGIN{printf "UserName\t\tShell\n-----------------------------\n"}{printf"%-20s %-20s\n",$1,$7}END{print "END...\n"}' /etc/passwd
+# awk -F: 'BEGIN{printf "UserName\t\tShell\n-----------------------------\n"}{printf"%-20s %-20s\n",$1,$7}END{print "END...\n"}' /etc/passwd
 打印十六进制：
 # awk 'BEGIN{printf "%x %X",123,123}'
 7b 7B
@@ -4248,16 +4242,16 @@ print "+--------------------+--------------------+";
 统计访问访问大于 100 次的IP：
 # awk '{a[$1]++}END{for(v in a){if(a[v]>100)print v,a[v]}}' access.log
 统计访问IP次数并排序取前 10 ：
-# awk '{a[$1]++}END{for(v in a)print v,a[v] |"sort - k2 - nr |head - 10"}' access.log
+# awk '{a[$1]++}END{for(v in a)print v,a[v] |"sort -k2 -nr |head -10"}' access.log
 统计时间段访问最多的IP：
 # awk '$4>="[02/Jan/2017:00:02:00" && $4<="[02/Jan/2017:00:03:00"{a[$1]++}END{for(v ina)print v,a[v]}' access.log
 
 统计上一分钟访问量：
-# date=$(date - d '- 1 minute' +%d/%d/%Y:%H:%M)
+# date=$(date -d '-1 minute' +%d/%d/%Y:%H:%M)
 # awk - vdate=$date '$4~date{c++}END{print c}' access.log
 
 统计访问最多的 10 个页面：
-# awk '{a[$7]++}END{for(v in a)print v,a[v] |"sort - k1 - nr|head -n10"}' access.log
+# awk '{a[$7]++}END{for(v in a)print v,a[v] |"sort -k1 -nr|head -n10"}' access.log
 
 统计每个URL数量和返回内容总大小：
 # awk '{a[$7]++;size[$7]+=$10}END{for(v in a)print a[v],v,size[v]}' access.log
@@ -4404,9 +4398,9 @@ for循环是遍历每行的字段，NF等于 3 ，循环 3 次。
 
 ```bash
 方法 1 ：
-# echo "hello world" |awk - F '' '{print $1}'
+# echo "hello world" |awk -F '' '{print $1}'
 h
-# echo "hello" |awk - F '' '{for(i=1;i<=NF;i++)print $i}'
+# echo "hello" |awk -F '' '{for(i=1;i<=NF;i++)print $i}'
 h
 e
 l
@@ -4424,7 +4418,7 @@ l
 统计字符串中每个字母出现的次数：
 
 ```bash
-# echo "a.b.c,c.d.e" |awk - F '[.,]' '{for(i=1;i<=NF;i++)a[$i]++}END{for(v in a)printv,a[v]}'
+# echo "a.b.c,c.d.e" |awk -F '[.,]' '{for(i=1;i<=NF;i++)a[$i]++}END{for(v in a)printv,a[v]}'
 a 1
 b 1
 c 2
@@ -4724,17 +4718,17 @@ read命令从标准输入读取，并把输入的内容复制给变量。
 
 ```bash
 获取用户输入保存到变量：
-# read - p "Please input your name: " VAR
+# read -p "Please input your name: " VAR
 Please input your name: lizhenliang
 # echo $VAR
 lizhenliang
 用户输入保存为数组：
-# read - p "Please input your name: " - a ARRAY
+# read -p "Please input your name: " -a ARRAY
 Please input your name: a b c
 # echo ${ARRAY[*]}
 a b c
 遇到e字符返回：
-# read - d e VAR
+# read -d e VAR
 123
 456
 e
@@ -5416,9 +5410,9 @@ dir2
 sort
 # basename include/stdio.h .h
 stdio
-# basename - s .h include/stdio.h
+# basename -s .h include/stdio.h
 stdio
-# basename - a any/str1 any/str2
+# basename -a any/str1 any/str2
 str1
 str2
 ```
@@ -5443,9 +5437,9 @@ str2
 
 ```bash
 查看目录大小：
-# du - sh /opt
+# du -sh /opt
 排除目录某个文件：
-# du - sh --exclude=test /opt
+# du -sh --exclude=test /opt
 ```
 
 ## 11.15 cut
@@ -5488,16 +5482,16 @@ b
 **示例：**
 ```bash
 替换SET1没有SET2的字符：
-# echo "aaabbbccc" | tr - c c 1
+# echo "aaabbbccc" | tr -c c 1
 111111ccc
 去重字符：
-# echo "aaacccddd" | tr - s '[a-z]'
+# echo "aaacccddd" | tr -s '[a-z]'
 acd
 删除字符：
-# echo "aaabbbccc" | tr - d bbb
+# echo "aaabbbccc" | tr -d bbb
 aaaccc
 删除换行符：
-# echo - e "a\nb\nc" | tr - d '\n'
+# echo -e "a\nb\nc" | tr -d '\n'
 abc
 替换字符：
 # echo "aaabbbccc" | tr '[a-z]' '[A-Z]'
@@ -5520,7 +5514,7 @@ AAABBBCCC
 显示文件信息：
 # stat file
 只显示文件修改时间：
-# stat - c %y file
+# stat -c %y file
 ```
 
 ## 11.18 seq
@@ -5557,10 +5551,10 @@ AAABBBCCC
 3
 5
 以冒号分隔序列：
-# seq - s "+" 5
+# seq -s "+" 5
 1+2+3+4+5
 等宽并在数字前面加字符串：
-# seq - f "str%02g" 3 # %g是默认数字位数， 02 是数字不足 2 位时用 0 填充。
+# seq -f "str%02g" 3 # %g是默认数字位数， 02 是数字不足 2 位时用 0 填充。
 str01
 str02
 str03
@@ -5583,7 +5577,7 @@ str03
 5
 4
 3
-# shuf - i 5 - 10
+# shuf -i 5-10
 8
 10
 7
@@ -5619,23 +5613,23 @@ str03
 倒序排序：
 # seq 5 |shuf |sort - r
 分隔后的字段排序：
-# cat /etc/passwd |sort - t : - k 3 - n
+# cat /etc/passwd |sort -t : -k 3 -n
 去重重复行：
-# echo - e "1\n1\n2\n3\n3" |sort - u
+# echo -e "1\n1\n2\n3\n3" |sort -u
 大小单位排序：
-# du - h |sort - k 1 - h - r
+# du -h |sort -k 1 -h -r
 分隔后第一个字段的第二个字符排序：
-# echo - e "fa:1\neb:2\ncc:3" |sort - t : - k 1.2
+# echo -e "fa:1\neb:2\ncc:3" |sort -t : -k 1.2
 tab作为分隔符：
-# sort - t $"\t"
+# sort -t $"\t"
 file文件内容：
 zhangsan 6 100
 lisi 8 80
 wangwu 7 90
 zhaoliu 9 70
 对file文件的第二列正序排序，再次基础再对第三列倒序排序（多列排序）：
-# sort - k 2,2 - n - k 3,3 - nr file
-# sort - k 2 - n - k 3 - nr file
+# sort -k 2,2 -n -k 3,3 -nr file
+# sort -k 2 -n -k 3 -nr file
 zhaoliu 9 70
 lisi 8 80
 wangwu 7 90
@@ -5677,25 +5671,25 @@ abd
 cde
 xyz
 打印每行重复次数：
-# sort file |uniq - c
+# sort file |uniq -c
 1 abc
 1 abd
 2 cde
 2 xyz
 打印不重复行：
-# sort file |uniq - u
+# sort file |uniq -u
 abc
 abd
 打印重复行：
-# sort file |uniq - d
+# sort file |uniq -d
 cde
 xyz
 打印重复行并统计出现次数：
-# sort file |uniq - d - c
+# sort file |uniq -d -c
 2 cde
 2 xyz
 根据前几个字符去重：
-# sort file |uniq - w 2
+# sort file |uniq -w 2
 abc
 cde
 xyz
@@ -5714,7 +5708,7 @@ xyz
 
 ```bash
 打印并追加到文件：
-# echo 123 |tee - a a.log
+# echo 123 |tee -a a.log
 ```
 
 ## 11.23 join
@@ -5743,11 +5737,11 @@ xyz
 2 b y
 3 c z
 打印file1第二列和file2第二列：
-# join - o 1.2 2.2 file1 file2
+# join -o 1.2 2.2 file1 file2
 a x
 b y
 c z
-# join - t ':' - o 1.1 2.1 /etc/passwd /etc/shadow
+# join -t ':' -o 1.1 2.1 /etc/passwd /etc/shadow
 user1:user1
 ```
 
@@ -5770,12 +5764,12 @@ user1:user1
 2 5
 3 6
 两个文件合并，+号分隔：
-# paste - d "+" file1 file2
+# paste -d "+" file1 file2
 1+4
 2+5
 3+6
 文件内容平行显示：
-# paste - s file1 file2
+# paste -s file1 file2
 1 2 3
 4 5 6
 ```
@@ -5793,7 +5787,7 @@ user1:user1
 **示例：**
 ```bash
 打印文件前 50 行：
-# head - n 50 file
+# head -n 50 file
 ```
 
 ## 11.26 tail
@@ -5811,9 +5805,9 @@ user1:user1
 **示例：**
 ```bash
 打印文件后 50 行：
-# tail - n 50 file
+# tail -n 50 file
 实时输出新增行：
-# tail - f file
+# tail -f file
 ```
 
 ## 11.27 find
@@ -5850,34 +5844,34 @@ user1:user1
 **示例：**
 ```bash
 查找文件名：
-# find / - name "*http*"
+# find / -name "*http*"
 查找文件名并且文件类型：
-# find /tmp - name core - type f - print
+# find /tmp -name core -type f -print
 查找文件名并且文件类型删除：
-# find /tmp - name core - type f - delete
+# find /tmp -name core -type f -delete
 查找当前目录常规文件并查看文件类型：
-# find. - type f - exec file '{}' \;
+# find. -type f -exec file '{}' \;
 查找文件权限是 664 ：
-# find. - perm 664
+# find. -perm 664
 查找大于1024k的文件：
-# find. - size - 1024k
+# find. -size -1024k
 查找 3 天内修改的文件：
-# find /bin - ctime - 3
+# find /bin -ctime -3
 查找 3 分钟前修改的文件：
-# find /bin - cmin + 3
+# find /bin -cmin +3
 排除多个类型的文件：
-# find.! - name "*.sql"! - name "*.txt"
+# find.! -name "*.sql"! -name "*.txt"
 或条件查找多个类型的文件：
-# find. - name '*.sh' - o - name '*.bak'
-# find. - regex ".*\.sh\|.*\.bak"
-# find. - regex ".*\.\(sh\|bak\)"
+# find. -name '*.sh' -o -name '*.bak'
+# find. -regex ".*\.sh\|.*\.bak"
+# find. -regex ".*\.\(sh\|bak\)"
 并且条件查找文件：
-# find. - name "*.sql" - a - size +1024k
+# find. -name "*.sql" -a -size +1024k
 只显示第一级目录：
-# find /etc - type d - maxdepth 1
+# find /etc -type d -maxdepth 1
 通过inode编号删除文件：
-# rm `find. - inum 671915`
-# find. - inum 8651577 - exec rm - i {} \;
+# rm `find. -inum 671915`
+# find. -inum 8651577 -exec rm -i {} \;
 ```
 
 ## 11.28 xargs
@@ -5900,23 +5894,23 @@ user1:user1
 **示例：**
 ```bash
 删除/tmp下名字是core的文件：
-# find /tmp - name core - type f - print | xargs /bin/rm - f
-# find /tmp - name core - type f - print0 | xargs - 0 /bin/rm - f
+# find /tmp -name core -type f -print | xargs /bin/rm -f
+# find /tmp -name core -type f -print0 | xargs -0 /bin/rm -f
 列转行（去除换行符 ）：
-# cut - d: - f1 < /etc/passwd | sort | xargs echo
+# cut -d: -f1 < /etc/passwd | sort | xargs echo
 行转列：
-# echo "1 2 3 4 5" |xargs - n1
+# echo "1 2 3 4 5" |xargs -n1
 最长两列显示：
-# echo "1 2 3 4 5" |xargs - n2
+# echo "1 2 3 4 5" |xargs -n2
 创建未来十天时间：
-# seq 1 10 |xargs - i date - d "{} days " +%Y-%m-%d
+# seq 1 10 |xargs -i date -d "{} days " +%Y-%m-%d
 复制多个目录：
-# echo dir1 dir2 |xargs - n1 cp a.txt
+# echo dir1 dir2 |xargs -n1 cp a.txt
 清空所有日志：
-# find ./ - name "*.log" |xargs - i tee {} # echo ""> {} 这样不行，>把命令中断了
+# find ./ -name "*.log" |xargs -i tee {} # echo ""> {} 这样不行，>把命令中断了
 rm在删除大量的文件时，会提示参数过长，那么可以使用xargs删除：
-# ls |xargs rm – rf
-或分配删除 rm [a-n]* - rf # getconf ARG_MAX 获取系统最大参数限制
+# ls |xargs rm –rf
+或分配删除 rm [a-n]* -rf # getconf ARG_MAX 获取系统最大参数限制
 ```
 
 ## 11.29 nl
@@ -5933,9 +5927,9 @@ rm在删除大量的文件时，会提示参数过长，那么可以使用xargs�
 打印行号，空行不显示：
 # nl a.txt
 左对齐打印行号：
-# nl - n ln a.txt
+# nl -n ln a.txt
 行号右移动五个空格：
-# nl - w 5 a.txt
+# nl -w 5 a.txt
 ```
 
 ## 11.30 date
@@ -5997,30 +5991,30 @@ rm在删除大量的文件时，会提示参数过长，那么可以使用xargs�
 ```bash
 
 设置系统日期和时间：
-# date - s "2016- 12 - 15 00:00:00"
+# date -s "2016-12-15 00:00:00"
 查看当前系统时间戳：
 # date +%s
 查看当前系统时间：
 # date +'%F %T'
 把日期和时间转换成时间戳：
-# date - d "2016- 12 - 15 18:00:00" +%s
+# date -d "2016-12 -15 18:00:00" +%s
 把时间戳转成时间：
-# date - d '@1481842800' '+%F %T'
+# date -d '@1481842800' '+%F %T'
 时间加减：
-显示前 30 秒：date - d '- 30 second' +'%F %T'
-显示前一分钟：date - d '- 1 minute' +'%F %T'
-显示前一个时间：date - d '- 1 hour' +'%F %T'
-显示前一个天：date - d '- 1 day' +'%F %T'
-显示上一周：date - d '- 1 week' +'%F %T'
-显示上一个月日期：date - d '- 1 month' +%F
-显示上一年日期：date - d '- 1 year' +%F
+显示前 30 秒：date -d '- 30 second' +'%F %T'
+显示前一分钟：date -d '- 1 minute' +'%F %T'
+显示前一个时间：date -d '- 1 hour' +'%F %T'
+显示前一个天：date -d '- 1 day' +'%F %T'
+显示上一周：date -d '- 1 week' +'%F %T'
+显示上一个月日期：date -d '- 1 month' +%F
+显示上一年日期：date -d '- 1 year' +%F
 或
-显示前一天日期：date - d yesterday +%F
-显示后一天日期：date - d tomorrow +%F
+显示前一天日期：date -d yesterday +%F
+显示后一天日期：date -d tomorrow +%F
 时间比较：
 NOW_DATE=$(date +%s)
-AGO_DATE=$(date - d "2016- 12 - 15 18:00:00" +%s)
-[ $NOW_DATE - gt $AGO_DATE ] && echo yes || echo no
+AGO_DATE=$(date -d "2016-12-15 18:00:00" +%s)
+[ $NOW_DATE -gt $AGO_DATE ] && echo yes || echo no
 ```
 
 ## 11.31 wget
@@ -6084,24 +6078,23 @@ HTTP选项：
 下载单个文件到当前目录：
 # wget http://nginx.org/download/nginx-1.11.7.tar.gz
 放到后台下载：
-# wget - b http://nginx.org/download/nginx-1.11.7.tar.gz
+# wget -b http://nginx.org/download/nginx-1.11.7.tar.gz
 对于网络不稳定的用户使用-c和--tries参数，保证下载完成，并下载到指定目录：
 
 
-# wget - t 3 - c http://nginx.org/download/nginx-1.11.7.tar.gz - P down
+# wget -t 3 -c http://nginx.org/download/nginx-1.11.7.tar.gz -P down
 不下载任何内容，判断URL是否可以访问：
 # wget --spider http://nginx.org/download/nginx-1.11.7.tar.gz
 下载内容写到文件：
-# wget http://www.baidu.com/index.html - O index.html
+# wget http://www.baidu.com/index.html -O index.html
 从文件中读取URL下载：
-# wget - i url.list
+# wget -i url.list
 下载ftp文件：
-# wget --ftp-user=admin --ftp-password=admin ftp://192.168.1.10/ISO/CentOS-6.5-i386-
-minimal.iso
+# wget --ftp-user=admin --ftp-password=admin ftp://192.168.1.10/ISO/CentOS-6.5-i386-minimal.iso
 伪装客户端，指定user-agent和referer下载：
-# wget - U "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko)Chrome/44.0.2403.157 Safari/537.36" --referer "http://nginx.org/en/download.html"http://nginx.org/download/nginx-1.11.7.tar.gz
+# wget -U "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko)Chrome/44.0.2403.157 Safari/537.36" --referer "http://nginx.org/en/download.html"http://nginx.org/download/nginx-1.11.7.tar.gz
 查看HTTP头信息：
-# wget - S http://nginx.org/download/nginx-1.11.7.tar.gz
+# wget -S http://nginx.org/download/nginx-1.11.7.tar.gz
 # wget --debug http://nginx.org/download/nginx-1.11.7.tar.gz
 ```
 
@@ -6144,27 +6137,27 @@ minimal.iso
 **示例：**
 ```bash
 下载页面：
-# curl - o badu.html http://www.baidu.com
+# curl -o badu.html http://www.baidu.com
 不输出下载信息：
-# curl - s - o baidu.html http://www.baidu.com
+# curl -s -o baidu.html http://www.baidu.com
 伪装客户端，指定user-agent和referer下载：
-# curl - A "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko)Chrome/44.0.2403.157 Safari/537.36" - e "baike.baidu.com" http://127.0.0.1
+# curl -A "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko)Chrome/44.0.2403.157 Safari/537.36" - e "baike.baidu.com" http://127.0.0.1
 模拟用户登录，并保存cookies到文件：
-# curl - c ./cookies.txt - F NAME=user - F PWD=123 http://www.example.com/login.html
+# curl -c ./cookies.txt -F NAME=user -F PWD=123 http://www.example.com/login.html
 使用cookie访问：
-# curl - b cookies.txt http://www.baidu.com
+# curl -b cookies.txt http://www.baidu.com
 访问HTTP认证页面：
-# curl - u user:pass http://www.example.com
+# curl -u user:pass http://www.example.com
 FTP上传文件：
-# curl - T filename ftp://user:pass@ip/a.txt
-# curl ftp://ip - u user:pass-T filename
+# curl -T filename ftp://user:pass@ip/a.txt
+# curl ftp://ip -u user:pass-T filename
 FTP下载文件：
-# curl - O ftp://user:pass@ip/a.txt
-# curl ftp://ip/filename - u user:pass - o filename
+# curl -O ftp://user:pass@ip/a.txt
+# curl ftp://ip/filename -u user:pass -o filename
 FTP下载多个文件：
 # curl ftp://ip/img/[1,3,5].jpg
 查看HTTP头信息：
-# curl - I http://www.baidu.com
+# curl -I http://www.baidu.com
 ```
 
 ## 11.33 scp
@@ -6187,9 +6180,9 @@ FTP下载多个文件：
 **示例：**
 ```bash
 本地目录推送到远程主机：
-# scp - P 22 - r src_dir root@192.168.1.10:/dst_dir
+# scp -P 22 - r src_dir root@192.168.1.10:/dst_dir
 远程主机目录拉取到本地：
-# scp - P 22 - r root@192.168.1.10:dst_dir src_dir
+# scp -P 22 - r root@192.168.1.10:dst_dir src_dir
 同步文件方式一样，不用加-r参数
 ```
 
@@ -6217,17 +6210,17 @@ FTP下载多个文件：
 **示例：**
 ```baash
 本地复制目录：
-# rsync - avz abc /opt
+# rsync -avz abc /opt
 本地目录推送到远程主机：
-# rsync - avz SRC root@192.168.1.120:DST
+# rsync -avz SRC root@192.168.1.120:DST
 远程主机目录拉取到本地：
-# rsync - avz root@192.168.1.10:SRC DST
+# rsync -avz root@192.168.1.10:SRC DST
 保持远程主机目录与本地一样：
-# rsync - avz --delete SRC root@192.168.1.120:DST
+# rsync -avz --delete SRC root@192.168.1.120:DST
 排除某个目录：
-# rsync - avz --exclude=no_dir SRC root@192.168.1.120:DST
+# rsync -avz --exclude=no_dir SRC root@192.168.1.120:DST
 指定SSH端口：
-# rsync - avz /etc/hosts - e "ssh - p22" root@192.168.1.120:/opt
+# rsync -avz /etc/hosts -e "ssh - p22" root@192.168.1.120:/opt
 ```
 
 ## 11.35 nohup
@@ -6255,11 +6248,11 @@ FTP下载多个文件：
 **示例：**
 ```bash
 将文件内容转换UTF8：
-# iconv - f gbk - t utf8 old.txt - o new.txt
+# iconv -f gbk -t utf8 old.txt -o new.txt
 将csv文件转换GBK：
-# iconv - f utf8 - t gbk old.txt - o new.txt
+# iconv -f utf8 -t gbk old.txt -o new.txt
 解决邮件乱码：
-# echo $(echo "content" | iconv - f utf8 - t gbk) | mail - s "$(echo "title" | iconv - f utf8 - t gbk)" example@mail.com
+# echo $(echo "content" | iconv -f utf8 -t gbk) | mail -s "$(echo "title" | iconv -f utf8 -t gbk)" example@mail.com
 ```
 
 ## 11.37 uname
@@ -6282,13 +6275,13 @@ FTP下载多个文件：
 **示例：**
 ```bash
 输出所有系统信息：
-# uname - a
+# uname -a
 输出主机名：
-# uname - a
+# uname -a
 输出内核版本：
-# uname - r
+# uname -r
 输出操作系统：
-# uname - o
+# uname -o
 ```
 
 ## 11.38 sshpass
@@ -6305,11 +6298,11 @@ FTP下载多个文件：
 **示例：**
 ```bash
 免交互SSH登录：
-# sshpass - p 123456 ssh root@192.168.1.10
+# sshpass -p 123456 ssh root@192.168.1.10
 免交互传输文件：
-# sshpass - p 123456 scp a.txt 192.168.1.10:/root
+# sshpass -p 123456 scp a.txt 192.168.1.10:/root
 密码传入系统变量：
-# SSHPASS=123456 rsync - avz /etc/hosts - e "sshpass - e ssh" root@192.168.1.221:/opt
+# SSHPASS=123456 rsync -avz /etc/hosts -e "sshpass -e ssh" root@192.168.1.221:/opt
 ```
 
 ## 11.39 tar
@@ -6332,19 +6325,19 @@ FTP下载多个文件：
 **示例：**
 ```bash
 创建归档文件来自foo和bar：
-# tar - cf archive.tar foo bar
+# tar -cf archive.tar foo bar
 提取归档的所有文件：
-# tar - xf archive.tar
+# tar -xf archive.tar
 列出所有归档文件内容：
-# tar - tvf archive.tar
+# tar -tvf archive.tar
 创建归档并gzip压缩：
-# tar - zcvf archive.tar.gz log
+# tar -zcvf archive.tar.gz log
 提取归档文件并gzip解压：
-# tar - zxvf log.tar.gz
+# tar -zxvf log.tar.gz
 创建归档并bzip2压缩：
-# tar - jcvf log.tar.bz log
+# tar -jcvf log.tar.bz log
 提取归档并解压到指定目录：
-# tar - zxvf log.tar.gz - C /opt
+# tar -zxvf log.tar.gz -C /opt
 ```
 
 ## 11.40 logger
@@ -6360,7 +6353,7 @@ FTP下载多个文件：
 
 **示例：**
 ```bash
-# logger - i - t "my_test" - p local3.notice "test_info"
+# logger -i -t "my_test" -p local3.notice "test_info"
 ```
 
 ## 11.41 netstat
@@ -6384,13 +6377,13 @@ FTP下载多个文件：
 **示例：**
 ```bash
 显示所有监听：
-# netstat - anltu
+# netstat -anltu
 显示所有TCP连接：
-# netstat - antp
+# netstat -antp
 显示所有UDP连接：
-# netstat - anup
+# netstat -anup
 显示路由表：
-# netstat - r
+# netstat -r
 ```
 
 ## 11.42 ss
@@ -6427,17 +6420,17 @@ FTP下载多个文件：
 **示例：**
 ```bash
 显示所有TCP连接：
-# ss - t - a
+# ss -t -a
 显示所有UDP连接：
-# ss - u – a
+# ss -u –a
 显示socket使用汇总：
-# ss - s
+# ss -s
 显示所有建立的连接：
-# ss - o state established
+# ss -o state established
 显示所有的TIME-WAIT状态：
-# ss - o state TIME-WAIT
+# ss -o state TIME-WAIT
 搜索所有本地进程连接到X Server：
-# ss - x src /tmp/.X11-unix/*
+# ss -x src /tmp/.X11-unix/*
 ```
 
 ## 11.43 lsof
@@ -6462,25 +6455,25 @@ FTP下载多个文件：
 查看哪个进程占用文件：
 # lsof /etc/passwd
 列出所有打开的监听地址和unix域socket文件：
-# lsof - i - U
+# lsof -i -U
 列出 80 端口监听的进程：
-# lsof - i:80
+# lsof -i:80
 列出端口 1 - 1024 之间的所有进程：
-# lsof - i:1- 1024
+# lsof -i:1-1024
 列出所有TCP网络连接：
-# lsof - i tcp
+# lsof -i tcp
 列出所有UDP网络连接：
-# lsof - i udp
+# lsof -i udp
 根据文件描述符列出打开的文件：
-# lsof - d 1
+# lsof -d 1
 列出某个目录被打开的文件：
 # lsof +D /var/log
 列出进程ID打开的文件：
-# lsof - p 5373
+# lsof -p 5373
 打开所有登录用户名abc或user id 1234 ，或PID 123 或PID 456 ：
-# lsof - p 123,456 - u 123,abc
+# lsof -p 123,456 -u 123,abc
 列出COMMAND列中包含字符串sshd：
-# lsof - c sshd
+# lsof -c sshd
 ```
 
 ## 11.44 ps
@@ -6523,18 +6516,18 @@ CODE NORMAL HEADER
 **示例：**
 ```bash
 打印系统上所有进程标准语法：
-# ps - ef
+# ps -ef
 打印系统上所有进程BSD语法：
 # ps aux
 打印进程树：
-# ps axjf 或 ps - ejH
+# ps axjf 或 ps -ejH
 查看进程启动的线程：
-# ps - Lfp PID
+# ps -Lfp PID
 查看当前用户的进程数：
-# ps uxm 或 ps - U root - u root u
+# ps uxm 或 ps -U root -u root u
 自定义格式显示并对CPU排序：
-# ps - eo user,pid,pcpu,pmem,nice,lstart,time,args --sort=-pcpu
-或 ps - eo "%U %p %C %n %x %a"
+# ps -eo user,pid,pcpu,pmem,nice,lstart,time,args --sort=-pcpu
+或 ps -eo "%U %p %C %n %x %a"
 ```
 
 USER PID %CPU %MEM VSZ RSS TTY STAT START TIME COMMAND
@@ -6575,9 +6568,9 @@ USER PID %CPU %MEM VSZ RSS TTY STAT START TIME COMMAND
 **示例：**
 ```bash
 刷新一次并输出到文件：
-# top - b - n 1 > top.log
+# top -b -n 1 > top.log
 只显示指定进程的线程：
-# top - Hp 123
+# top -Hp 123
 top - 09:31:08 up 16:49,  0 users,  load average: 0.03, 0.19, 0.22
 Threads:   0 total,   0 running,   0 sleeping,   0 stopped,   0 zombie
 %Cpu(s): 12.6 us,  1.0 sy,  0.0 ni, 86.2 id,  0.0 wa,  0.0 hi,  0.2 si,  0.0 st
@@ -6625,9 +6618,9 @@ KiB Swap:  2097148 total,  2097148 free,        0 used.  7275176 avail Mem
 **示例：**
 ```bash
 查看物理内存：
-# free - m
+# free -m
 易读单位显示：
-# free - h
+# free -h
 ```
 
 ## 11.47 df
@@ -6646,9 +6639,9 @@ KiB Swap:  2097148 total,  2097148 free,        0 used.  7275176 avail Mem
 **示例：**
 ```bash
 查看所有文件系统：
-# df - ah
+# df -ah
 输出指定文件系统：
-# df - t xfs
+# df -t xfs
 ```
 
 ## 11.48 vmstat
@@ -6723,9 +6716,9 @@ procs -----------memory---------- ---swap-- -----io---- -system-- ------cpu-----
 **示例：**
 ```bash
 显示CPU使用率：
-# iostat - c 1 3
+# iostat -c 1 3
 显示I/O磁盘统计信息：
-# iostat - d - x - k 1 3 # 间隔 1 秒，输出 3 次
+# iostat -d -x -k 1 3 # 间隔 1 秒，输出 3 次
 ```
 
 ## 11.50 sar
@@ -6743,9 +6736,9 @@ procs -----------memory---------- ---swap-- -----io---- -system-- ------cpu-----
 
 **示例：**
 ```bash
-# sar - u 2 3 #每两秒执行一次，采集三次
-# sar - u 2 3 - o cpu.out
-# sar - f cpu.out #读取文件
+# sar -u 2 3 #每两秒执行一次，采集三次
+# sar -u 2 3 -o cpu.out
+# sar -f cpu.out #读取文件
 ```
 
 ## 11.51 dstat
@@ -6776,7 +6769,7 @@ procs -----------memory---------- ---swap-- -----io---- -system-- ------cpu-----
 **示例：**
 ```bash
 查看CPU利用率：
-# dstat - c
+# dstat -c
 查看TCP连接状态：
 # dstat --tcp
 ```
@@ -6818,9 +6811,9 @@ procs -----------memory---------- ---swap-- -----io---- -system-- ------cpu-----
 查看网络设备地址：
 # ip addr
 查看网卡统计信息：
-# ip - s link
+# ip -s link
 查看单个网卡统计信息：
-# ip - s link ls eth0
+# ip -s link ls eth0
 查看ARP缓存表：
 # ip neighbour
 查看路由表：
@@ -6862,25 +6855,25 @@ procs -----------memory---------- ---swap-- -----io---- -system-- ------cpu-----
 **示例：**
 ```bash
 端口扫描：
-# nc - z 192.168.1.10 1 - 65535
+# nc -z 192.168.1.10 1-65535
 TCP协议连接到目标端口：
-# nc - p 31337 - w 5 192.168.1.10 22
+# nc -p 31337 -w 5 192.168.1.10 22
 UDP协议连接到目的端口：
-# nc - u 192.168.1.10 53
+# nc -u 192.168.1.10 53
 指定本地IP连接：
-# nc - s 192.168.1.9 192.168.1.10 22
+# nc -s 192.168.1.9 192.168.1.10 22
 探测端口是否开启：
-# nc - z - w 2 192.168.1.10 22
+# nc -z -w 2 192.168.1.10 22
 创建监听Unix域Socket：
-# nc - lU /var/tmp/ncsocket
+# nc -lU /var/tmp/ncsocket
 通过HTTP代理连接主机：
-# nc - x10.2.3.4:8080 - Xconnect 10.0.0.10 22
+# nc -x10.2.3.4:8080 -Xconnect 10.0.0.10 22
 监听端口捕获输出到文件：
-# nc - l 1234 > filename.out
+# nc -l 1234 > filename.out
 从文件读入到指定端口：
 # nc host.example.com 1234 < filename.in
 收发信息：
-# nc - l 1234
+# nc -l 1234
 # nc 127.0.0.1 1234
 执行memcahced命令：printf "stats\n" |nc 127.0.0.1 11211
 发送邮件：
@@ -6893,7 +6886,7 @@ Body of email
 .
 QUIT
 EOF
-# echo - n "GET / HTTP/1.0\r\n\r\n" | nc host.example.com 80
+# echo -n "GET / HTTP/1.0\r\n\r\n" | nc host.example.com 80
 ```
 
 ## 11.54 time
@@ -7075,40 +7068,37 @@ iptables 分为四表五链，表是链的容器，链是规则的容器，规�
 
 **示例：常用的规则配置方法**
 ```bash
-iptables - F # 清空表规则，默认filter表
-iptables - t nat - F # 清空nat表
-iptables - A INPUT - p tcp --dport 22 - j ACCEPT # 允许TCP的 22 端口访问
-iptables - I INPUT - p udp --dport 53 - j ACCEPT # 允许UDP的 53 端口访问，插入在第一条
-iptables - A INPUT - p tcp --dport 22:25 - j ACCEPT # 允许端口范围访问
-iptables - D INPUT - p tcp --dport 22:25 - j ACCEPT # 删除这条规则
+iptables -F # 清空表规则，默认filter表
+iptables -t nat - F # 清空nat表
+iptables -A INPUT -p tcp --dport 22 -j ACCEPT # 允许TCP的 22 端口访问
+iptables -I INPUT -p udp --dport 53 -j ACCEPT # 允许UDP的 53 端口访问，插入在第一条
+iptables -A INPUT -p tcp --dport 22:25 -j ACCEPT # 允许端口范围访问
+iptables -D INPUT -p tcp --dport 22:25 -j ACCEPT # 删除这条规则
 # 允许多个TCP端口访问
-iptables - A INPUT - p tcp - m multiport --dports 22,80,8080 - j ACCEPT
-iptables - A INPUT - s 192.168.1.0/24 - j ACCEPT # 允许192.168.1.0段IP访问
-iptables - A INPUT - s 192.168.1.10 - j DROP # 对1.10数据包丢弃
-iptables - A INPUT - i eth0 - p icmp - j DROP # eth0网卡ICMP数据包丢弃，也就是禁ping
+iptables -A INPUT -p tcp -m multiport --dports 22,80,8080 -j ACCEPT
+iptables -A INPUT -s 192.168.1.0/24 -j ACCEPT # 允许192.168.1.0段IP访问
+iptables -A INPUT -s 192.168.1.10 -j DROP # 对1.10数据包丢弃
+iptables -A INPUT -i eth0 -p icmp -j DROP # eth0网卡ICMP数据包丢弃，也就是禁ping
 # 允许来自lo接口，如果没有这条规则，将不能通过127.0.0.1访问本地服务
-iptables - A INPUT - i lo - j ACCEPT
+iptables -A INPUT -i lo -j ACCEPT
 # 限制并发连接数，超过 30 个拒绝
-iptables - I INPUT - p tcp --syn --dport 80 - m connlimit --connlimit-above 30 - j
-REJECT
+iptables -I INPUT -p tcp --syn --dport 80 -m connlimit --connlimit-above 30 -j REJECT
 # 限制每个IP每秒并发连接数最大 3 个
-iptables - I INPUT - p tcp --syn - m limit --limit 1/s --limit-burst 3 - j
-ACCEPT
-iptables - A FORWARD - p tcp --syn - m limit --limit 1/s - j ACCEPT
+iptables -I INPUT -p tcp --syn -m limit --limit 1/s --limit-burst 3 -j ACCEPT
+iptables -A FORWARD -p tcp --syn -m limit --limit 1/s -j ACCEPT
 # iptables服务器作为网关时，内网访问公网
-iptables – t nat - A POSTROUTING - s [内网IP或网段] - j SNAT --to [公网IP]
+iptables –t nat -A POSTROUTING -s [内网IP或网段] -j SNAT --to [公网IP]
 # 访问iptables公网IP端口，转发到内网服务器端口
-iptables – t nat - A PREROUTING - d [对外IP] - p tcp --dport [对外端口] - j DNAT --to [内
-网IP:内网端口]
+iptables –t nat -A PREROUTING -d [对外IP] -p tcp --dport [对外端口] -j DNAT --to [内网IP:内网端口]
 # 本地 80 端口转发到本地 8080 端口
-iptables - t nat - A PREROUTING - p tcp --dport 80 - j REDIRECT --to-ports 8080
+iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-ports 8080
 # 允许已建立及该链接相关联的数据包通过
-iptables - A INPUT - m state --state ESTABLISHED,RELATED - j ACCEPT
+iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
 # ASDL拨号上网
-iptables - t nat - A POSTROUTING - s 192.168.1.0/24 - o pppo - j MASQUERADE
+iptables -t nat -A POSTROUTING -s 192.168.1.0/24 -o pppo -j MASQUERADE
 # 设置INPUT链缺省操作丢弃所有数据包，只要不符合规则的数据包都丢弃。注意要在最后设置，
 以免把自己关在外面！
-iptables - P INPUT DROP
+iptables -P INPUT DROP
 ```
 
 # 十二、 Shell 脚本编写实战
@@ -7126,26 +7116,26 @@ iptables - P INPUT DROP
 获取随机 8 位字符串：
 ```bash
 方法 1 ：
-# echo $RANDOM |md5sum |cut - c 1 - 8
+# echo $RANDOM |md5sum |cut -c 1-8
 471b94f2
 方法 2 ：
-# openssl rand - base64 4
+# openssl rand -base64 4
 vg3BEg==
 方法 3 ：
-# cat /proc/sys/kernel/random/uuid |cut - c 1 - 8
+# cat /proc/sys/kernel/random/uuid |cut -c 1-8
 ed9e032c
 ```
 
 获取随机 8 位数字：
 ```bash
 方法 1 ：
-# echo $RANDOM |cksum |cut - c 1 - 8
+# echo $RANDOM |cksum |cut -c 1-8
 23648321
 方法 2 ：
-# openssl rand - base64 4 |cksum |cut - c 1 - 8
+# openssl rand -base64 4 |cksum |cut -c 1-8
 38571131
 方法 3 ：
-# date +%N |cut - c 1 - 8
+# date +%N |cut -c 1-8
 69024815
 ```
 
@@ -7157,19 +7147,19 @@ cksum：打印CRC效验和统计字节
 方法 1 ：
 function echo_color() {
   if [ $1 == "green" ]; then
-    echo - e "\033[32;40m$2\033[0m"
+    echo -e "\033[32;40m$2\033[0m"
   elif [ $1 == "red" ]; then
-    echo - e "\033[31;40m$2\033[0m"
+    echo -e "\033[31;40m$2\033[0m"
   fi
 }
 方法 2 ：
 function echo_color() {
   case $1 in
     green)
-      echo - e "\033[32;40m$2\033[0m"
+      echo -e "\033[32;40m$2\033[0m"
     ;;
     red)
-      echo - e "\033[31;40m$2\033[0m"
+      echo -e "\033[31;40m$2\033[0m"
     ;;
     *)
       echo "Example: echo_color red string"
@@ -7188,25 +7178,25 @@ DATE=$(date +%F_%T)
 USER_FILE=user.txt
 echo_color(){
   if [ $1 == "green" ]; then
-    echo - e "\033[32;40m$2\033[0m"
+    echo -e "\033[32;40m$2\033[0m"
   elif [ $1 == "red" ]; then
-    echo - e "\033[31;40m$2\033[0m"
+    echo -e "\033[31;40m$2\033[0m"
   fi
 }
 # 如果用户文件存在并且大小大于 0 就备份
-if [ - s $USER_FILE ]; then
+if [ -s $USER_FILE ]; then
   mv $USER_FILE ${USER_FILE}-${DATE}.bak
   echo_color green "$USER_FILE exist, rename ${USER_FILE}-${DATE}.bak"
 fi
-echo - e "User\tPassword" >> $USER_FILE
+echo -e "User\tPassword" >> $USER_FILE
 echo "----------------" >> $USER_FILE
 
 for USER in user{1..10}; do
   if ! id $USER &>/dev/null; then
-    PASS=$(echo $RANDOM |md5sum |cut - c 1 - 8)
+    PASS=$(echo $RANDOM |md5sum |cut -c 1-8)
     useradd $USER
     echo $PASS |passwd --stdin $USER &>/dev/null
-    echo - e "$USER\t$PASS" >> $USER_FILE
+    echo -e "$USER\t$PASS" >> $USER_FILE
     echo "$USER User create successful."
   else
     echo_color red "$USER User already exists!"
@@ -7218,7 +7208,7 @@ done
 
 ```bash
 #!/bin/bash
-if rpm - q sysstat &>/dev/null; then
+if rpm -q sysstat &>/dev/null; then
   echo "sysstat is already installed."
 else
   echo "sysstat is not installed!"
@@ -7229,9 +7219,9 @@ fi
 
 ```bash
 #!/bin/bash
-PORT_C=$(ss - anu |grep - c 123)
-PS_C=$(ps - ef |grep ntpd |grep - vc grep)
-if [ $PORT_C - eq 0 - o $PS_C - eq 0 ]; then
+PORT_C=$(ss -anu |grep -c 123)
+PS_C=$(ps -ef |grep ntpd |grep -vc grep)
+if [ $PORT_C -eq 0 -o $PS_C -eq 0 ]; then
   echo "内容" | mail - s "主题" dst@example.com
 fi
 ```
@@ -7244,8 +7234,8 @@ fi
 IP_LIST="192.168.18.1 192.168.1.1 192.168.18.2"
 for IP in $IP_LIST; do
   NUM=1
-  while [ $NUM - le 3 ]; do
-    if ping - c 1 $IP > /dev/null; then
+  while [ $NUM -le 3 ]; do
+    if ping -c 1 $IP > /dev/null; then
       echo "$IP Ping is successful."
       break
     else
@@ -7254,7 +7244,7 @@ for IP in $IP_LIST; do
       let NUM++
     fi
   done
-  if [ ${#FAIL_COUNT[*]} - eq 3 ];then
+  if [ ${#FAIL_COUNT[*]} -eq 3 ];then
     echo "${FAIL_COUNT[1]} Ping is failure!"
     unset FAIL_COUNT[*]
   fi
@@ -7276,7 +7266,7 @@ for IP in $IP_LIST; do
       let FAIL_COUNT++
     fi
   done
-  if [ $FAIL_COUNT - eq 3 ]; then
+  if [ $FAIL_COUNT -eq 3 ]; then
     echo "$IP Ping is failure!"
   fi
 done
@@ -7287,7 +7277,7 @@ done
 ```bash
 #!/bin/bash
 ping_success_status() {
-  if ping - c 1 $IP >/dev/null; then
+  if ping -c 1 $IP >/dev/null; then
     echo "$IP Ping is successful."
     continue
   fi
@@ -7309,7 +7299,7 @@ done
 ```bash
 #!/bin/bash
 DATE=$(date +%F" "%H:%M)
-IP=$(ifconfig eth0 |awk - F '[ :]+' '/inet addr/{print $4}') # 只支持CentOS6
+IP=$(ifconfig eth0 |awk -F '[ :]+' '/inet addr/{print $4}') # 只支持CentOS6
 MAIL="example@mail.com"
 if ! which vmstat &>/dev/null; then
   echo "vmstat command no found, Please install procps package."
@@ -7320,12 +7310,12 @@ SY=$(vmstat |awk 'NR==3{print $14}')
 IDLE=$(vmstat |awk 'NR==3{print $15}')
 WAIT=$(vmstat |awk 'NR==3{print $16}')
 USE=$(($US+$SY))
-if [ $USE - ge 50 ]; then
+if [ $USE -ge 50 ]; then
   echo "
   Date: $DATE
   Host: $IP
   Problem: CPU utilization $USE
-  " | mail - s "CPU Monitor" $MAIL
+  " | mail -s "CPU Monitor" $MAIL
 fi
 ```
 
@@ -7333,18 +7323,18 @@ fi
 ```bash
 #!/bin/bash
 DATE=$(date +%F" "%H:%M)
-IP=$(ifconfig eth0 |awk - F '[ :]+' '/inet addr/{print $4}')
+IP=$(ifconfig eth0 |awk -F '[ :]+' '/inet addr/{print $4}')
 MAIL="example@mail.com"
-TOTAL=$(free - m |awk '/Mem/{print $2}')
-USE=$(free - m |awk '/Mem/{print $3-$6-$7}')
+TOTAL=$(free -m |awk '/Mem/{print $2}')
+USE=$(free -m |awk '/Mem/{print $3-$6-$7}')
 FREE=$(($TOTAL-$USE))
 # 内存小于1G发送报警邮件
-if [ $FREE - lt 1024 ]; then
+if [ $FREE -lt 1024 ]; then
   echo "
   Date: $DATE
   Host: $IP
   Problem: Total=$TOTAL,Use=$USE,Free=$FREE
-  " | mail - s "Memory Monitor" $MAIL
+  " | mail -s "Memory Monitor" $MAIL
 fi
 ```
 
@@ -7352,21 +7342,21 @@ fi
 ```bash
 #!/bin/bash
 DATE=$(date +%F" "%H:%M)
-IP=$(ifconfig eth0 |awk - F '[ :]+' '/inet addr/{print $4}')
+IP=$(ifconfig eth0 |awk -F '[ :]+' '/inet addr/{print $4}')
 MAIL="example@mail.com"
-TOTAL=$(fdisk - l |awk - F'[: ]+' 'BEGIN{OFS="="}/^Disk \/dev/{printf "%s=%sG,",$2,$3}')
-PART_USE=$(df - h |awk 'BEGIN{OFS="="}/^\/dev/{print $1,int($5),$6}')
+TOTAL=$(fdisk -l |awk -F'[: ]+' 'BEGIN{OFS="="}/^Disk \/dev/{printf "%s=%sG,",$2,$3}')
+PART_USE=$(df -h |awk 'BEGIN{OFS="="}/^\/dev/{print $1,int($5),$6}')
 for i in $PART_USE; do
-  PART=$(echo $i |cut - d"=" - f1)
-  USE=$(echo $i |cut - d"=" - f2)
-  MOUNT=$(echo $i |cut - d"=" - f3)
-  if [ $USE - gt 80 ]; then
+  PART=$(echo $i |cut -d"=" -f1)
+  USE=$(echo $i |cut -d"=" -f2)
+  MOUNT=$(echo $i |cut -d"=" -f3)
+  if [ $USE -gt 80 ]; then
     echo "
     Date: $DATE
     Host: $IP
     Total: $TOTAL
     Problem: $PART=$USE($MOUNT)
-    " | mail - s "Disk Monitor" $MAIL
+    " | mail -s "Disk Monitor" $MAIL
   fi
 done
 ```
@@ -7380,10 +7370,10 @@ done
 #!/bin/bash
 HOST_INFO=host.info
 for IP in $(awk '/^[^#]/{print $1}' $HOST_INFO); do
-  USER=$(awk - v ip=$IP 'ip==$1{print $2}' $HOST_INFO)
-  PORT=$(awk - v ip=$IP 'ip==$1{print $3}' $HOST_INFO)
+  USER=$(awk -v ip=$IP 'ip==$1{print $2}' $HOST_INFO)
+  PORT=$(awk -v ip=$IP 'ip==$1{print $3}' $HOST_INFO)
   TMP_FILE=/tmp/disk.tmp
-  ssh - p $PORT $USER@$IP 'df - h' > $TMP_FILE
+  ssh -p $PORT $USER@$IP 'df -h' > $TMP_FILE
   USE_RATE_LIST=$( awk 'BEGIN{OFS="="}/^\/dev/{print $1,int($5)}' $TMP_FILE)
   for USE_RATE in $USE_RATE_LIST; do
     PART_NAME=${USE_RATE%=*}
@@ -7402,14 +7392,14 @@ done
 ```bash
 方法 1 ：
 check_url() {
-HTTP_CODE=$(curl - o /dev/null --connect-timeout 3 - s - w "%{http_code}" $1)
-if [ $HTTP_CODE - ne 200 ]; then
+HTTP_CODE=$(curl -o /dev/null --connect-timeout 3 -s -w "%{http_code}" $1)
+if [ $HTTP_CODE -ne 200 ]; then
   echo "Warning: $1 Access failure!"
 fi
 }
 方法 2 ：
 check_url() {
-if ! wget - T 10 --tries=1 --spider $1 >/dev/null 2>&1; then
+if ! wget -T 10 --tries=1 --spider $1 >/dev/null 2>&1; then
   #-T超时时间，--tries尝试 1 次，--spider爬虫模式
   echo "Warning: $1 Access failure!"
 fi
@@ -7424,8 +7414,8 @@ fi
 方法 1 ：利用循环技巧，如果成功就跳出当前循环，否则执行到最后一行
 #!/bin/bash
 check_url() {
-  HTTP_CODE=$(curl - o /dev/null --connect-timeout 3 - s - w "%{http_code}" $1)
-  if [ $HTTP_CODE - eq 200 ]; then
+  HTTP_CODE=$(curl -o /dev/null --connect-timeout 3 -s -w "%{http_code}" $1)
+  if [ $HTTP_CODE -eq 200 ]; then
     continue
   fi
 }
@@ -7443,14 +7433,14 @@ URL_LIST="www.baidu.com www.agasgf.com"
 for URL in $URL_LIST; do
   FAIL_COUNT=0
   for ((i=1;i<=3;i++)); do
-    HTTP_CODE=$(curl - o /dev/null --connect-timeout 3 - s - w "%{http_code}" $URL)
-    if [ $HTTP_CODE - ne 200 ]; then
+    HTTP_CODE=$(curl -o /dev/null --connect-timeout 3 -s -w "%{http_code}" $URL)
+    if [ $HTTP_CODE -ne 200 ]; then
       let FAIL_COUNT++
     else
       break
     fi
   done
-  if [ $FAIL_COUNT - eq 3 ]; then
+  if [ $FAIL_COUNT -eq 3 ]; then
     echo "Warning: $URL Access failure!"
   fi
 done
@@ -7460,16 +7450,16 @@ done
 URL_LIST="www.baidu.com www.agasgf.com"
 for URL in $URL_LIST; do
   NUM=1
-  while [ $NUM - le 3 ]; do
-    HTTP_CODE=$(curl - o /dev/null --connect-timeout 3 - s - w "%{http_code}" $URL)
-    if [ $HTTP_CODE - ne 200 ]; then
+  while [ $NUM -le 3 ]; do
+    HTTP_CODE=$(curl -o /dev/null --connect-timeout 3 -s -w "%{http_code}" $URL)
+    if [ $HTTP_CODE -ne 200 ]; then
       FAIL_COUNT[$NUM]=$IP #创建数组，以$NUM下标，$IP元素
       let NUM++
     else
       break
     fi
   done
-  if [ ${#FAIL_COUNT[*]} - eq 3 ]; then
+  if [ ${#FAIL_COUNT[*]} -eq 3 ]; then
     echo "Warning: $URL Access failure!"
     unset FAIL_COUNT[*] #清空数组
   fi
@@ -7482,7 +7472,7 @@ done
 #!/bin/bash
 USER=bak
 PASSWD=123 456
-IO_SQL_STATUS=$(mysql - u$USER - p$PASSWD - e 'show slave status\G' |awk - F:'/Slave_.*_Running/{gsub(": ",":");print $0}') #gsub去除冒号后面的空格
+IO_SQL_STATUS=$(mysql -u$USER -p$PASSWD -e 'show slave status\G' |awk -F:'/Slave_.*_Running/{gsub(": ",":");print $0}') #gsub去除冒号后面的空格
 for i in $IO_SQL_STATUS; do
   THREAD_STATUS_NAME=${i%:*}
   THREAD_STATUS=${i#*:}
@@ -7500,19 +7490,19 @@ done
 ```bash
 方法 1 ：以Nginx日志作为测试
 DATE=$(date +%d/%b/%Y:%H:%M)
-ABNORMAL_IP=$(tail - n5000 access.log |grep $DATE |awk '{a[$1]++}END{for(i in a)if(a[i]>100)print i}')
+ABNORMAL_IP=$(tail -n5000 access.log |grep $DATE |awk '{a[$1]++}END{for(i in a)if(a[i]>100)print i}')
 #先tail防止文件过大，读取慢，数字可调整每分钟最大的访问量。awk不能直接过滤日志，因为包含特殊字符。
 for IP in $ABNORMAL_IP; do
-  if [ $(iptables - vnL |grep - c "$IP") - eq 0 ]; then
-    iptables - I INPUT - s $IP - j DROP
+  if [ $(iptables -vnL |grep -c "$IP") -eq 0 ]; then
+    iptables -I INPUT -s $IP -j DROP
   fi
 done
 方法 2 ：通过建立连接数
-ABNORMAL_IP=$(netstat - an |awk '$4~/:80$/ && $6~/ESTABLISHED/{gsub(/:[0-9]+/,"",$5);{a[$5]++}}END{for(i in a)if(a[i]>100)print i}')
+ABNORMAL_IP=$(netstat -an |awk '$4~/:80$/ && $6~/ESTABLISHED/{gsub(/:[0-9]+/,"",$5);{a[$5]++}}END{for(i in a)if(a[i]>100)print i}')
 #gsub是将第五列（客户端IP）的冒号和端口去掉
 for IP in $ABNORMAL_IP; do
-  if [ $(iptables - vnL |grep - c "$IP") - eq 0 ]; then
-    iptables - I INPUT - s $IP - j DROP
+  if [ $(iptables -vnL |grep -c "$IP") -eq 0 ]; then
+    iptables -I INPUT -s $IP -j DROP
   fi
 done
 ```
@@ -7524,18 +7514,18 @@ done
 DATE=$(date +"%a %b %e %H:%M") #星期月天时分 %e单数字时显示 7 ，而%d显示 07
 ABNORMAL_IP=$(lastb |grep "$DATE" |awk '{a[$3]++}END{for(i in a)if(a[i]>10)print i}')
 for IP in $ABNORMAL_IP; do
-  if [ $(iptables - vnL |grep - c "$IP") - eq 0 ]; then
-    iptables - I INPUT - s $IP - j DROP
+  if [ $(iptables -vnL |grep -c "$IP") -eq 0 ]; then
+    iptables -I INPUT -s $IP -j DROP
   fi
 done
 
 方法 2 ：通过日志获取登录状态
 DATE=$(date +"%b %d %H")
-ABNORMAL_IP="$(tail - n10000 /var/log/auth.log |grep "$DATE" |awk '/Failed/{a[$(NF-3)]++}END{for(i in a)if(a[i]>5)print i}')"
+ABNORMAL_IP="$(tail -n10000 /var/log/auth.log |grep "$DATE" |awk '/Failed/{a[$(NF-3)]++}END{for(i in a)if(a[i]>5)print i}')"
 for IP in $ABNORMAL_IP; do
-  if [ $(iptables - vnL |grep - c "$IP") - eq 0 ]; then
-    iptables - A INPUT - s $IP - j DROP
-    echo "$(date +"%F %T") - iptables - A INPUT - s $IP - j DROP" >>~/ssh-login-limit.log
+  if [ $(iptables -vnL |grep -c "$IP") -eq 0 ]; then
+    iptables -A INPUT -s $IP -j DROP
+    echo "$(date +"%F %T") - iptables -A INPUT -s $IP -j DROP" >>~/ssh-login-limit.log
   fi
 done
 ```
@@ -7546,8 +7536,8 @@ done
 ```bash
 function check_ip(){
   IP=$1
-  VALID_CHECK=$(echo $IP|awk - F. '$1<=255&&$2<=255&&$3<=255&&$4<=255{print "yes"}')
-  if echo $IP|grep - E "^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$">/dev/null;then
+  VALID_CHECK=$(echo $IP|awk -F. '$1<=255&&$2<=255&&$3<=255&&$4<=255{print "yes"}')
+  if echo $IP|grep -E "^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$">/dev/null;then
     if [ $VALID_CHECK == "yes" ]; then
       echo "$IP available."
     else
@@ -7564,11 +7554,11 @@ check_ip 256.1.1.1
 function check_ip(){
 IP=$1
 if [[ $IP =~ ^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$ ]]; then
-  FIELD1=$(echo $IP|cut - d. - f1)
-  FIELD2=$(echo $IP|cut - d. - f2)
-  FIELD3=$(echo $IP|cut - d. - f3)
-  FIELD4=$(echo $IP|cut - d. - f4)
-  if [ $FIELD1 - le 255 - a $FIELD2 - le 255 - a $FIELD3 - le 255 - a $FIELD4 - le 255 ]; then
+  FIELD1=$(echo $IP|cut -d. -f1)
+  FIELD2=$(echo $IP|cut -d. -f2)
+  FIELD3=$(echo $IP|cut -d. -f3)
+  FIELD4=$(echo $IP|cut -d. -f4)
+  if [ $FIELD1 -le 255 -a $FIELD2 -le 255 -a $FIELD3 -le 255 -a $FIELD4 -le 255 ]; then
     echo "$IP available."
   else
     echo "$IP not available!"
@@ -7586,8 +7576,8 @@ check_ip 256.1.1.1
 ```bash
 function check_ip(){
 local IP=$1
-VALID_CHECK=$(echo $IP|awk - F. '$1<=255&&$2<=255&&$3<=255&&$4<=255{print "yes"}')
-if echo $IP|grep - E "^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[ 0 - 9]{1,3}$" >/dev/null;then
+VALID_CHECK=$(echo $IP|awk -F. '$1<=255&&$2<=255&&$3<=255&&$4<=255{print "yes"}')
+if echo $IP|grep -E "^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$" >/dev/null;then
   if [ $VALID_CHECK == "yes" ]; then
     return 0
   else
@@ -7600,9 +7590,9 @@ else
 fi
 }
 while true; do
-  read - p "Please enter IP: " IP
+  read -p "Please enter IP: " IP
   check_ip $IP
-  [ $? - eq 0 ] && break || continue
+  [ $? -eq 0 ] && break || continue
 done
 ```
 
@@ -7617,7 +7607,7 @@ else
 fi
 
 方法 2 ：
-if [ $1 - gt 0 ] 2>/dev/null; then
+if [ $1 -gt 0 ] 2>/dev/null; then
   echo "Is Number."
 else
   echo "No Number."
@@ -7633,7 +7623,7 @@ echo $1 |awk '{print $0~/^[0-9]+$/?"Is Number.":"No Number."}' #三目运算符
 DIR=$1
 KEY=$2
 
-for FILE in $(find $DIR - type f); do
+for FILE in $(find $DIR -type f); do
   if grep $KEY $FILE &>/dev/null; then
     echo "--> $FILE"
   fi
@@ -7646,7 +7636,7 @@ done
 ```bash
 #!/bin/bash
 MON_DIR=/opt
-inotifywait - mq --format %f - e create $MON_DIR |\
+inotifywait -mq --format %f -e create $MON_DIR |\
 while read files; do
   echo $files >> test.log
 done
@@ -7659,17 +7649,17 @@ function local_nic() {
   local NUM ARRAY_LENGTH
   NUM=0
   for NIC_NAME in $(ls /sys/class/net|grep - vE "lo|docker0"); do
-    NIC_IP=$(ifconfig $NIC_NAME |awk - F'[: ]+' '/inet addr/{print $4}')
-    if [ - n "$NIC_IP" ]; then
+    NIC_IP=$(ifconfig $NIC_NAME |awk -F'[: ]+' '/inet addr/{print $4}')
+    if [ -n "$NIC_IP" ]; then
       NIC_IP_ARRAY[$NUM]="$NIC_NAME:$NIC_IP" #将网卡名和对应IP放到数组
       let NUM++
     fi
   done
   ARRAY_LENGTH=${#NIC_IP_ARRAY[*]}
-  if [ $ARRAY_LENGTH - eq 1 ]; then #如果数组里面只有一条记录说明就一个网卡
+  if [ $ARRAY_LENGTH -eq 1 ]; then #如果数组里面只有一条记录说明就一个网卡
     NIC=${NIC_IP_ARRAY[0]%:*}
     return 0
-  elif [ $ARRAY_LENGTH - eq 0 ]; then #如果没有记录说明没有网卡
+  elif [ $ARRAY_LENGTH -eq 0 ]; then #如果没有记录说明没有网卡
     echo "No available network card!"
     exit 1
   else
@@ -7678,7 +7668,7 @@ function local_nic() {
       echo $NIC
     done
     while true; do
-      read - p "Please enter local use to network card name: " INPUT_NIC_NAME
+      read -p "Please enter local use to network card name: " INPUT_NIC_NAME
       COUNT=0
       for NIC in ${NIC_IP_ARRAY[*]}; do
         NIC_NAME=${NIC%:*}
@@ -7705,20 +7695,20 @@ local_nic
 # Description: Only CentOS6
 traffic_unit_conv() {
   local traffic=$1
-  if [ $traffic - gt 1024000 ]; then
+  if [ $traffic -gt 1024000 ]; then
     printf "%.1f%s" "$(($traffic/1024/1024))" "MB/s"
-  elif [ $traffic - lt 1024000 ]; then
+  elif [ $traffic -lt 1024000 ]; then
     printf "%.1f%s" "$(($traffic/1024))" "KB/s"
   fi
 }
 NIC=$1
-echo - e " In ------ Out"
+echo -e " In ------ Out"
 while true; do
-  OLD_IN=$(awk - F'[: ]+' '$0~"'$NIC'"{print $3}' /proc/net/dev)
-  OLD_OUT=$(awk - F'[: ]+' '$0~"'$NIC'"{print $11}' /proc/net/dev)
+  OLD_IN=$(awk -F'[: ]+' '$0~"'$NIC'"{print $3}' /proc/net/dev)
+  OLD_OUT=$(awk -F'[: ]+' '$0~"'$NIC'"{print $11}' /proc/net/dev)
   sleep 1
-  NEW_IN=$(awk - F'[: ]+' '$0~"'$NIC'"{print $3}' /proc/net/dev)
-  NEW_OUT=$(awk - F'[: ]+' '$0~"'$NIC'"{print $11}' /proc/net/dev)
+  NEW_IN=$(awk -F'[: ]+' '$0~"'$NIC'"{print $3}' /proc/net/dev)
+  NEW_OUT=$(awk -F'[: ]+' '$0~"'$NIC'"{print $11}' /proc/net/dev)
   IN=$(($NEW_IN-$OLD_IN))
   OUT=$(($NEW_OUT-$OLD_OUT))
   echo "$(traffic_unit_conv $IN) $(traffic_unit_conv $OUT)"
@@ -7727,11 +7717,11 @@ done
 
 # 也可以通过ficonfig命令获取收发流量
 while true; do
-  OLD_IN=$(ifconfig $NIC |awk - F'[: ]+' '/bytes/{print $4}')
-  OLD_OUT=$(ifconfig $NIC |awk - F'[: ]+' '/bytes/{print $9}')
+  OLD_IN=$(ifconfig $NIC |awk -F'[: ]+' '/bytes/{print $4}')
+  OLD_OUT=$(ifconfig $NIC |awk -F'[: ]+' '/bytes/{print $9}')
   sleep 1
-  NEW_IN=$(ifconfig $NIC |awk - F'[: ]+' '/bytes/{print $4}')
-  NEW_OUT=$(ifconfig $NIC |awk - F'[: ]+' '/bytes/{print $9}')
+  NEW_IN=$(ifconfig $NIC |awk -F'[: ]+' '/bytes/{print $4}')
+  NEW_OUT=$(ifconfig $NIC |awk -F'[: ]+' '/bytes/{print $9}')
   IN=$(($NEW_IN-$OLD_IN))
   OUT=$(($NEW_OUT-$OLD_OUT))
   echo "$(traffic_unit_conv $IN) $(traffic_unit_conv $OUT)"
@@ -7756,12 +7746,12 @@ cd $BACKUP_DIR
 if mysqldump - h$HOST - u$USER - p$PASS --single-transaction --routines --triggers - B $DB > $SQL_FILE; then
   zip $BAK_FILE $SQL_FILE && rm - f $SQL_FILE
   if [! - s $BAK_FILE ]; then
-    echo "$DATE 内容" | mail - s "主题" $MAIL
+    echo "$DATE 内容" | mail -s "主题" $MAIL
   fi
 else
-  echo "$DATE 内容" | mail - s "主题" $MAIL
+  echo "$DATE 内容" | mail -s "主题" $MAIL
 fi
-find $BACKUP_DIR - name '*.zip' - ctime +14 - exec rm {} \;
+find $BACKUP_DIR -name '*.zip' -ctime +14 -exec rm {} \;
 ```
 
 ## 12.19 Nginx启动脚本
@@ -7776,33 +7766,33 @@ DAEMON=$WORD_DIR/sbin/nginx
 CONF=$WORD_DIR/conf/nginx.conf
 NAME=nginx
 
-PID=$(awk - F'[; ]+' '/^[^#]/{if($0~/pid;/)print $2}' $CONF)
-if [ - z "$PID" ]; then
+PID=$(awk -F'[; ]+' '/^[^#]/{if($0~/pid;/)print $2}' $CONF)
+if [ -z "$PID" ]; then
   PID=$WORD_DIR/logs/nginx.pid
 else
   PID=$WORD_DIR/$PID
 fi
 
 stop() {
-  $DAEMON - s stop
+  $DAEMON -s stop
   sleep 1
-  [! - f $PID ] && action "* Stopping $NAME" /bin/true || action "* Stopping $NAME" /bin/false
+  [! -f $PID ] && action "* Stopping $NAME" /bin/true || action "* Stopping $NAME" /bin/false
 }
 start() {
   $DAEMON
   sleep 1
-  [ - f $PID ] && action "* Starting $NAME" /bin/true || action "* Starting $NAME" /bin/false
+  [ -f $PID ] && action "* Starting $NAME" /bin/true || action "* Starting $NAME" /bin/false
 }
 reload() {
-  $DAEMON - s reload
+  $DAEMON -s reload
 }
 test_config() {
-  $DAEMON - t
+  $DAEMON -t
 }
 
 case "$1" in
   start)
-  if [! - f $PID ]; then
+  if [! -f $PID ]; then
     start
   else
     echo "$NAME is running..."
@@ -7810,7 +7800,7 @@ case "$1" in
   fi
   ;;
   stop)
-  if [ - f $PID ]; then
+  if [ -f $PID ]; then
     stop
   else
     echo "$NAME not running!"
@@ -7818,7 +7808,7 @@ case "$1" in
   fi
   ;;
   restart)
-  if [! - f $PID ]; then
+  if [! -f $PID ]; then
     echo "$NAME not running!"
     start
   else
@@ -7833,7 +7823,7 @@ case "$1" in
   test_config
   ;;
   status)
-  [ - f $PID ] && echo "$NAME is running..." || echo "$NAME not running!"
+  [ -f $PID ] && echo "$NAME is running..." || echo "$NAME not running!"
   ;;
   *)
   echo "Usage: $ 0 {start|stop|restart|reload|testconfig|status}"
@@ -7858,7 +7848,7 @@ while true; do
     PORT=$(awk - v NAME=${NAME} '$1==NAME{print $4}' $HOST_FILE)
     if [ $IP ]; then
       echo "Name: $NAME, IP: $IP"
-      ssh - o StrictHostKeyChecking=no - p $PORT - i id_rsa $USER@$IP # 密钥登录
+      ssh -o StrictHostKeyChecking=no -p $PORT -i id_rsa $USER@$IP # 密钥登录
       break
     else
       echo "Input error, Please enter again!"
@@ -7872,12 +7862,12 @@ done
 
 ```bash
 #!/bin/bash
-if [ $# - ne 1 ]; then
+if [ $# -ne 1 ]; then
   echo "Usage: $0 filename"
 fi
 dir=$(dirname $1)
 file=$(basename $1)
-ftp - n - v << EOF # - n 自动登录
+ftp -n -v << EOF # -n 自动登录
 open 192.168.1.10
 user admin adminpass
 binary # 设置ftp传输模式为二进制，避免MD5值不同或.tar.gz压缩包格式错误
@@ -7894,18 +7884,18 @@ SUM=0
 MIN=0
 MAX=100
 
-while [ $COUNT - le 5 ]; do
-  read - p "请输入 1 - 10 个整数：" INT
+while [ $COUNT -le 5 ]; do
+  read -p "请输入 1 - 10 个整数：" INT
   if [[! $INT =~ ^[0-9]+$ ]]; then
     echo "输入必须是整数！"
     exit 1
-  elif [[ $INT - gt 100 ]]; then
+  elif [[ $INT -gt 100 ]]; then
     echo "输入必须是 100 以内！"
     exit 1
   fi
 SUM=$(($SUM+$INT))
-[ $MIN - lt $INT ] && MIN=$INT
-[ $MAX - gt $INT ] && MAX=$INT
+[ $MIN -lt $INT ] && MIN=$INT
+[ $MAX -gt $INT ] && MAX=$INT
 let COUNT++
 done
 echo "SUM: $SUM"
@@ -7958,7 +7948,7 @@ for file in $(ls *html); do
 done
 
 方法 2 ：
-for file in $(find. - maxdepth 1 - name "*html"); do
+for file in $(find. -maxdepth 1 -name "*html"); do
   mv $file bbs_${file#*_}
 done
 
@@ -7970,15 +7960,15 @@ done
 
 ```bash
 方法 1 ：
-# find. - name "*.html" - maxdepth 1 - exec du - b {} \; |awk '{sum+=$1}END{print sum}'
+# find. -name "*.html" -maxdepth 1 -exec du -b {} \; |awk '{sum+=$1}END{print sum}'
 
 方法 2 ：
-for size in $(ls - l *.html |awk '{print $5}'); do
+for size in $(ls -l *.html |awk '{print $5}'); do
   sum=$(($sum+$size))
 done
 echo $sum
 递归统计：
-# find. - name "*.html" - exec du - k {} \; |awk '{sum+=$1}END{print sum}'
+# find. -name "*.html" -exec du -k {} \; |awk '{sum+=$1}END{print sum}'
 ```
 
 ## 12.26 扫描主机端口状态
@@ -8170,26 +8160,26 @@ while getopts :f:n: option; do
   case $option in
   f)
     FILE=$OPTARG
-    [! - f $FILE ] && echo "$FILE File not exist!" && exit
+    [! -f $FILE ] && echo "$FILE File not exist!" && exit
   ;;
   n)
-    sed - n "${OPTARG}p" $FILE
+    sed -n "${OPTARG}p" $FILE
   ;;
   ?)
-    echo "Usage: $0 - f <file_path> - n <line_number>"
+    echo "Usage: $0 -f <file_path> -n <line_number>"
     echo "-f, --file specified file"
     echo "-n, --line-number print specified line"
     exit 1
   ;;
   esac
 done
-# bash test.sh - h
-Usage: test.sh - f <file_path> - n <line_number>
+# bash test.sh -h
+Usage: test.sh -f <file_path> -n <line_number>
 
-- f, --file specified file
-- n, --line-number print specified line
+-f, --file specified file
+-n, --line-number print specified line
 
-# bash test.sh - f /etc/passwd - n 1
+# bash test.sh -f /etc/passwd -n 1
 root:x:0:0:root:/root:/bin/bash
 ```
 

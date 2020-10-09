@@ -8,9 +8,9 @@ categories: [Zabbix]
 date: 2020-08-27 10:45:40
 ---
 
-# YUM 安装
+# 一、 YUM 安装-服务端
 
-## 1.关闭防火墙和 selinux ，重启
+## 1.1 关闭防火墙和 selinux ，重启
 
 ```bash
 [root@localhost ~]# sed -i 's/SELINUX=enforcing/SELINUX=disabled/' /etc/selinux/config
@@ -18,7 +18,7 @@ date: 2020-08-27 10:45:40
 [root@localhost ~]# init 6
 ```
 
-## 2.安装 zabbix rpm 源，替换成 阿里云的 zabbix 源
+## 1.2 安装 zabbix rpm 源，替换成 阿里云的 zabbix 源
 
 [阿里云源](https://mirrors.aliyun.com)
 
@@ -28,13 +28,13 @@ date: 2020-08-27 10:45:40
 [root@localhost ~]# yum clean all
 ```
 
-## 3.安装 zabbix server 和 agent
+## 1.3 安装 zabbix server 和 agent
 
 ```bash
 [root@localhost ~]# yum install zabbix-server-mysql zabbix-agent -y
 ```
 
-## 4.安装 Software Collections，便于后续安装高版本的 php，默认 yum 安装的 php 版本为 5.4 过低
+## 1.4 安装 Software Collections，便于后续安装高版本的 php，默认 yum 安装的 php 版本为 5.4 过低
 
 ```bash
 [root@localhost ~]# yum install centos-release-scl -y
@@ -42,13 +42,13 @@ date: 2020-08-27 10:45:40
 
 启用 zabbix 前端源，修改 vi /etc/yum.repos.d/zabbix.repo，将 **[zabbix-frontend]** 下的 **enabled=1**
 
-## 5.安装 zabbix 前端和相关环境
+## 1.5 安装 zabbix 前端和相关环境
 
 ```bash
 [root@localhost ~]# yum install zabbix-web-mysql-scl zabbix-apache-conf-scl -y
 ```
 
-## 6.yum 安装 centos7 默认的 mariadb 数据库并配置数据库
+## 1.6 yum 安装 centos7 默认的 mariadb 数据库并配置数据库
 ```bash
 [root@localhost ~]# yum install mariadb-server -y
 
@@ -99,4 +99,9 @@ php_value[date.timezone] = Asia/Shanghai
 [root@localhost ~]# systemctl enable zabbix-server zabbix-agent httpd rh-php72-php-fpm
 ```
 
-## 7.使用浏览器访问 http://ip/zabbix 即可访问 zabbix 的 web 页面
+## 1.7 使用浏览器访问 http://ip/zabbix 即可访问 zabbix 的 web 页面
+
+### 默认登录用户名 `Admin` 密码 `zabbix`
+
+# 二、 安装客户端
+
