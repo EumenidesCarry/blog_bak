@@ -105,3 +105,55 @@ php_value[date.timezone] = Asia/Shanghai
 
 # 二、 安装客户端
 
+## 2.1 关闭防火墙和 selinux ，重启
+
+```bash
+[root@localhost ~]# sed -i 's/SELINUX=enforcing/SELINUX=disabled/' /etc/selinux/config
+[root@localhost ~]# systemctl disable firewalld
+[root@localhost ~]# init 6
+```
+
+## 2.2 安装 zabbix rpm 源，替换成 阿里云的 zabbix 源
+
+[阿里云源](https://mirrors.aliyun.com)
+
+```bash
+[root@localhost ~]# rpm -Uvh https://mirrors.aliyun.com/zabbix/zabbix/5.0/rhel/7/x86_64/zabbix-release-5.0-1.el7.noarch.rpm
+[root@localhost ~]# sed -i 's@http://repo.zabbix.com@https://mirrors.aliyun.com/zabbix@' /etc/yum.repos.d/zabbix.repo
+[root@localhost ~]# yum clean all
+```
+
+## 2.3 安装 zabbix agent
+
+```bash
+[root@localhost ~]# yum install zabbix-agent -y
+```
+
+## 2.4 修改 zabbix-agent 配置文件
+
+配置文件位置：`/etc/zabbix/zabbix_agentd.conf`
+
+```
+[root@localhost ~]# vi /etc/zabbix/zabbix_agentd.conf
+PidFile=/run/zabbix/zabbix_agentd.pid
+LogFile=/var/log/zabbix/zabbix_agentd.log
+LogFileSize=0
+Server=192.168.1.1            #服务端地址
+ListenPort=10050              #监听端口
+ListenIP=192.168.1.1          #客户端本机IP
+ServerActive=192.168.1.1      #服务端地址
+Hostname=Ubuntu               #主机名，需要跟后面网页配置的主机名相同
+Include=/etc/zabbix/zabbix_agentd.d/*.conf
+```
+
+## 2.5 启动或重启 zabbix-agent 服务
+
+`systemctl restart zabbix-agent`
+
+### 查看 zabbix-agent 状态
+
+`systemctl status zabbix-agent`
+
+### 设置开机自动启动
+
+`systemctl enable zabbix-agent`
