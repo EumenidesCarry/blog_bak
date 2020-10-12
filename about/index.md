@@ -12,9 +12,9 @@ ____
 ### Tech Stack 🌐
 - Learning/Using
 
-|<img height=60px src="https://img.icons8.com/clouds/60/000000/console.png">|<img height=60px src="https://img.icons8.com/dusk/60/000000/python.png"> |<img height=60px src="https://img.icons8.com/color/60/000000/nginx.png">  |<img height=60px src="https://img.icons8.com/ios/60/000000/mysql-logo.png"> |<img height=60px src="https://img.icons8.com/dusk/60/000000/linux.png"> |<img height=60px src="https://img.icons8.com/color/60/000000/vmware.png"> |<img height=60px src="https://img.icons8.com/dusk/60/000000/docker.png">|<img height=60px src="https://img.icons8.com/dusk/60/000000/firewall.png">|<img src="https://img.icons8.com/dusk/60/000000/z.png"/>|
+|<img height=60px src="https://img.icons8.com/clouds/60/000000/console.png">|<img height=60px src="https://img.icons8.com/dusk/60/000000/python.png"> |<img height=60px src="https://img.icons8.com/color/60/000000/nginx.png">  |<img height=60px src="https://img.icons8.com/ios/60/000000/mysql-logo.png"> |<img height=60px src="https://img.icons8.com/dusk/60/000000/linux.png"> |<img height=60px src="https://img.icons8.com/color/60/000000/vmware.png"> |<img height=60px src="https://img.icons8.com/dusk/60/000000/docker.png">|<img height=60px src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/kubernetes/kubernetes.png">|<img src="https://img.icons8.com/dusk/60/000000/z.png"/>|
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-|Shell|Python|Nginx|MySQL|Linux|VMware|Docker|iptables|Zabbix|
+|Shell|Python|Nginx|MySQL|Linux|VMware|Docker|K8s|Zabbix|
 
 ### Tools 🛠️
 - Learning/Using
