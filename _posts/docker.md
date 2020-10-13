@@ -5,7 +5,7 @@ tags: [Docker]
 index_img: https://th.wallhaven.cc/small/r7/r7jolj.jpg
 banner_img: https://w.wallhaven.cc/full/r7/wallhaven-r7jolj.png
 categories: [Docker]
-date: 
+date: 2020-10-13 15:21:46
 ---
 
 # 一、 Docker 简介
@@ -214,7 +214,7 @@ sudo tee /etc/docker/daemon.json <<-'EOF'
 }
 EOF
 
-cat daemon.json 
+cat /etc/docker/daemon.json 
 {
   "registry-mirrors": ["https://0hm4nl4c.mirror.aliyuncs.com"]
 }
@@ -264,11 +264,28 @@ Server: Docker Engine - Community
 
 ## 3.2 镜像命令
 
+|指令|描述|
+|---|---|
+|ls|列出镜像|
+|build|构建镜像来自 Dockerfile|
+|history|查看镜像历史|
+|inspect|显示一个或多个镜像详细信息|
+|pull|从镜像仓库拉去镜像|
+|push|推送一个或多个镜像到镜像仓库|
+|rm|移除一个或者多个镜像|
+|prune|移除未使用的镜像。没有被标记或被任何容器引用的|
+|tag|创建一个引用源镜像标记目标镜像|
+|export|导出容器文件系统到tar归档文件|
+|import|导入容器文件系统tar归档文件创建镜像|
+|save|保存一个或多个镜像到一个tar归档文件|
+|load|加载镜像来自tar归档或标准输入|
+
+
 ### 3.2.1 docker images
 
 显示本地镜像：
 ```
-[root@test ~]# docker images
+[root@test ~]# docker image ls
 REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
 nginx               latest              992e3b7be046        6 days ago          133MB
 hello-world         latest              bf756fb1ae65        9 months ago        13.3kB
@@ -311,13 +328,13 @@ Using default tag: latest
 latest: Pulling from library/nginx
 ```
 
-### 3.2.4 docker rmi
+### 3.2.4 docker image rm 
 
-`docker rmi 镜像ID` ：删除镜像
+`docker image rm 镜像ID` ：删除镜像
 
-- docker rmi -f 镜像ID ：删除单个
-- docker rmi -f 镜像1ID 镜像2ID ：删除多个镜像
-- docker rmi -f $(docker images -qa) ：删除所有镜像
+- docker image rm -f 镜像ID ：删除单个
+- docker image rm -f 镜像1ID 镜像2ID ：删除多个镜像
+- docker image rm -f $(docker images -qa) ：删除所有镜像
 
 ## 3.3 容器命令
 
@@ -329,15 +346,23 @@ latest: Pulling from library/nginx
 
 #### options
 - --name="new name" ：为容器指定一个名称
-- -d ：后台运行容器，并返回容器ID，也即启动守护式容器
-- -i ：以交互模式运行容器，通常与 -t 同时使用
-- -t ：为容器重新分配一个伪终端，通常与 -i 同时使用
-- -P ：随机端口映射
-- -p ：指定端口映射，有以下四种格式
+- -d,-detach ：后台运行容器，并返回容器ID，也即启动守护式容器
+- -e,-env ：设置环境变量
+- -i,-interactive ：以交互模式运行容器，通常与 -t 同时使用
+- -t,-tty ：为容器重新分配一个伪终端，通常与 -i 同时使用
+- -P ：发布容器所有 EXPOSE 的端口到宿主机随机端口
+- -p ：发布容器端口到主机
   - ip:hostPort:containerPort
   - ip::containerPort
   - hostPort:containerPort
   - containerPort
+- -h ：设置容器主机名
+- -ip string ：指定容器 ip，只能用于自定义网络
+- -network ：连接容器到一个网络
+- -mount mount ：将文件系统附加到容器
+- -v，-volume list ：绑定挂载一个卷
+- -restart string ：容器退出时重启策略，默认 no，可选值：[always|on-failure]
+
 
 ```
 #使用镜像centos:latest以交互模式启动一个容器，在容器内执行/bin/bash命令
@@ -504,7 +529,7 @@ bootfs(boot file system)主要包含 **bootloader** 和 **kernel** , **bootloade
 
 rootfs (root file system) ，在 bootfs 之上。包含的就是典型 Linux 系统中的 /dev, /proc, /bin, /etc 等标准目录和文件。rootfs 就是各种不同的操作系统发行版，比如 Ubuntu，Centos 等等。 
 
-![](/img/Docker/Docker_5.jpg)
+![](/img/Docker/Docker_5.png)
 
 ## 4.2 镜像特点
 
@@ -527,42 +552,248 @@ Docker 镜像都是只读的，当容器启动时，一个新的可写层被加�
 - -m ：提交的描述信息
 - -a ：作者
 
+`docker commit -m "xxxx" -a "xxx" 容器ID new_image_name:[tag] ` ：将容器打包成新的镜像
+
+# 五、 Docker 容器
+
+## 5.1 容器资源限制
+
+|选项|描述|
+|---|---|
+|-m,-memory|容器可以使用的最大内存|
+|-memory-swap|允许交换到磁盘的内存量|
+|-memory-swappiness=<0-100>|容器使用SWAP分区交换的百分比（0-100，默认为-1）|
+|-oom-kill-disable|禁用OOM Killer|
+|-cpus|可使用的CPU数量|
+|-cpuset-cpus|限制容器使用特定的CPU核心，如（0-3）|
+|-cpu-shares|CPU共享（相对权重）|
+
+### 5.1.1 内存限额
+
+允许容器最多使用 500MB 内存和 100MB 的 Swap，并禁用 OOM Killer：
+
+`docker run -d --name nginx01 --memory="500m" --memory-swap="600m --oom-kill-disable nginx`
+
+### 5.1.2 CPU 限制
+
+允许容器使用两个 CPU：
+
+`docker run -d --name nginx02 --cpus="2" nginx`
+
+允许容器最多使用 50% 的 CPU：
+
+`docker run -d --name nginx03 --cpus=".5" nginx`
+
+### 5.1.3 正在运行的容器限制
+
+`docker update`
+
+## 5.2 将数据从宿主机挂载到容器中的三种方式
+
+Docker提供三种方式将数据从宿主机挂载到容器中：
+- volumes：Docker 管理宿主机文件系统的一部分（/var/lib/docker/volumes）。保存数据的最佳方式。
+- bind mounts：将宿主机上的任意位置的文件或者目录挂载到容器中。
+- tmpfs：挂载存储在主机系统的内存中，而不会写入主机的文件系统。如果不希望将数据持久存储在任何位置，可以使用 tmpfs，同时避免写入容器可写层提高性能。
+
+![](/img/Docker/Docker_6.jpg)
+
+### 5.2.1 Volume
+
+**管理卷**
+
+- `docker volume create volume_name` ：创建一个数据卷
+- `docker volume ls` ：列出已创建的数据卷
+- `docker volume inspect volume_mame` ：显示所创建数据卷的信息
+- `docker volume rm volume_name` ：删除一个或者多个数据卷
 
 
+#### 创建数据卷
 
+```
+[root@test volumes]# docker volume create nginx_vol
+nginx_vol
+[root@test volumes]# docker volume ls
+DRIVER              VOLUME NAME
+local               nginx_vol
+#查看所创建的数据卷
+[root@test volumes]# docker volume inspect nginx_vol
+[
+    {
+        "CreatedAt": "2020-10-13T20:55:56+08:00",
+        "Driver": "local",
+        "Labels": {},
+        "Mountpoint": "/var/lib/docker/volumes/nginx_vol/_data",
+        "Name": "nginx_vol",
+        "Options": {},
+        "Scope": "local"
+    }
+]
+#数据卷在宿主机上的目录
+[root@test volumes]# pwd
+/var/lib/docker/volumes
+[root@test volumes]# tree
+.
+└── nginx_vol
+    └── _data
+```
 
+**容器中重要数据可以存放到数据卷当中，当容器删除，存放在数据卷中的数据将不会丢失，且能够实现数据共享**
 
+#### 将数据卷挂载到将要创建的容器中
 
+创建容器 nginx01，并将数据卷 nginx_vol 挂在到容器中：
 
+```
+[root@test volumes]# docker run -d --name nginx01 --mount src=nginx_vol,dst=/usr/share/nginx/html -p 2333:80 nginx
+[root@test _data]# docker inspect nginx01
+        "Mounts": [
+            {
+                "Type": "volume",
+                "Name": "nginx_vol",
+                "Source": "/var/lib/docker/volumes/nginx_vol/_data",
+                "Destination": "/usr/share/nginx/html",
+                "Driver": "local",
+                "Mode": "z",
+                "RW": true,
+                "Propagation": ""
+            }
+        ],
+[root@test volumes]# tree
+.
+└── nginx_vol
+    └── _data
+        ├── 50x.html
+        └── index.html
+```
 
+修改主页内容，显示 Hello Nginx!，打开网页
 
+![](/img/Docker/Docker_7.jpg)
 
+创建容器 nginx02，并将数据卷 nginx_vol 挂在到容器中：
 
+```
+[root@test _data]# docker run -d --name nginx02 --mount src=nginx_vol,dst=/usr/share/nginx/html -p 2334:80 nginx
+```
 
+打开网页，显示和 nginx01 一样
 
+![](/img/Docker/Docker_8.jpg)
 
+#### 特点
+- 多个运行容器之间共享数据，多个容器可以同时挂载相同的卷。
+- 当容器停止或被移除时，该卷依然存在。
+- 当明确删除卷时，卷才会被删除。
+- 将容器的数据存储在远程主机或其他存储上（间接）
+- 将数据从一台 Docker 主机迁移到另一台时，先停止容器，然后备份卷的目录（/var/lib/docker/volumes/）
 
+### 5.2.2 Bind Mounts
 
+用卷创建一个容器：
 
+- `docker run -d -it --name=nginx-test --mount type=bind,src=/app/wwwroot,dst=/usr/share/nginx/html nginx`
+- `docker run -d -it --name=nginx-test -v /app/wwwroot:/usr/share/nginx/html nginx`
 
+验证绑定：
 
+- `docker inspect nginx-test`
 
+清理：
 
+- `docker stop nginx-test`
+- `docker rm nginx-test`
 
+**注意：**
+1. 如果源文件/目录没有存在如果挂载目标在容器中非空目录，则该目录现有内容将被隐藏。
+2. 不会自动创建，会抛出一个错误。
 
+#### 特点
+- 从主机共享配置文件到容器。默认情况下，挂载主机 `/etc/resolv.conf` 到每个容器，提供 DNS 解析。
+- 在 Docker 主机上的开发环境和容器之间共享源代码。例如，可以将 Maven target 目录挂载到容器中，每次在 Docker 主机上构建 Maven 项目时，容器都可以访问构建的项目包。
+- 当 Docker 主机的文件或目录结构保证与容器所需的绑定挂载一致时
 
+## 5.3 容器网络
 
-
-
-
-
-
-
-
-
-
-# 五、 Docker 容器数据卷
 
 # 六、 DockerFile
+
+## 6.1 DockerFile 是什么
+
+Dockerfile 是用来构建 Docker 镜像的构建文件，是由一系列命令和参数构成的脚本
+
+构建步骤：
+1. 编写 Dockerfile 文件
+2. `docker build`
+3. `docker run`
+
+文件结构：
+
+CentOS Dockerfile:
+
+```
+FROM scratch
+ADD centos-7-x86_64-docker.tar.xz /
+
+LABEL \
+    org.label-schema.schema-version="1.0" \
+    org.label-schema.name="CentOS Base Image" \
+    org.label-schema.vendor="CentOS" \
+    org.label-schema.license="GPLv2" \
+    org.label-schema.build-date="20200809" \
+    org.opencontainers.image.title="CentOS Base Image" \
+    org.opencontainers.image.vendor="CentOS" \
+    org.opencontainers.image.licenses="GPL-2.0-only" \
+    org.opencontainers.image.created="2020-08-09 00:00:00+01:00"
+
+CMD ["/bin/bash"]
+
+```
+
+基础内容：
+1. 每条保留字指令都必须为大写字母且后面要跟随至少一个参数
+2. 指令按照从上到下顺序执行
+3. #表示注释
+4. 每条指令都会创建一个新的镜像层，并对镜像进行提交
+
+## 6.2 Dockerfile 指令
+
+|指令|描述|
+|---|---|
+|FROM|构建新镜像是基于哪个镜像|
+|MAINTAINER</br>LABEL|镜像维护者姓名或邮箱地址|
+|RUN|构建镜像时运行的Shell命令|
+|COPY|拷贝文件或目录到镜像中|
+|ENV|设置环境变量|
+|USER|为RUN、CMD和ENTRYPOINT执行命令指定运行用户|
+|EXPOSE|声明容器运行的服务端口|
+|HEALTHCHECK|容器中服务健康检查|
+|WORKDIR|为RUN、CMD、ENTRYPOINT、COPY和ADD设置工作目录|
+|ENTRYPOINT|运行容器时执行，如果有多个ENTRYPOINT指令，最后一个生效|
+|CMD|运行容器时执行，如果有多个CMD指令，最后一个生效|
+
+## 6.3 Dockerfile 与 Docker容器、镜像的关系
+
+从应用软件的角度来看，Dockerfile、Docker镜像与Docker容器分别代表软件的三个不同阶段，
+
+- Dockerfile是软件的原材料
+- Docker镜像是软件的交付品
+- Docker容器则可以认为是软件的运行态。
+
+Dockerfile面向开发，Docker镜像成为交付标准，Docker容器则涉及部署与运维，三者缺一不可，合力充当Docker体系的基石。
+
+![](/img/Docker/Docker_9.png)
+
+1. Dockerfile，需要定义一个Dockerfile，Dockerfile定义了进程需要的一切东西。Dockerfile涉及的内容包括执行代码或者是文件、环境变量、依赖包、运行时环境、动态链接库、操作系统的发行版、服务进程和内核进程(当应用进程需要和系统服务和内核进程打交道，这时需要考虑如何设计namespace的权限控制)等等;
+2. Docker镜像，在用Dockerfile定义一个文件之后，docker build时会产生一个Docker镜像，当运行 Docker镜像时，会真正开始提供服务;
+3. Docker容器，容器是直接提供服务的。
+
+
+
+
+
+
+
+
+
 
 # 七、 Docker 安装常用服务
