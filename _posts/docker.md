@@ -787,6 +787,39 @@ Dockerfile面向开发，Docker镜像成为交付标准，Docker容器则涉及�
 2. Docker镜像，在用Dockerfile定义一个文件之后，docker build时会产生一个Docker镜像，当运行 Docker镜像时，会真正开始提供服务;
 3. Docker容器，容器是直接提供服务的。
 
+## 6.4 Build 镜像
+
+Usage:`docker build [option] PATH |URL| -[flags]`
+
+#### option:
+- -t,--tag list ：镜像名称
+- -f，--file string :指定 Dockerfile 文件位置
+
+## 6.5 构建 Nginx 基础镜像
+
+Dockerfile 
+
+```
+FROM centos:7
+MAINTAINER ecarry
+#安装 nginx 依赖
+RUN yum install -t gcc gcc-c++ make \
+    openssl-devel pcre-devel gd-devel \
+    iproute net-tools wget && \
+    yum clean all && \
+    rm -rf /var/cache/yum/*
+#源码编译 nginx
+RUN wget http://nginx.org/download/nginx-1.19.3.tar.gz && \
+    tar zxf nginx-1.19.3.tar.gz \
+    cd nginx-1.19.3 \
+    ./configure --prefix=/usr/local/nginx \
+
+```
+
+
+
+
+
 
 
 
