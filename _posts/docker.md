@@ -797,36 +797,56 @@ Usage:`docker build [option] PATH |URL| -[flags]`
 
 ## 6.5 构建 Nginx 基础镜像
 
-Dockerfile 
+### 6.5.1 编写 Dockerfile 
 
 ```
 FROM centos:7
 MAINTAINER ecarry
 #安装 nginx 依赖
-RUN yum install -t gcc gcc-c++ make \
+RUN yum install -y gcc gcc-c++ make \
     openssl-devel pcre-devel gd-devel \
     iproute net-tools wget && \
     yum clean all && \
     rm -rf /var/cache/yum/*
-#源码编译 nginx
+#源码编译 nginx，为nginx设置安装目录和启用的模块
 RUN wget http://nginx.org/download/nginx-1.19.3.tar.gz && \
-    tar zxf nginx-1.19.3.tar.gz \
-    cd nginx-1.19.3 \
+    tar zxf nginx-1.19.3.tar.gz && \
+    cd nginx-1.19.3 && \
     ./configure --prefix=/usr/local/nginx \
+    --with-http_ssl_module \
+    --with-http_stub_status_module && \
+    make -j 4 && make install && \
+    cd / && rm -rf nginx-* && \
+    ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 
+ENV PATH $PATH:/usr/local/nginx/sbin
+WORKDIR /usr/local/nginx
+EXPOSE 80
+CMD ["nginx" "-g" "daemon off;"]
 ```
 
+**参数说明：**
+- --prefix ：用于指定nginx编译后的安装目录
+- --add-module ：为添加的第三方模块，此次添加了fdfs的nginx模块
+- --with..._module ：表示启用的nginx模块
 
 
+### 6.5.2 构建镜像
 
+`docker build -t nginx:v1 -f dockerfile .`
 
+- -t ：指定镜像名称
+- -f ：指定编写的 dockerfile 文件
+- . ：代表 dockerfile 文件里上下文
 
+```
+[root@docker ~]# docker image ls
+REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+nginx               v1                  a4906a1a6692        39 minutes ago      335MB
+```
 
+## 6.6 关系图
 
-
-
-
-
-
+![](/img/Docker/Docker_10.png)
 
 # 七、 Docker 安装常用服务
