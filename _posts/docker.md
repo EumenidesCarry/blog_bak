@@ -822,7 +822,7 @@ RUN wget http://nginx.org/download/nginx-1.19.3.tar.gz && \
 ENV PATH $PATH:/usr/local/nginx/sbin
 WORKDIR /usr/local/nginx
 EXPOSE 80
-CMD ["nginx" "-g" "daemon off;"]
+CMD ["nginx","-g","daemon off;"]
 ```
 
 **参数说明：**
