@@ -39,7 +39,7 @@ Nginx WEB 服务器最主要的就是各个模块的工作，模块从结构上�
 Nginx 的模块从功能上分为：
 - <font color=red>Handlers（处理器模块）：此类模块直接处理请求，并进行输出内容和修改 headers 信息等操作，Handlers 处理器模块一般只能有一个</font>
 - <font color=red>Filters（过滤器模块）：此类模块主要是对其他模块输出的内容进行修改操作，最后有 Nginx 输出</font>
-- Proxys（代理类模块）：此类模块是 Nginx 的 HTTP Upstream 之类的模块，这些模块
+- Proxys（代理类模块）：此类模块是 Nginx 的 HTTP Upstream 之类的模块，这些模块主要与后端一些服务比如 FastCGI 等进行交互，实现服务代理和负载均衡等功能
 
 
 ```
@@ -103,7 +103,7 @@ http {
 ```
 
 
-## 2.1 Nginx 运行原理：
+## 2.1 Nginx 运行原理
 
 Nginx  由 **Nginx 内核**和**模块**组成，其中内核的设计非常微小和简洁，完成的工作也非常简单，仅仅通过查找配置文件将客户端的请求映射到一个 <font color=red>location block</font>，而 location 是 Nginx 配置中的一个指令，用于访问的 URL 匹配，而在这个 location 中所配置的每个指令将会启动不同的模块去完成相应的工作。
 
@@ -126,3 +126,10 @@ location = /50x.html {
             root   html; #以/usr/local/nginx/为基础的目录
         }
 ```
+
+精准匹配 50x 页面：
+![](/img/nginx/nginx_1.jpg)
+
+
+
+
