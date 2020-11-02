@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Nginx 上手
+title: Nginx 简单配置
 tags: [Nginx]
 index_img: https://th.wallhaven.cc/small/k9/k9vygm.jpg
 banner_img: https://w.wallhaven.cc/full/k9/wallhaven-k9vygm.png
@@ -40,7 +40,6 @@ Nginx 的模块从功能上分为：
 - <font color=red>Handlers（处理器模块）：此类模块直接处理请求，并进行输出内容和修改 headers 信息等操作，Handlers 处理器模块一般只能有一个</font>
 - <font color=red>Filters（过滤器模块）：此类模块主要是对其他模块输出的内容进行修改操作，最后有 Nginx 输出</font>
 - Proxys（代理类模块）：此类模块是 Nginx 的 HTTP Upstream 之类的模块，这些模块主要与后端一些服务比如 FastCGI 等进行交互，实现服务代理和负载均衡等功能
-
 
 ```
 # user  nobody;
@@ -101,7 +100,6 @@ http {
     }
 }
 ```
-
 
 ## 2.1 Nginx 运行原理
 
