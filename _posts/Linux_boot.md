@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Linux 开机详细流程
+title: Linux 启动详细流程
 tags: [Linux]
 index_img: https://th.wallhaven.cc/small/xl/xldd5z.jpg
 banner_img: https://w.wallhaven.cc/full/xl/wallhaven-xldd5z.png
