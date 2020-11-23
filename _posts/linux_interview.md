@@ -2,6 +2,7 @@
 layout: post
 title: Linux 运维工程师面试总结
 tags: [Linux]
+sticky: 100
 index_img: https://th.wallhaven.cc/small/d5/d5gexo.jpg
 banner_img: https://w.wallhaven.cc/full/d5/wallhaven-d5gexo.png
 categories: [Linux]
