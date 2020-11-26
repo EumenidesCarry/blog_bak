@@ -7,14 +7,17 @@ layout: about
 ### Hi there is my blog👋
 
 - 🔭 I’m currently working on System Operation Engineer ⚙️
-- 🌱 I’m currently learning everything <img src="https://media.giphy.com/media/WUlplcMpOCEmTGBtBW/giphy.gif" width="30">
+- 🌱 I’m currently learning everything
 ____
 ### Tech Stack 🌐
 - Learning/Using
 
-|<img height=60px src="https://img.icons8.com/clouds/60/000000/console.png">|<img height=60px src="https://img.icons8.com/dusk/60/000000/python.png"> |<img height=60px src="https://img.icons8.com/color/60/000000/nginx.png">  |<img height=60px src="https://img.icons8.com/ios/60/000000/mysql-logo.png"> |<img height=60px src="https://img.icons8.com/dusk/60/000000/linux.png"> |<img height=60px src="https://img.icons8.com/color/60/000000/vmware.png"> |<img height=60px src="https://img.icons8.com/dusk/60/000000/docker.png">|<img height=60px src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/kubernetes/kubernetes.png">|<img src="https://img.icons8.com/dusk/60/000000/z.png"/>|
-|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-|Shell|Python|Nginx|MySQL|Linux|VMware|Docker|K8s|Zabbix|
+|<img height=60px src="/img/icon/shell.png">|<img height=60px src="/img/icon/python.png"> |<img height=60px src="/img/icon/nginx.png">  |<img height=60px src="/img/icon/SQL.png"> |<img height=60px src="/img/icon/linux.png"> |<img height=60px src="/img/icon/docker.png"> |<img height=60px src="/img/icon/ks.png">|<img height=60px src="/img/icon/zabbix.png">|
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+|Shell|Python|Nginx|MySQL|Linux|Docker|K8s|Zabbix|
+
+
+
 
 ### Tools 🛠️
 - Learning/Using
