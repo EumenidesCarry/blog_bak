@@ -131,3 +131,4 @@ location = /50x.html {
 
 
 
+echo 'export PATH=/usr/local/node/bin:$PATH' >> /etc/profile
